@@ -5,14 +5,17 @@
 //  Created by TranNhuan on 1/14/21.
 //
 
+
 import Foundation
+import HandyJSON
 
-struct UserModel : Codable {
-    let userID : Int
-    let email : String
-    let password : String
-    let avatar : String
-    let phone : String
+class UserModel: HandyJSON {
+    
+    var userID: Int = 0
+    var email: String = ""
+    var password: String = ""
+    var avatar: String = ""
+    var phone: String = ""
+  
+    required init(){}
 }
-
-
