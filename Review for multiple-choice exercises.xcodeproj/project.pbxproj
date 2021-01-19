@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		616782F425B11FD700316E5F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616782F325B11FD700316E5F /* UserModel.swift */; };
 		616782FC25B1283A00316E5F /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616782FB25B1283A00316E5F /* ResponseModel.swift */; };
 		831C366FE1F96231291F9517 /* Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAEF8A5D528A558409E797F /* Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework */; };
+		B34BF4EB25B56AD1005569CA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B34BF4EA25B56AD1005569CA /* SwiftUICharts */; };
 		B363638C25AEEBAB0071A98F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363638B25AEEBAB0071A98F /* AppDelegate.swift */; };
 		B363638E25AEEBAB0071A98F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363638D25AEEBAB0071A98F /* SceneDelegate.swift */; };
 		B363639025AEEBAB0071A98F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363638F25AEEBAB0071A98F /* ViewController.swift */; };
@@ -22,6 +23,9 @@
 		B363639825AEEBAB0071A98F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363639625AEEBAB0071A98F /* LaunchScreen.storyboard */; };
 		B36363A325AEEBAB0071A98F /* Review_for_multiple_choice_exercisesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36363A225AEEBAB0071A98F /* Review_for_multiple_choice_exercisesTests.swift */; };
 		B36363AE25AEEBAC0071A98F /* Review_for_multiple_choice_exercisesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36363AD25AEEBAC0071A98F /* Review_for_multiple_choice_exercisesUITests.swift */; };
+		B366B71525B429D400801D09 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366B71425B429D400801D09 /* HomeViewController.swift */; };
+		B374E7C025B5368700E1B205 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E7BF25B5368700E1B205 /* UIView.swift */; };
+		B374E7C525B5369D00E1B205 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E7C425B5369D00E1B205 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,9 @@
 		B36363A925AEEBAC0071A98F /* Review for multiple-choice exercisesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Review for multiple-choice exercisesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36363AD25AEEBAC0071A98F /* Review_for_multiple_choice_exercisesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review_for_multiple_choice_exercisesUITests.swift; sourceTree = "<group>"; };
 		B36363AF25AEEBAC0071A98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B366B71425B429D400801D09 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B374E7BF25B5368700E1B205 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B374E7C425B5369D00E1B205 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BD8EA3C1C8BAC118612B91ED /* Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.release.xcconfig"; path = "Target Support Files/Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests/Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BEAEF8A5D528A558409E797F /* Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D89781A51AB0B30ECC33CE /* Pods_Review_for_multiple_choice_exercises.framework in Frameworks */,
+				B34BF4EB25B56AD1005569CA /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +174,8 @@
 		B363638A25AEEBAB0071A98F /* Review for multiple-choice exercises */ = {
 			isa = PBXGroup;
 			children = (
+				B374E7BE25B5366B00E1B205 /* Extension */,
+				B366B71325B4299000801D09 /* Controller */,
 				616782F225B11FB400316E5F /* Model */,
 				616782DE25B118CA00316E5F /* Constant */,
 				616782DD25B1189700316E5F /* Util */,
@@ -199,6 +209,23 @@
 			path = "Review for multiple-choice exercisesUITests";
 			sourceTree = "<group>";
 		};
+		B366B71325B4299000801D09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B366B71425B429D400801D09 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B374E7BE25B5366B00E1B205 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B374E7BF25B5368700E1B205 /* UIView.swift */,
+				B374E7C425B5369D00E1B205 /* UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		DB0455167E9B61AA6008C306 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +236,6 @@
 				95FBFE03866A7CBF89C10DCE /* Pods-Review for multiple-choice exercisesTests.debug.xcconfig */,
 				2D51546B784D6323442FF8BA /* Pods-Review for multiple-choice exercisesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -231,6 +257,9 @@
 			dependencies = (
 			);
 			name = "Review for multiple-choice exercises";
+			packageProductDependencies = (
+				B34BF4EA25B56AD1005569CA /* SwiftUICharts */,
+			);
 			productName = "Review for multiple-choice exercises";
 			productReference = B363638825AEEBAB0071A98F /* Review for multiple-choice exercises.app */;
 			productType = "com.apple.product-type.application";
@@ -305,6 +334,9 @@
 				Base,
 			);
 			mainGroup = B363637F25AEEBAB0071A98F;
+			packageReferences = (
+				B34BF4E925B56AD1005569CA /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = B363638925AEEBAB0071A98F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -454,10 +486,13 @@
 				616782CF25AFD3E500316E5F /* CustomTextField.swift in Sources */,
 				B363639025AEEBAB0071A98F /* ViewController.swift in Sources */,
 				616782E825B1191E00316E5F /* ServerConstant.swift in Sources */,
+				B366B71525B429D400801D09 /* HomeViewController.swift in Sources */,
 				B363638C25AEEBAB0071A98F /* AppDelegate.swift in Sources */,
 				616782FC25B1283A00316E5F /* ResponseModel.swift in Sources */,
 				616782F425B11FD700316E5F /* UserModel.swift in Sources */,
+				B374E7C025B5368700E1B205 /* UIView.swift in Sources */,
 				B363638E25AEEBAB0071A98F /* SceneDelegate.swift in Sources */,
+				B374E7C525B5369D00E1B205 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +825,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B34BF4E925B56AD1005569CA /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B34BF4EA25B56AD1005569CA /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B34BF4E925B56AD1005569CA /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B363638025AEEBAB0071A98F /* Project object */;
 }

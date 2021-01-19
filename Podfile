@@ -6,6 +6,7 @@ target 'Review for multiple-choice exercises' do
   use_frameworks!
   pod 'HandyJSON', '~> 5.0.2'
   pod 'SwiftOverlays', '~> 5.0.0'
+  pod 'Charts'
 
   # Pods for Review for multiple-choice exercises
 
