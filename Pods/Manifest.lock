@@ -1,20 +1,26 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - HandyJSON (5.0.2)
   - SwiftOverlays (5.0.1)
 
 DEPENDENCIES:
+  - Charts
   - HandyJSON (~> 5.0.2)
   - SwiftOverlays (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - HandyJSON
     - SwiftOverlays
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
 
-PODFILE CHECKSUM: 91bf8ddff8b6466ed367a4b602467f6ca81a869d
+PODFILE CHECKSUM: 2cd325f0c720e7d2b12dfff456d67afd863981f0
 
 COCOAPODS: 1.10.1
