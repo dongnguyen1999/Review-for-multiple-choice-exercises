@@ -13,6 +13,7 @@ class LoginViewModel {
     init(usermodelView: UserModelView) {
         self.usermodelView   = usermodelView
     }
+
     
     func onLogin( username: String,  password: String) {
         DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/user.php?type=\(RequestType.LOGIN)&email=\(username)&password=\(password)", showDialog: true) { (errorCode, msg, arrayData) in

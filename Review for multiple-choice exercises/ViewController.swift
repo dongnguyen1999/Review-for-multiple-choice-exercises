@@ -8,41 +8,45 @@
 import UIKit
 
 
-class ViewController: UIViewController, UserModelView{
+
+
+class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
+
     
     
 
     var loginviewmodel : LoginViewModel!
     // Dong wrote
+    
+    
     @IBOutlet weak var UsernameLogin: UITextField!
     @IBOutlet weak var BtnLogin: UIButton!
     @IBOutlet weak var PasswordLogin: UITextField!
+    
+    @IBOutlet weak var scrollview: UIScrollView!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //model = UserModel()
+        view.backgroundColor = .white
         // Do any additional setup after loading the view.
         BtnLogin.layer.cornerRadius = 20
         BtnLogin.layer.shadowOpacity = 0.5
         BtnLogin.layer.backgroundColor = UIColor(red: 1, green: 0.404, blue: 0.106, alpha: 1).cgColor
-        
-        //Check user login status
-        if PreferencesUtils.getCachedUserModel() != nil {
-            changeRootViewToHome()
-        }
-        
+
+        //Ẩn bàn phím
+        self.hideKeyboardWhenTappedAround()
+        //scrollview theo bàn phím
+        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     func onSuccess(listAccount: [UserModel]?) {
-        if let userModel = listAccount?[0] {
-            PreferencesUtils.cacheUserModel(model: userModel)
-            changeRootViewToHome()
-        } else {
-            ThongBao(title: "Thong Bao", message: "Lỗi đăng nhập, vui lòng thử lại")
-        }
+        
+        
+
     }
     
     func onError(msg: String) {
@@ -58,24 +62,38 @@ class ViewController: UIViewController, UserModelView{
     }
     
     
-    @IBAction func actionLogin(_ sender: Any) {
+
+    @IBAction func actionLogin(_ sender: UIButton) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
-        if username == "" || password == ""{
-           ThongBao(title: "Thông Báp", message: "Vui lòng nhập đẩy đủ thông tin")
-
+        if username == "" && password == ""{
+           ThongBao(title: "Thông Báo", message: "Vui lòng nhập đẩy đủ thông tin")
+        }else if (username == ""){
+            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập email")
+        }else if (password == ""){
+            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập mật khẩu")
+        }
+        else {
             
-        }else {
-            loginviewmodel = LoginViewModel(usermodelView: self)
+            loginviewmodel=LoginViewModel(usermodelView: self)
+
             loginviewmodel.onLogin(username: username, password: password)
         }
     }
+    }
     
-    func changeRootViewToHome() {
-        let storyboard = UIStoryboard(name: "Main", bundle:nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
-        UIApplication.shared.windows.first?.rootViewController = homeViewController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+
+    @objc func Keyboard(notification : Notification)  {
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame,from : view.window)
+        if notification.name == UIResponder.keyboardWillHideNotification{
+            scrollview.contentInset = UIEdgeInsets.zero
+        }else{
+            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+        scrollview.scrollIndicatorInsets = scrollview.contentInset
+    
     }
 
 }

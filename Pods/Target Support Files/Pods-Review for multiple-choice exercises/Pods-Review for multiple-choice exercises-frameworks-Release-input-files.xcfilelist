@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Review for multiple-choice exercises/Pods-Review for multiple-choice exercises-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
 ${BUILT_PRODUCTS_DIR}/SwiftOverlays/SwiftOverlays.framework
