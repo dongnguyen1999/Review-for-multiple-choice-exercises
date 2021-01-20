@@ -10,6 +10,7 @@ import UIKit
 import HandyJSON
 import SwiftOverlays
 
+
 class DownloadAsyncTask {
     
     public static func GET(url: String, showDialog: Bool, downloadCalback: @escaping (_ errorCode: Int, _ message: String, _ data: String?) -> Void){
@@ -136,7 +137,9 @@ class DownloadAsyncTask {
         }
         return data.map { String($0) }.joined(separator: "&")
     }
+  
     public static func POST(url: String, body: [String: Any], showDialog: Bool, downloadCalback: @escaping (_ errorCode: Int, _ message: String, _ data: String?) -> Void){
+      
         if Utils.isConnectedToNetwork() == false {/*Rớt mạng*/
             DispatchQueue.main.async {
                 downloadCalback(Constants.ERROR_CODE_ERROR, "Sorry, no Internet connectivity detected. Please reconnect and try again.", nil)
@@ -149,11 +152,16 @@ class DownloadAsyncTask {
              if let tokenModel = Prefs.shared.getToken() {
              token = token + "\(tokenModel.access_token)"
              }*/
+            let boundary = "Boundary-\(UUID().uuidString)"
             let headers = [
-                "content-type": "application/x-www-form-urlencoded",
-                "authorization": token,
+                
+//                "content-type": "application/x-www-form-urlencoded; multipart/form-data;",
+                "content-type": "application/x-www-form-urlencoded; multipart/form-data; boundary=\(boundary)",
+             //   "content-type": "application/x-www-form-urlencoded",
+                    // "authorization": token,
+              
                 "cache-control": "no-cache",
-                "postman-token": "f05da2d1-ffe9-895f-baf0-8dfb3a5b0fcb"
+                // "postman-token": "f05da2d1-ffe9-895f-baf0-8dfb3a5b0fcb"
             ]
             if url.isEmpty { /*Truyền tham số sai*/
                 DebugLog.printLog(msg: Constants.DOWNLOAD_ERROR+":Đường dẫn (URL) truyền vào rỗng.")

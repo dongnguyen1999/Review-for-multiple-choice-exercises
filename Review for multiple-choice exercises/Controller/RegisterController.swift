@@ -9,13 +9,23 @@ import UIKit
 
 class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    @IBOutlet weak var BtnRegister: UIButton!
+    @IBOutlet weak var AvatarRegister: UIImageView!
+    @IBOutlet weak var PhoneRegister: UITextField!
+    @IBOutlet weak var PasswordRegister: UITextField!
+    @IBOutlet weak var EmailRegister: UITextField!
+    @IBOutlet weak var nameRegister: UITextField!
     //Khai bao bien view
+    /*
     @IBOutlet weak var BtnRegister: UIButton!
     @IBOutlet weak var nameRegister: UITextField!
     @IBOutlet weak var EmailRegister: UITextField!
     @IBOutlet weak var PasswordRegister: UITextField!
     @IBOutlet weak var PhoneRegister: UITextField!
     @IBOutlet weak var AvatarRegister: UIImageView!
+    
+    */
     var img = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +38,8 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         AvatarRegister.layer.masksToBounds = false
         AvatarRegister.layer.cornerRadius = AvatarRegister.frame.height/2
         AvatarRegister.clipsToBounds = true
+        // ẩn bản phím
+        self.hideKeyboardWhenTappedAround()
    
     }
     func ThongBao( title : String, message : String){
@@ -64,53 +76,57 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
     
    
     
-    @IBAction func SelectImage(_ sender: Any) {
-            let vc = UIImagePickerController()
-            vc.sourceType = .photoLibrary
-            vc.delegate =  self
-            vc.allowsEditing = true
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-    
-        
-    }
-    @IBAction func actionRegister(_ sender: Any) {
-            let name = nameRegister.text ?? ""
-            let email = EmailRegister.text ?? ""
-            let password = PasswordRegister.text ?? ""
-            let phone = PhoneRegister.text ??  ""
-        
-      
-        print("test\(img)")
-        
-        
-            if name ==  "" || email == "" || password == "" || phone == "" {
-                ThongBao(title: "Thông Báo", message: "Vui lòng nhập đầy đủ thông tin")
-            } else if (phone.count < 10 || phone.count > 10){
-                   ThongBao(title: "Thông Báo", message: "Bạn nhập sai số điện thoại")
-                    
-            }else if (password.count < 6){
-                ThongBao(title: "Thông Báo", message: "Mật khẩu quá ngắn")
-            }
-                else {
-                    
-                    let body:[String: Any?] = ["type" : "register", "email" : email, "name" : name, "phone" : phone, "password" : password, "avatar" : img]
-                           print("body \(body)")
 
-                           DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/user.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
-                               if errorCode == 0 {
-                                self.ThongBao(title: "Thông Báo", message: "\(msg)")
-                                
-                               }else{
-                                self.ThongBao(title: "Thông Báo", message: "\(msg)")
-                               }
-                           }
-      
-       
-                    }
- 
-         
+    
+    @IBAction func SelectImage(_ sender: UITapGestureRecognizer) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate =  self
+        vc.allowsEditing = true
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
+    
+    
+    @IBAction func actionRegister(_ sender: UIButton) {
+        let name = nameRegister.text ?? ""
+        let email = EmailRegister.text ?? ""
+        let password = PasswordRegister.text ?? ""
+        let phone = PhoneRegister.text ??  ""
+    
+  
+    print("test\(img)")
+    
+    
+        if name ==  "" || email == "" || password == "" || phone == "" {
+            ThongBao(title: "Thông Báo", message: "Vui lòng nhập đầy đủ thông tin")
+        } else if (phone.count < 10 || phone.count > 10){
+               ThongBao(title: "Thông Báo", message: "Bạn nhập sai số điện thoại")
+                
+        }else if (password.count < 6){
+            ThongBao(title: "Thông Báo", message: "Mật khẩu quá ngắn")
+        }
+            else {
+                
+                let body:[String: Any?] = ["type" : "register", "email" : email, "name" : name, "phone" : phone, "password" : password, "avatar" : img]
+                       print("body \(body)")
+
+                       DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/user.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
+                           if errorCode == 0 {
+                            self.ThongBao(title: "Thông Báo", message: "\(msg)")
+                            
+                           }else{
+                            self.ThongBao(title: "Thông Báo", message: "\(msg)")
+                           }
+                       }
+  
+   
+                }
+
+        
+    }
+   
+    
     
   
 

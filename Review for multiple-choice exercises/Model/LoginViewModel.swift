@@ -15,7 +15,7 @@ class LoginViewModel {
     }
 func onLogin( username: String,  password: String) {
         
-    DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/login.php?type=login&email=\(username)&password=\(password)", showDialog: true) { (errorCode, msg, arrayData) in
+    DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/user.php?type=login&email=\(username)&password=\(password)", showDialog: true) { (errorCode, msg, arrayData) in
         print (errorCode)
         //chuyen trang
         if errorCode == 0 {
