@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreen" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="103.79464285714285"/>
+            <point key="canvasLocation" x="-1461" y="-1272"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="9oT-PQ-qnu">
@@ -159,13 +159,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-fT-Yiq">
-                                <rect key="frame" x="30.000000000000007" y="347.66666666666669" width="71.666666666666686" height="23.666666666666686"/>
+                                <rect key="frame" x="30.000000000000007" y="347.66666666666669" width="71.666666666666686" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-0e-LK7" customClass="CustomTextField" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
-                                <rect key="frame" x="30" y="381.33333333333331" width="354" height="40"/>
+                                <rect key="frame" x="30" y="381.66666666666669" width="354" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tyk-od-pi8"/>
                                 </constraints>
@@ -173,7 +173,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukV-qL-9hl">
-                                <rect key="frame" x="30.000000000000007" y="431.33333333333331" width="102.66666666666669" height="23.333333333333314"/>
+                                <rect key="frame" x="30.000000000000007" y="431.66666666666669" width="102.66666666666669" height="23"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -275,7 +275,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1175" y="-243"/>
+            <point key="canvasLocation" x="-452" y="-1576"/>
         </scene>
         <!--Edit Profile Controller-->
         <scene sceneID="5AV-Yf-4pd">
@@ -286,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin cá nhân" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjW-HQ-RwN">
-                                <rect key="frame" x="20" y="30" width="270" height="45.666666666666657"/>
+                                <rect key="frame" x="20" y="29.999999999999996" width="270" height="45.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -413,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZ3-gM-C83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="178.79464285714286"/>
+            <point key="canvasLocation" x="2362" y="214"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H2s-Kz-tDD">
@@ -433,7 +433,7 @@
         <!--Home View Controller-->
         <scene sceneID="yAe-hs-5kC">
             <objects>
-                <viewController id="ZOX-DA-5F3" customClass="HomeViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreen" id="ZOX-DA-5F3" customClass="HomeViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KlG-A8-48W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -568,8 +568,8 @@
                                 <rect key="frame" x="0.0" y="228.66666666666663" width="414" height="221"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Điểm Số Tuần Qua" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-Xf-acu">
-                                        <rect key="frame" x="128.66666666666669" y="15.999999999999998" width="156.66666666666669" height="26.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="124.66666666666669" y="15.999999999999998" width="165" height="26.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -597,7 +597,7 @@
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2Z-cA-MyR">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2Z-cA-MyR">
                                                                         <rect key="frame" x="0.0" y="20.333333333333314" width="106.66666666666667" height="20"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -635,7 +635,7 @@
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8y-1v-jgY">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8y-1v-jgY">
                                                                         <rect key="frame" x="0.0" y="20.333333333333314" width="106.66666666666667" height="20"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -679,7 +679,7 @@
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="96%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gr-TB-4oY">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gr-TB-4oY">
                                                                         <rect key="frame" x="0.0" y="20" width="106.66666666666667" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -717,7 +717,7 @@
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,436" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxv-QP-ooa">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxv-QP-ooa">
                                                                         <rect key="frame" x="0.0" y="20" width="106.66666666666667" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -774,7 +774,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sYG-Jg-cW6" firstAttribute="leading" secondItem="YdQ-ua-Evs" secondAttribute="leading" constant="24" id="CzR-XP-FlR"/>
                                     <constraint firstItem="sYG-Jg-cW6" firstAttribute="top" secondItem="YdQ-ua-Evs" secondAttribute="top" constant="16" id="Dvo-RH-YAW"/>
@@ -784,7 +784,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0bu-jF-5Q0"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <color key="backgroundColor" red="0.96078985930000005" green="0.95695883039999996" blue="0.95672684910000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a2g-se-mt4" firstAttribute="centerX" secondItem="0bu-jF-5Q0" secondAttribute="centerX" id="0zF-zx-IN1"/>
                             <constraint firstItem="YdQ-ua-Evs" firstAttribute="leading" secondItem="0bu-jF-5Q0" secondAttribute="leading" id="DZN-rF-yKL"/>
@@ -802,13 +802,17 @@
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="zAJ-gE-WuZ" id="di2-E1-AxW"/>
+                        <outlet property="bestScoreValue" destination="W2Z-cA-MyR" id="SgC-Ay-WU7"/>
                         <outlet property="bestScoreView" destination="mjW-0N-Azh" id="wXm-pt-iHL"/>
                         <outlet property="chartAreaView" destination="sYG-Jg-cW6" id="G34-fc-CDc"/>
+                        <outlet property="numberExamValue" destination="m8y-1v-jgY" id="hLM-iq-Vea"/>
                         <outlet property="numberExamView" destination="rI3-0x-tbf" id="tPk-eT-od8"/>
+                        <outlet property="rateValue" destination="8gr-TB-4oY" id="gOs-mE-ugf"/>
                         <outlet property="rateView" destination="uyB-jv-Bnn" id="CQU-wL-DG5"/>
                         <outlet property="scoreChartView" destination="BNf-2o-R6m" id="nYe-hj-mej"/>
                         <outlet property="startChatView" destination="7J8-fg-1Na" id="89I-SO-2KL"/>
                         <outlet property="startExamView" destination="eNx-5F-yV3" id="LmG-jj-j9f"/>
+                        <outlet property="sumExamValue" destination="dxv-QP-ooa" id="0ao-jD-Hw4"/>
                         <outlet property="sumExamView" destination="aOP-KD-bQ8" id="y6q-Aa-nOA"/>
                     </connections>
                 </viewController>
@@ -824,7 +828,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2613.04347826087" y="157.33695652173915"/>
+            <point key="canvasLocation" x="662" y="196"/>
         </scene>
     </scenes>
     <resources>
@@ -836,7 +840,7 @@
         <image name="icon_best_score" width="46" height="45"/>
         <image name="icon_number_exam" width="46" height="45"/>
         <image name="icon_rate" width="46" height="45"/>
-        <image name="icon_sum_exam" width="46" height="45"/>
+        <image name="icon_sum_exam" width="46" height="45.333332061767578"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -846,9 +850,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

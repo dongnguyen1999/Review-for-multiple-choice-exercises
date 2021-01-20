@@ -43,8 +43,8 @@ class DownloadAsyncTask {
             request.allHTTPHeaderFields = headers
             
             if showDialog {
-                //SwiftOverlays.showBlockingWaitOverlayWithText(LocalizationHelper.shared.localized("Loading...")!)
-                SwiftOverlays.showBlockingWaitOverlayWithText("Loading...")
+//                SwiftOverlays.showBlockingWaitOverlayWithText("Loading...")
+//                SwiftOverlays.showBlockingWaitOverlayWithText("Loading...")
             }
             DebugLog.printLog(msg: "URL_REQUEST: "+url)
             
