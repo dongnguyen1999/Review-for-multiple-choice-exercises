@@ -26,6 +26,19 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     @IBOutlet weak var scrollview: UIScrollView!
     
     
+    @objc func Keyboard(notification : Notification)  {
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame,from : view.window)
+        if notification.name == UIResponder.keyboardWillHideNotification{
+            scrollview.contentInset = UIEdgeInsets.zero
+        }else{
+            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+        scrollview.scrollIndicatorInsets = scrollview.contentInset
+    
+    }
+    
     
     
     override func viewDidLoad() {
@@ -80,20 +93,9 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
             loginviewmodel.onLogin(username: username, password: password)
         }
     }
-    }
+    
     
 
-    @objc func Keyboard(notification : Notification)  {
-        let userInfo = notification.userInfo!
-        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame,from : view.window)
-        if notification.name == UIResponder.keyboardWillHideNotification{
-            scrollview.contentInset = UIEdgeInsets.zero
-        }else{
-            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
-        }
-        scrollview.scrollIndicatorInsets = scrollview.contentInset
-    
-    }
+
 
 }
