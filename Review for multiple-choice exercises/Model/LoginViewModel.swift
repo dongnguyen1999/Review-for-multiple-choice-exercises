@@ -13,22 +13,20 @@ class LoginViewModel {
     init(usermodelView: UserModelView) {
         self.usermodelView   = usermodelView
     }
-func onLogin( username: String,  password: String) {
-        
-    DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/user.php?type=login&email=\(username)&password=\(password)", showDialog: true) { (errorCode, msg, arrayData) in
-        print (errorCode)
-        //chuyen trang
-        if errorCode == 0 {
-            self.usermodelView.onSuccess(listAccount: [UserModel].deserialize(from: arrayData) as? [UserModel])
-        }
-         else {
-          
-            self.usermodelView.onError(msg: msg)
-            
-            
-    }
 
     
-}
+    func onLogin( username: String,  password: String) {
+        DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/user.php?type=\(RequestType.LOGIN)&email=\(username)&password=\(password)", showDialog: true) { (errorCode, msg, arrayData) in
+            print (errorCode)
+            //chuyen trang
+            if errorCode == 0 {
+                self.usermodelView.onSuccess(listAccount: [UserModel].deserialize(from: arrayData) as? [UserModel])
+            }
+             else {
+              
+                self.usermodelView.onError(msg: msg)
+             }
+        }
     }
+    
 }

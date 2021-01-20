@@ -9,7 +9,9 @@ import UIKit
 
 
 
+
 class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
+
     
     
 
@@ -25,6 +27,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -32,6 +35,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         BtnLogin.layer.cornerRadius = 20
         BtnLogin.layer.shadowOpacity = 0.5
         BtnLogin.layer.backgroundColor = UIColor(red: 1, green: 0.404, blue: 0.106, alpha: 1).cgColor
+
         //Ẩn bàn phím
         self.hideKeyboardWhenTappedAround()
         //scrollview theo bàn phím
@@ -42,28 +46,23 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     func onSuccess(listAccount: [UserModel]?) {
         
         
+
     }
     
     func onError(msg: String) {
         ThongBao(title: "Thong Bao", message: msg)
-    
     }
-   //var UserModelViewusermodel  : UserModelView!
-    var usermodelView: UserModelView!
-
-    
-    
   
     func ThongBao( title : String, message : String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    let actionOk = UIAlertAction(title: "OK", style: .default, handler:nil )
-                    alertController.addAction(actionOk)
-                    self.present(alertController, animated: true, completion: nil)
-                    return
-        
+        let actionOk = UIAlertAction(title: "OK", style: .default, handler:nil )
+        alertController.addAction(actionOk)
+        self.present(alertController, animated: true, completion: nil)
+        return
     }
     
     
+
     @IBAction func actionLogin(_ sender: UIButton) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
@@ -77,11 +76,13 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         else {
             
             loginviewmodel=LoginViewModel(usermodelView: self)
+
             loginviewmodel.onLogin(username: username, password: password)
-        
+        }
     }
     }
     
+
     @objc func Keyboard(notification : Notification)  {
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -92,6 +93,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
             scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
         }
         scrollview.scrollIndicatorInsets = scrollview.contentInset
-        
+    
     }
+
 }
