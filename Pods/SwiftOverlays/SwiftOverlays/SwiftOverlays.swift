@@ -497,7 +497,6 @@ open class SwiftOverlays: NSObject {
     
     fileprivate class func addMainWindowBlocker() -> UIView {
         let window = UIApplication.shared.keyWindow!
-        
         let blocker = UIView(frame: window.bounds)
         blocker.backgroundColor = backgroundColor
         blocker.tag = containerViewTag

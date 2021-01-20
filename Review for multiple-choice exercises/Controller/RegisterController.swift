@@ -17,6 +17,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
     @IBOutlet weak var PhoneRegister: UITextField!
     @IBOutlet weak var AvatarRegister: UIImageView!
     var img = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BtnRegister.layer.cornerRadius = 20
@@ -30,6 +31,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         AvatarRegister.clipsToBounds = true
    
     }
+    
     func ThongBao( title : String, message : String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     let actionOk = UIAlertAction(title: "OK", style: .default, handler:nil )
@@ -43,6 +45,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
                  dismiss(animated: true, completion: nil)
              }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
               
@@ -105,8 +108,6 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
                                 self.ThongBao(title: "Thông Báo", message: "\(msg)")
                                }
                            }
-      
-       
                     }
  
          
