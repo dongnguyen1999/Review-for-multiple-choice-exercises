@@ -7,6 +7,7 @@ target 'Review for multiple-choice exercises' do
   pod 'HandyJSON', '~> 5.0.2'
   pod 'SwiftOverlays', '~> 5.0.0'
   pod 'Charts'
+ pod 'Alamofire', '~> 4.6'
 
   # Pods for Review for multiple-choice exercises
 
