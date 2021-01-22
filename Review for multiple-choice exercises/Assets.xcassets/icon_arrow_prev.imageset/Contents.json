@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Direction Right.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Direction Right@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bài quan trọng@3x-1.png",
+      "filename" : "Direction Right@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

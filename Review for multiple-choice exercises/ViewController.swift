@@ -57,9 +57,12 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     }
     
     func onSuccess(listAccount: [UserModel]?) {
-        
-        
-
+        if let userModel = listAccount?[0] {
+            PreferencesUtils.cacheUserModel(model: userModel)
+            changeRootViewToHome()
+        } else {
+            ThongBao(title: "Thong Bao", message: "Lỗi đăng nhập, vui lòng thử lại")
+        }
     }
     
     func onError(msg: String) {
@@ -75,23 +78,24 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     }
     
     
-
-    @IBAction func actionLogin(_ sender: UIButton) {
+    @IBAction func actionLogin(_ sender: Any) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
-        if username == "" && password == ""{
-           ThongBao(title: "Thông Báo", message: "Vui lòng nhập đẩy đủ thông tin")
-        }else if (username == ""){
-            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập email")
-        }else if (password == ""){
-            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập mật khẩu")
-        }
-        else {
-            
-            loginviewmodel=LoginViewModel(usermodelView: self)
+        if username == "" || password == ""{
+           ThongBao(title: "Thông Báp", message: "Vui lòng nhập đẩy đủ thông tin")
 
+            
+        }else {
+            loginviewmodel = LoginViewModel(usermodelView: self)
             loginviewmodel.onLogin(username: username, password: password)
         }
+    }
+    
+    func changeRootViewToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle:nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
+        UIApplication.shared.windows.first?.rootViewController = homeViewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     
