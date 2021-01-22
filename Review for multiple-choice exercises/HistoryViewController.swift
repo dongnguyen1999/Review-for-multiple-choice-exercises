@@ -14,6 +14,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var pagingView: PagingView!
     @IBOutlet weak var allExamButton: UIButton!
     @IBOutlet weak var importantExamButton: UIButton!
+    @IBOutlet weak var backButton: UIImageView!
     
 //    var presentData: [ExamModel]!
     var presentData = [ExamModel]()
@@ -22,7 +23,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var userModel: UserModel!
     var historyViewModel: HistoryViewModel!
     var facultyNames = [Int: String]()
-    var firstLoadView = true
+
     var rateColorList = [UIColor(hex: "#f44336"), UIColor(hex: "#9c27af"), UIColor(hex: "#3f51b5"), UIColor(hex: "#00bcd4"), UIColor(hex: "#4cae50")]
     
     static let PRESENT_LIMIT = 5
@@ -37,6 +38,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         historyTableView.alwaysBounceVertical = false
         historyTableView.backgroundColor = UIColor.clear
         
+        allExamButton.roundWithBorder(borderRadius: 10)
+        importantExamButton.roundWithBorder(borderRadius: 10)
+        
         historyViewModel = HistoryViewModel(examDelegate: self)
         historyViewModel.onGetListExam(userId: userModel.userId)
         
@@ -44,17 +48,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
 //        self.historyTableView.estimatedRowHeight = 44
 //        self.historyTableView.rowHeight = UITableView.automaticDimension
-
+        backButton.setOnTapListener(context: self, action: #selector(backToMenu(sender:)))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        allExamButton.roundWithBorder(borderRadius: 10)
-        importantExamButton.roundWithBorder(borderRadius: 10)
-//        historyTableView.backgroundColor = UIColor(white: 0, alpha: 0)
-//        historyTableView.roundWithBorder(borderRadius: 15)
-//        historyTableView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 15)
-        firstLoadView = false
+    @objc func backToMenu(sender: UIGestureRecognizer) {
+        navigationController?.popViewController(animated: true)
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+////        historyTableView.backgroundColor = UIColor(white: 0, alpha: 0)
+////        historyTableView.roundWithBorder(borderRadius: 15)
+////        historyTableView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 15)
+//        firstLoadView = false
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        tableView.estimatedRowHeight = 85.0

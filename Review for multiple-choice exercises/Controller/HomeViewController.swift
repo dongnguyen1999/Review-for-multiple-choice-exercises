@@ -38,8 +38,21 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
         homeViewModel.onGetListExam(userId: userModel.userId)
         
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        avatarImageView.setOnTapListener(context: self, action: #selector(onTappedAvatar(sender:)))
     }
+    
+    @objc func onTappedAvatar(sender: UIGestureRecognizer) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
+        
+        guard let menuViewController = mainStoryboard.instantiateViewController(withIdentifier: "MenuScreen") as? MenuController else {
+            print("Can not create menu screen view controller")
+            return
+        }
+        
+        navigationController?.pushViewController(menuViewController, animated: true)
+    }
+
     
     func onSuccess(listExam: [ExamModel]?) {
         guard let exams = listExam else {

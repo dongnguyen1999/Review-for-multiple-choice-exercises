@@ -12,9 +12,6 @@ import UIKit
 
 class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
 
-    
-    
-
     var loginviewmodel : LoginViewModel!
     // Dong wrote
     
@@ -54,6 +51,12 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         //scrollview theo bàn phím
         NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        //Check user login status
+        if PreferencesUtils.getCachedUserModel() != nil {
+            changeRootViewToHome()
+        }
+        
     }
     
     func onSuccess(listAccount: [UserModel]?) {
@@ -93,7 +96,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     
     func changeRootViewToHome() {
         let storyboard = UIStoryboard(name: "Main", bundle:nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigation") as! UINavigationController
         UIApplication.shared.windows.first?.rootViewController = homeViewController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

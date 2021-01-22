@@ -50,4 +50,21 @@ class PreferencesUtils {
     }
     
     
+    public static func removeCachedUserModel() {
+        let preferences = UserDefaults.standard
+        
+        guard let userId = preferences.object(forKey: UserPreference.PREFERENCE_USERID) as? Int else {
+            print("Have not cached any user model")
+            return
+        }
+        
+        preferences.removeObject(forKey: UserPreference.PREFERENCE_USERID)
+        preferences.removeObject(forKey: UserPreference.PREFERENCE_NAME)
+        preferences.removeObject(forKey: UserPreference.PREFERENCE_AVATAR)
+        preferences.removeObject(forKey: UserPreference.PREFERENCE_PHONE)
+        preferences.removeObject(forKey: UserPreference.PREFERENCE_EMAIL)
+        
+    }
+    
+    
 }
