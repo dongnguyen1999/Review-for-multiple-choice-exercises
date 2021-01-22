@@ -9,8 +9,6 @@ import UIKit
 
 
 class ViewController: UIViewController, UserModelView{
-    
-    
 
     var loginviewmodel : LoginViewModel!
     // Dong wrote

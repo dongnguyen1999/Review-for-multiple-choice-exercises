@@ -70,6 +70,9 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         print(message)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         print(startChatView.frame.size.width)
@@ -197,10 +200,9 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         for exam in exams {
             let timestampString = exam.createDate
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+          
     
-            let date = dateFormatter.date(from: timestampString)
+            let date = Date.fromTimestamp(timestamp: timestampString)
             
             if let sameWeek = date?.isInSameWeek(as: currentDate), sameWeek {
                 sumWeekExam += 1
@@ -230,8 +232,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     func produceChartData(exams: [ExamModel]) -> ([Int], [Int: [Float]]) {
 //        produceChartData(from: exams)
         let examBySubject = getPresentSubjects(from: exams)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         var time = [Int]()
         var data = [Int: [Float]]()
@@ -240,8 +240,8 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
 //            print(subjectExams)
             let sortedExams = subjectExams.sorted {
                 ex1, ex2 in
-                let date1 = dateFormatter.date(from: ex1.createDate)
-                let date2 = dateFormatter.date(from: ex2.createDate)
+                let date1 = Date.fromTimestamp(timestamp: ex1.createDate)
+                let date2 = Date.fromTimestamp(timestamp: ex2.createDate)
                 return date1 ?? Date() > date2 ?? Date()
             }
             var listScore = [Float]()

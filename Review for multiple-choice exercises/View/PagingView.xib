@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PagingView" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="SWS-0U-Jx7" id="hPr-fR-SJH"/>
+                <outlet property="dotContainerView" destination="oYl-8G-9Gl" id="Vx8-qm-VMN"/>
+                <outlet property="nextButton" destination="hF2-ir-wfh" id="cBa-Be-CjR"/>
+                <outlet property="prevButton" destination="q30-YW-Axx" id="tNd-SQ-STU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWS-0U-Jx7">
+                    <rect key="frame" x="0.0" y="417" width="414" height="72"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_prev" translatesAutoresizingMaskIntoConstraints="NO" id="q30-YW-Axx">
+                            <rect key="frame" x="16" y="16" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="q30-YW-Axx" secondAttribute="height" multiplier="1:1" id="1ym-8h-Hd0"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_next_outline" translatesAutoresizingMaskIntoConstraints="NO" id="hF2-ir-wfh">
+                            <rect key="frame" x="358" y="16" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="hF2-ir-wfh" secondAttribute="height" multiplier="1:1" id="CDj-ff-1SM"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oYl-8G-9Gl">
+                            <rect key="frame" x="203.5" y="32.5" width="7" height="7"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pageable_dot_orange" translatesAutoresizingMaskIntoConstraints="NO" id="hrp-oR-xSu">
+                                    <rect key="frame" x="0.0" y="0.0" width="7" height="7"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="hrp-oR-xSu" secondAttribute="height" multiplier="1:1" id="4wq-Sb-kJW"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="tintColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="hF2-ir-wfh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oYl-8G-9Gl" secondAttribute="trailing" constant="16" id="1IN-e2-RHL"/>
+                        <constraint firstAttribute="trailing" secondItem="hF2-ir-wfh" secondAttribute="trailing" constant="16" id="48e-KB-YqN"/>
+                        <constraint firstAttribute="height" constant="72" id="4dj-zY-Ark"/>
+                        <constraint firstItem="q30-YW-Axx" firstAttribute="leading" secondItem="SWS-0U-Jx7" secondAttribute="leading" constant="16" id="9jf-aC-LcK"/>
+                        <constraint firstItem="hF2-ir-wfh" firstAttribute="top" secondItem="SWS-0U-Jx7" secondAttribute="top" constant="16" id="MfS-6Y-ty9"/>
+                        <constraint firstItem="hF2-ir-wfh" firstAttribute="centerY" secondItem="SWS-0U-Jx7" secondAttribute="centerY" id="SrH-qN-anE"/>
+                        <constraint firstItem="q30-YW-Axx" firstAttribute="top" secondItem="SWS-0U-Jx7" secondAttribute="top" constant="16" id="bsd-0l-Eyq"/>
+                        <constraint firstItem="oYl-8G-9Gl" firstAttribute="centerX" secondItem="SWS-0U-Jx7" secondAttribute="centerX" id="cQ3-ws-omE"/>
+                        <constraint firstItem="q30-YW-Axx" firstAttribute="centerY" secondItem="SWS-0U-Jx7" secondAttribute="centerY" id="gZz-e8-By5"/>
+                        <constraint firstItem="oYl-8G-9Gl" firstAttribute="height" secondItem="SWS-0U-Jx7" secondAttribute="height" multiplier="0.1" id="gve-Pd-WbQ"/>
+                        <constraint firstItem="oYl-8G-9Gl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="q30-YW-Axx" secondAttribute="trailing" constant="16" id="hXh-tL-1su"/>
+                        <constraint firstItem="oYl-8G-9Gl" firstAttribute="centerY" secondItem="SWS-0U-Jx7" secondAttribute="centerY" id="pGH-ez-ab6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="SWS-0U-Jx7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2Ni-z2-68M"/>
+                <constraint firstItem="SWS-0U-Jx7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ddr-WI-CE1"/>
+                <constraint firstItem="SWS-0U-Jx7" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="eLF-OC-owj"/>
+            </constraints>
+            <point key="canvasLocation" x="-53.623188405797109" y="-62.276785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_arrow_next_outline" width="40" height="40"/>
+        <image name="icon_arrow_prev" width="24" height="24"/>
+        <image name="icon_pageable_dot_orange" width="5" height="5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

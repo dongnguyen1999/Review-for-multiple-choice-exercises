@@ -28,4 +28,16 @@ extension Date {
 
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
+    
+    static func fromTimestamp(timestamp: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: timestamp)
+    }
+    
+    func toFormart(formatString format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }
