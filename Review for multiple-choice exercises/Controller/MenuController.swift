@@ -10,51 +10,17 @@ import UIKit
 class MenuController: UIViewController {
     
     var userModel: UserModel!
-    @IBOutlet weak var backButton: UIImageView!
     
     override func viewDidLoad() {
-          super.viewDidLoad()
-          getdata()
-          // Do any additional setup after loading the view.
-        backButton.setOnTapListener(context: self, action: #selector(onBackButtonClicked(sender:)))
-      }
+        super.viewDidLoad()
+        getdata()
+        // Do any additional setup after loading the view.
+    }
+    
     //Anh xa
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBAction func EditProfile(_ sender: UITapGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let editProfileViewController = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileScreen") as? EditProfileController else {
-            print("Can not create edit profile screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(editProfileViewController, animated: true)
-    }
-    @IBAction func HistorySearch(_ sender: UITapGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let historyViewController = mainStoryboard.instantiateViewController(withIdentifier: "HistoryScreen") as? HistoryViewController else {
-            print("Can not create history screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(historyViewController, animated: true)
-    }
-    @IBAction func ImportantTest(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let historyViewController = mainStoryboard.instantiateViewController(withIdentifier: "HistoryScreen") as? HistoryViewController else {
-            print("Can not create history screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(historyViewController, animated: true)
-    }
     
-    @objc func onBackButtonClicked(sender: UIGestureRecognizer){
-        navigationController?.popViewController(animated: true)
-    }
     // Get du lieu
     
     @IBAction func BtnLogout(_ sender: UIButton) {

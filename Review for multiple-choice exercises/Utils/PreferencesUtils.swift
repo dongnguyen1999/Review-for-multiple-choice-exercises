@@ -49,11 +49,26 @@ class PreferencesUtils {
         }
     }
     
+    public static func set(key: String, value: Any) {
+        let preferences = UserDefaults.standard
+        preferences.setValue(value, forKey: key)
+        //Save references to disk
+        let didSave = preferences.synchronize()
+        if !didSave {
+            fatalError("Can not caching user information")
+        }
+    }
+    
+    public static func get(key: String) -> Any? {
+        let preferences = UserDefaults.standard
+        return preferences.object(forKey: key)
+    }
+    
     
     public static func removeCachedUserModel() {
         let preferences = UserDefaults.standard
         
-        guard let userId = preferences.object(forKey: UserPreference.PREFERENCE_USERID) as? Int else {
+        guard (preferences.object(forKey: UserPreference.PREFERENCE_USERID) as? Int) != nil else {
             print("Have not cached any user model")
             return
         }

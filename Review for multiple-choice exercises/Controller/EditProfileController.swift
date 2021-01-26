@@ -72,7 +72,7 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         phone.text = userModel.phone
         email.text = userModel.email
         
-        }
+    }
     
     // Chinh sửa thông tin người dùng
     @IBAction func actionButton(_ sender: Any) {

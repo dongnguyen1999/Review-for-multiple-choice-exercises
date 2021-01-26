@@ -8,13 +8,11 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExamModelDelegate {
-
     
     @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var pagingView: PagingView!
     @IBOutlet weak var allExamButton: UIButton!
     @IBOutlet weak var importantExamButton: UIButton!
-    @IBOutlet weak var backButton: UIImageView!
     
 //    var presentData: [ExamModel]!
     var presentData = [ExamModel]()
@@ -44,24 +42,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         historyViewModel = HistoryViewModel(examDelegate: self)
         historyViewModel.onGetListExam(userId: userModel.userId)
         
+        pagingView.tintColor = .orange
         pagingView.onChangePageCallback = self.changePage(pageNumber:)
         
-//        self.historyTableView.estimatedRowHeight = 44
-//        self.historyTableView.rowHeight = UITableView.automaticDimension
-        backButton.setOnTapListener(context: self, action: #selector(backToMenu(sender:)))
     }
-    
-    @objc func backToMenu(sender: UIGestureRecognizer) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-////        historyTableView.backgroundColor = UIColor(white: 0, alpha: 0)
-////        historyTableView.roundWithBorder(borderRadius: 15)
-////        historyTableView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 15)
-//        firstLoadView = false
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        tableView.estimatedRowHeight = 85.0
@@ -78,8 +62,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         let exam = presentData[indexPath.row]
         
-//        cell.contentView.roundWithBorder(borderRadius: 15)
-        cell.contentView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 15)
+        cell.roundWithBorder(borderRadius: 15)
+        cell.boxShadow(offsetX: 0, offsetY: 0, opacity: 0.5, radius: 15)
+        
         var color = UIColor.black
         if let score = exam.score {
             color = rateColorList[Int(score)/5]
@@ -109,6 +94,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func onError(message: String) {
+        print(message)
+    }
+    
+    func onDeleteSuccess(message: String) {
         print(message)
     }
     
