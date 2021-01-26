@@ -15,6 +15,6 @@ struct Constants {
     public static let DOWNLOAD_ERROR = "DOWNLOAD_ERROR"
     public static let DOWNLOAD_RESPONSE = "DOWNLOAD_RESPONSE"
     struct URL {
-        static let URL_SEVER: String = "http://192.168.1.8:8080/"
+        static let URL_SEVER: String = "http://192.168.1.9:8080/"
     }
 }

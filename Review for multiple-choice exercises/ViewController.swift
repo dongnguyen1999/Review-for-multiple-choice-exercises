@@ -89,7 +89,6 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         else {
             
             loginviewmodel=LoginViewModel(usermodelView: self)
-
             loginviewmodel.onLogin(username: username, password: password)
         }
     }

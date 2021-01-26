@@ -77,7 +77,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         startExamView.roundWithBorder(borderWidth: 5, borderColor: UIColor(hex: "#f9aa33"))
         startChatView.roundWithBorder(borderWidth: 5, borderColor: UIColor(hex: "#9b52d4"))
         
-        
         bestScoreView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         numberExamView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         sumExamView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)

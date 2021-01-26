@@ -15,6 +15,9 @@
 		6150DE4825B1781800BCAD52 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150DE4725B1781800BCAD52 /* Prefs.swift */; };
 		6150DE4D25B178AD00BCAD52 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150DE4C25B178AD00BCAD52 /* DebugLog.swift */; };
 		6150DE5625B1877900BCAD52 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6150DE5525B1877900BCAD52 /* RegisterController.swift */; };
+		615385C225BE493100A02F06 /* SubjectSearchModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615385C125BE493100A02F06 /* SubjectSearchModelView.swift */; };
+		615385C725BE4B2000A02F06 /* SubjectSearchModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615385C625BE4B2000A02F06 /* SubjectSearchModelDelegate.swift */; };
+		615385CC25BE97EB00A02F06 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615385CB25BE97EB00A02F06 /* SearchTableViewCell.swift */; };
 		615B734425B662C4009EF9F6 /* CustomLabelEditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B734325B662C4009EF9F6 /* CustomLabelEditProfile.swift */; };
 		615B734925B66C98009EF9F6 /* UserModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B734825B66C98009EF9F6 /* UserModelView.swift */; };
 		615B735225B67566009EF9F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B735125B67566009EF9F6 /* LoginViewModel.swift */; };
@@ -24,6 +27,14 @@
 		615B737225B6B996009EF9F6 /* customAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B737125B6B996009EF9F6 /* customAvatar.swift */; };
 		615B737725B6CE44009EF9F6 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B737625B6CE44009EF9F6 /* MenuController.swift */; };
 		615B738E25B7FDCB009EF9F6 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B738D25B7FDCB009EF9F6 /* Keyboard.swift */; };
+		615B739D25B90882009EF9F6 /* FacultySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B739C25B90882009EF9F6 /* FacultySearchController.swift */; };
+		615B73A225B9323A009EF9F6 /* FacultySearchModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73A125B9323A009EF9F6 /* FacultySearchModelView.swift */; };
+		615B73A725B932F2009EF9F6 /* FacultyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73A625B932F2009EF9F6 /* FacultyModel.swift */; };
+		615B73AC25B93368009EF9F6 /* FacultyModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73AB25B93368009EF9F6 /* FacultyModelDelegate.swift */; };
+		615B73C125BA7EF5009EF9F6 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73C025BA7EF5009EF9F6 /* MajorModel.swift */; };
+		615B73C625BA7FFD009EF9F6 /* MajorModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73C525BA7FFD009EF9F6 /* MajorModelDelegate.swift */; };
+		615B73CB25BA8052009EF9F6 /* MajorSearchModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73CA25BA8052009EF9F6 /* MajorSearchModelView.swift */; };
+		615B73D025BAAEFD009EF9F6 /* CustomButtonSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B73CF25BAAEFD009EF9F6 /* CustomButtonSearch.swift */; };
 		616782CF25AFD3E500316E5F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616782CE25AFD3E500316E5F /* CustomTextField.swift */; };
 		616782F425B11FD700316E5F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616782F325B11FD700316E5F /* UserModel.swift */; };
 		61CAC67825B16AB800D3C262 /* DownloadAsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CAC67725B16AB800D3C262 /* DownloadAsyncTask.swift */; };
@@ -78,6 +89,9 @@
 		6150DE4725B1781800BCAD52 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		6150DE4C25B178AD00BCAD52 /* DebugLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		6150DE5525B1877900BCAD52 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		615385C125BE493100A02F06 /* SubjectSearchModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSearchModelView.swift; sourceTree = "<group>"; };
+		615385C625BE4B2000A02F06 /* SubjectSearchModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSearchModelDelegate.swift; sourceTree = "<group>"; };
+		615385CB25BE97EB00A02F06 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		615B734325B662C4009EF9F6 /* CustomLabelEditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelEditProfile.swift; sourceTree = "<group>"; };
 		615B734825B66C98009EF9F6 /* UserModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelView.swift; sourceTree = "<group>"; };
 		615B735125B67566009EF9F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +101,14 @@
 		615B737125B6B996009EF9F6 /* customAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customAvatar.swift; sourceTree = "<group>"; };
 		615B737625B6CE44009EF9F6 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		615B738D25B7FDCB009EF9F6 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		615B739C25B90882009EF9F6 /* FacultySearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultySearchController.swift; sourceTree = "<group>"; };
+		615B73A125B9323A009EF9F6 /* FacultySearchModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultySearchModelView.swift; sourceTree = "<group>"; };
+		615B73A625B932F2009EF9F6 /* FacultyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyModel.swift; sourceTree = "<group>"; };
+		615B73AB25B93368009EF9F6 /* FacultyModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyModelDelegate.swift; sourceTree = "<group>"; };
+		615B73C025BA7EF5009EF9F6 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
+		615B73C525BA7FFD009EF9F6 /* MajorModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModelDelegate.swift; sourceTree = "<group>"; };
+		615B73CA25BA8052009EF9F6 /* MajorSearchModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorSearchModelView.swift; sourceTree = "<group>"; };
+		615B73CF25BAAEFD009EF9F6 /* CustomButtonSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSearch.swift; sourceTree = "<group>"; };
 		616782CE25AFD3E500316E5F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		616782F325B11FD700316E5F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		61CAC67725B16AB800D3C262 /* DownloadAsyncTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAsyncTask.swift; sourceTree = "<group>"; };
@@ -171,6 +193,7 @@
 				6150DE5525B1877900BCAD52 /* RegisterController.swift */,
 				6150C1CB25B589BF00770819 /* EditProfileController.swift */,
 				615B737625B6CE44009EF9F6 /* MenuController.swift */,
+				615B739C25B90882009EF9F6 /* FacultySearchController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +207,8 @@
 				615B736725B6B07B009EF9F6 /* customViewMenuProfile.swift */,
 				615B736C25B6B8A6009EF9F6 /* BackgroundView.swift */,
 				615B737125B6B996009EF9F6 /* customAvatar.swift */,
+				615B73CF25BAAEFD009EF9F6 /* CustomButtonSearch.swift */,
+				615385CB25BE97EB00A02F06 /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,7 +222,6 @@
 				6150DE4C25B178AD00BCAD52 /* DebugLog.swift */,
 				615B738D25B7FDCB009EF9F6 /* Keyboard.swift */,
 				B35FA5E625B7B0A1007F692B /* PreferencesUtils.swift */,
-
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -223,6 +247,14 @@
 				B37246BD25B6C9CF001DF3C3 /* ExamModelDelegate.swift */,
 				B35FA5FF25B8009B007F692B /* SubjectModel.swift */,
 				B35FA60425B80119007F692B /* SubjectModelDelegate.swift */,
+				615B73A125B9323A009EF9F6 /* FacultySearchModelView.swift */,
+				615B73A625B932F2009EF9F6 /* FacultyModel.swift */,
+				615B73AB25B93368009EF9F6 /* FacultyModelDelegate.swift */,
+				615B73C025BA7EF5009EF9F6 /* MajorModel.swift */,
+				615B73C525BA7FFD009EF9F6 /* MajorModelDelegate.swift */,
+				615B73CA25BA8052009EF9F6 /* MajorSearchModelView.swift */,
+				615385C125BE493100A02F06 /* SubjectSearchModelView.swift */,
+				615385C625BE4B2000A02F06 /* SubjectSearchModelDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -563,40 +595,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615B739D25B90882009EF9F6 /* FacultySearchController.swift in Sources */,
+				615B73D025BAAEFD009EF9F6 /* CustomButtonSearch.swift in Sources */,
 				B372469325B68548001DF3C3 /* HomeViewController.swift in Sources */,
-
 				615B736325B6917A009EF9F6 /* CustomButton.swift in Sources */,
 				615B736825B6B07B009EF9F6 /* customViewMenuProfile.swift in Sources */,
 				615B736D25B6B8A6009EF9F6 /* BackgroundView.swift in Sources */,
-
 				B37246AF25B6C42E001DF3C3 /* UserPreference.swift in Sources */,
-
 				615B734925B66C98009EF9F6 /* UserModelView.swift in Sources */,
 				615B737225B6B996009EF9F6 /* customAvatar.swift in Sources */,
 				6150DE4825B1781800BCAD52 /* Prefs.swift in Sources */,
 				616782CF25AFD3E500316E5F /* CustomTextField.swift in Sources */,
+				615B73AC25B93368009EF9F6 /* FacultyModelDelegate.swift in Sources */,
 				6150DE4D25B178AD00BCAD52 /* DebugLog.swift in Sources */,
 				B37246C325B6CA80001DF3C3 /* RequestType.swift in Sources */,
+				615B73C125BA7EF5009EF9F6 /* MajorModel.swift in Sources */,
 				B363639025AEEBAB0071A98F /* ViewController.swift in Sources */,
 				615B738E25B7FDCB009EF9F6 /* Keyboard.swift in Sources */,
+				615B73CB25BA8052009EF9F6 /* MajorSearchModelView.swift in Sources */,
 				615B737725B6CE44009EF9F6 /* MenuController.swift in Sources */,
 				6150DE3E25B175E100BCAD52 /* Utils.swift in Sources */,
 				61CAC67825B16AB800D3C262 /* DownloadAsyncTask.swift in Sources */,
 				B35FA5E725B7B0A1007F692B /* PreferencesUtils.swift in Sources */,
+				615B73A725B932F2009EF9F6 /* FacultyModel.swift in Sources */,
 				6150DE4325B176E600BCAD52 /* Constants.swift in Sources */,
 				B37246B425B6C893001DF3C3 /* ExamModel.swift in Sources */,
 				B37246BE25B6C9CF001DF3C3 /* ExamModelDelegate.swift in Sources */,
 				615B735225B67566009EF9F6 /* LoginViewModel.swift in Sources */,
+				615B73C625BA7FFD009EF9F6 /* MajorModelDelegate.swift in Sources */,
 				B35FA60525B80119007F692B /* SubjectModelDelegate.swift in Sources */,
 				615B734425B662C4009EF9F6 /* CustomLabelEditProfile.swift in Sources */,
 				B363638C25AEEBAB0071A98F /* AppDelegate.swift in Sources */,
 				6150C1CC25B589BF00770819 /* EditProfileController.swift in Sources */,
 				6150DE5625B1877900BCAD52 /* RegisterController.swift in Sources */,
+				615385C225BE493100A02F06 /* SubjectSearchModelView.swift in Sources */,
 				B37246B925B6C996001DF3C3 /* HomeViewModel.swift in Sources */,
+				615B73A225B9323A009EF9F6 /* FacultySearchModelView.swift in Sources */,
 				B37246CB25B6DB10001DF3C3 /* Date.swift in Sources */,
+				615385CC25BE97EB00A02F06 /* SearchTableViewCell.swift in Sources */,
 				616782F425B11FD700316E5F /* UserModel.swift in Sources */,
 				B35FA60025B8009B007F692B /* SubjectModel.swift in Sources */,
 				B374E7C025B5368700E1B205 /* UIView.swift in Sources */,
+				615385C725BE4B2000A02F06 /* SubjectSearchModelDelegate.swift in Sources */,
 				B363638E25AEEBAB0071A98F /* SceneDelegate.swift in Sources */,
 				B374E7C525B5369D00E1B205 /* UIColor.swift in Sources */,
 			);
