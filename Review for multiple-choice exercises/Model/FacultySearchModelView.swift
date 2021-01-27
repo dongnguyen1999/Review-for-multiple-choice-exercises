@@ -25,7 +25,7 @@ class FacultySearchModelView {
             }
              else {
               
-                self.facultydelegate.onError(msg: msg)
+                self.facultydelegate.onError(message: msg)
              }
         }
     }

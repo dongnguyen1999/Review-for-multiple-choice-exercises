@@ -21,7 +21,27 @@ class PagingView: UIView {
     var totalPage = 1
     var activePage: Int = 4 {
         didSet {
-            onChangePageCallback!(activePage)
+            onChangePageCallback?(activePage)
+        }
+    }
+    
+    var nextAvailableImage: UIImage?
+    var nextUnavailableImage: UIImage?
+    var prevAvailableImage: UIImage?
+    var prevUnavailableImage: UIImage?
+    var grayDotImage: UIImage?
+    var orangeDotImage: UIImage?
+    
+    override var tintColor: UIColor! {
+        get { return super.tintColor }
+        set {
+            super.tintColor = newValue
+            switch tintColor {
+                case UIColor.purple:
+                    loadPurpleStyleImages()
+                default:
+                    loadOrangeStyleImages()
+            }
         }
     }
     
@@ -29,12 +49,7 @@ class PagingView: UIView {
     
     var dotViews = [UIImageView]()
     
-    let nextAvailableImage = UIImage(named: "icon_arrow_next_outline")
-    let nextUnavailableImage = UIImage(named: "icom_arrow_next")
-    let prevAvailableImage = UIImage(named: "icon_arrow_prev_outline")
-    let prevUnavailableImage = UIImage(named: "icon_arrow_prev")
-    let grayDotImage = UIImage(named: "icon_pageble_dot_gray")
-    let orangeDotImage = UIImage(named: "icon_pageable_dot_orange")
+
     
     
     override init(frame: CGRect) {
@@ -48,19 +63,37 @@ class PagingView: UIView {
     }
     
     func loadLayout() {
+//        tintColor = UIColor.orange
         let viewFromXib = Bundle.main.loadNibNamed("PagingView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
-        viewFromXib.boxShadow(offsetX: 0.0, offsetY: -0.3, opacity: 0.2, radius: 25)
+        viewFromXib.boxShadow(offsetX: 0, offsetY: 3, opacity: 0.2, radius: 30)
         addSubview(viewFromXib)
         nextButton.setOnTapListener(context: self, action: #selector(nextTapped(sender:)))
         prevButton.setOnTapListener(context: self, action: #selector(prevTapped(sender:)))
-        
     }
     
     func setNumberOfPage(totalPage n: Int) {
         totalPage = n
         initPagingDots()
         render()
+    }
+    
+    func loadOrangeStyleImages() {
+        nextAvailableImage = UIImage(named: "icon_arrow_next_orange_outline")
+        nextUnavailableImage = UIImage(named: "icon_arrow_next_orange")
+        prevAvailableImage = UIImage(named: "icon_arrow_prev_orange_outline")
+        prevUnavailableImage = UIImage(named: "icon_arrow_prev_orange")
+        grayDotImage = UIImage(named: "icon_pageble_dot_gray")
+        orangeDotImage = UIImage(named: "icon_pageable_dot_orange")
+    }
+    
+    func loadPurpleStyleImages() {
+        nextAvailableImage = UIImage(named: "icon_arrow_next_purple_outline")
+        nextUnavailableImage = UIImage(named: "icon_arrow_next_purple")
+        prevAvailableImage = UIImage(named: "icon_arrow_prev_purple_outline")
+        prevUnavailableImage = UIImage(named: "icon_arrow_prev_purple")
+        grayDotImage = UIImage(named: "icon_pageble_dot_gray")
+        orangeDotImage = UIImage(named: "icon_pageable_dot_purple")
     }
     
     
@@ -108,6 +141,7 @@ class PagingView: UIView {
     
     
     func render() {
+        print("render")
         dotContainerView.subviews.forEach({$0.removeFromSuperview()})
         
         if type == PagingViewType.THREE_DOT {
@@ -142,7 +176,7 @@ class PagingView: UIView {
             }
         }
         
-        
+//        print(activePage)
         
         if activePage == 0 {
             prevButton.restorationIdentifier = "false"
@@ -158,7 +192,6 @@ class PagingView: UIView {
         } else {
             nextButton.restorationIdentifier = "true"
             nextButton.image = nextAvailableImage
-            
         }
         
     }

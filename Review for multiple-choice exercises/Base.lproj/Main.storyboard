@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gdz-gW-e3y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Yn-Uy-nUf">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
-
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -596,22 +594,16 @@
         <!--VÀO PHÒNG THI-->
         <scene sceneID="OgM-yU-wP1">
             <objects>
-
                 <viewController id="96Q-qc-Pzl" customClass="FacultySearchController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a3I-qK-xqv" customClass="BackgroundView" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-<!--
-                <viewController id="96Q-qc-Pzl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a3I-qK-xqv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
--->
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-hI-yIn">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qib-N9-VgB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-w6-RjA">
                                                 <rect key="frame" x="2" y="10" width="410" height="32"/>
@@ -633,7 +625,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableview1" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jt6-F1-TEw">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="644"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="562"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="vbt-8b-nWS" style="IBUITableViewCellStyleDefault" id="iSw-J5-bnk" customClass="SearchTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
@@ -673,7 +665,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-qO-3OS">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="644"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="562"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="majorcell" textLabel="hBy-wg-n1I" style="IBUITableViewCellStyleDefault" id="tlp-EJ-lop" customClass="SearchTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
@@ -696,7 +688,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EH1-TV-1db">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="644"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="562"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectcell" textLabel="UDf-Uf-0dv" style="IBUITableViewCellStyleDefault" id="n2F-8d-9dU" customClass="SearchTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
@@ -719,7 +711,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFq-e3-aMx">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="644"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="562"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectsearch" id="qCJ-Nc-TsG" customClass="SearchTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
@@ -793,7 +785,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vV-fo-uM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="5207.2463768115949" y="-206.25"/>
         </scene>
         <!--View Controller-->
@@ -801,7 +792,7 @@
             <objects>
                 <viewController id="tTT-DD-Ps2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="95m-t2-4XG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="mPN-bN-42q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -810,9 +801,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9As-Kr-pXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6028" y="-206"/>
-<!--
-            <point key="canvasLocation" x="5208.695652173913" y="-206.25"/>
--->
         </scene>
         <!--View Controller-->
         <scene sceneID="hjc-AN-fDu">
@@ -1549,7 +1537,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Yn-Uy-nUf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z9Z-xN-74D">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1562,18 +1550,12 @@
             <point key="canvasLocation" x="4298.5507246376819" y="-206.25"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ppP-ET-hm1"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="avatar" width="256" height="256"/>
         <image name="avatar2" width="540" height="540"/>
-
-        <image name="background_white" width="2448" height="2448"/>
-
         <image name="background_history" width="375" height="812"/>
-
+        <image name="background_white" width="2448" height="2448"/>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
         <image name="icn_2" width="16" height="16"/>
         <image name="icn_editprofile" width="16" height="16"/>

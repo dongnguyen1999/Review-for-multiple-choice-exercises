@@ -223,8 +223,8 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         }
     }
     
-    func onError(msg: String) {
-        print(msg)
+    func onError(message: String) {
+        print(message)
     }
     //list major
     func onSuccessMajor(listMajor: [MajorModel]?) {

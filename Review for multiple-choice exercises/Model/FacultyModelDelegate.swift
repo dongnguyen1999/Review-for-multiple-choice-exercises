@@ -2,7 +2,6 @@
 //  FacultyModelDelegate.swift
 //  Review for multiple-choice exercises
 //
-
 //  Created by Dong Nguyen on 21/01/2021.
 //
 
