@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         scoreChartView.noDataText = "Dong Nguyen"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)

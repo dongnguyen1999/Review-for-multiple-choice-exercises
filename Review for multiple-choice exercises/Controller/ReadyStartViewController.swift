@@ -25,7 +25,7 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         
         loadSampleSubject()
         

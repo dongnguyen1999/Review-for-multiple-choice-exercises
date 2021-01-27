@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGK-9r-2H7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ibe-Vk-8LT">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -344,7 +344,7 @@
             </objects>
             <point key="canvasLocation" x="1425" y="-239"/>
         </scene>
-        <!--Ready Start View Controller-->
+        <!--Title-->
         <scene sceneID="qIo-qX-Xrw">
             <objects>
                 <viewController id="iUj-S1-6SZ" customClass="ReadyStartViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,7 +437,7 @@
                             <constraint firstItem="LDk-OC-iQd" firstAttribute="top" secondItem="TAQ-aM-vOZ" secondAttribute="bottom" constant="83" id="zdZ-db-Hvm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JFY-tj-Yno"/>
+                    <navigationItem key="navigationItem" title="Title" id="tgp-NT-qCp"/>
                     <connections>
                         <outlet property="durationLabel" destination="eih-jU-6Yd" id="gN2-fb-ylN"/>
                         <outlet property="minuteLabel" destination="MPW-4a-aD2" id="cin-QO-Tg9"/>
@@ -468,10 +468,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isE-ye-lSj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="524.66666666666663"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="564.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNq-EX-j32">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="763.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyg-5p-gUL">
                                                 <rect key="frame" x="0.0" y="262" width="414" height="469.33333333333326"/>
@@ -752,7 +752,7 @@
                                             <constraint firstItem="zhN-Hu-89K" firstAttribute="centerX" secondItem="xNq-EX-j32" secondAttribute="centerX" id="lU4-Us-mrF"/>
                                             <constraint firstItem="Qe4-fE-kbf" firstAttribute="centerX" secondItem="xNq-EX-j32" secondAttribute="centerX" id="nV9-yn-kwH"/>
                                             <constraint firstItem="eg3-Jy-B6F" firstAttribute="top" secondItem="n2h-W3-dNX" secondAttribute="bottom" constant="8" id="qhI-vh-Vb1"/>
-                                            <constraint firstAttribute="bottom" secondItem="uyg-5p-gUL" secondAttribute="bottom" constant="-31.333333333333258" id="uM9-gc-WOP"/>
+                                            <constraint firstAttribute="bottom" secondItem="uyg-5p-gUL" secondAttribute="bottom" constant="32" id="uM9-gc-WOP"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -786,7 +786,7 @@
                             <constraint firstItem="lfW-iy-VFa" firstAttribute="height" secondItem="PQd-Je-cvh" secondAttribute="height" multiplier="0.7" id="Zou-zf-QHu"/>
                             <constraint firstItem="AEA-q1-3w6" firstAttribute="leading" secondItem="RnI-gs-mb3" secondAttribute="leading" constant="87" id="dY2-Et-dO6"/>
                             <constraint firstItem="AEA-q1-3w6" firstAttribute="centerX" secondItem="RnI-gs-mb3" secondAttribute="centerX" id="lLC-k5-IS0"/>
-                            <constraint firstItem="AEA-q1-3w6" firstAttribute="top" secondItem="isE-ye-lSj" secondAttribute="bottom" constant="48" id="oP8-hL-zob"/>
+                            <constraint firstItem="AEA-q1-3w6" firstAttribute="top" secondItem="isE-ye-lSj" secondAttribute="bottom" constant="8" id="oP8-hL-zob"/>
                             <constraint firstItem="RnI-gs-mb3" firstAttribute="trailing" secondItem="JOO-r7-KyM" secondAttribute="trailing" id="pHH-ZF-KB0"/>
                             <constraint firstItem="RnI-gs-mb3" firstAttribute="bottom" secondItem="AEA-q1-3w6" secondAttribute="bottom" constant="64" id="tfz-Yu-IIf"/>
                             <constraint firstItem="RnI-gs-mb3" firstAttribute="bottom" secondItem="JOO-r7-KyM" secondAttribute="bottom" id="v4Q-UM-hQU"/>
@@ -825,38 +825,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOn-qB-imt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5047.826086956522" y="-204.61956521739131"/>
-        </scene>
-        <!--Hello View Controller-->
-        <scene sceneID="Pyc-6c-bnd">
-            <objects>
-                <viewController id="MDO-Vf-Fe7" customClass="HelloViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZXZ-Es-J8G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBC-i1-Hd2" customClass="HelloView" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
-                                <rect key="frame" x="87.000000000000014" y="100.00000000000001" width="147.33333333333337" height="147.33333333333337"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LBC-i1-Hd2" secondAttribute="height" multiplier="1:1" id="Q13-Sl-3fT"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mO8-Wh-mfc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LBC-i1-Hd2" firstAttribute="leading" secondItem="mO8-Wh-mfc" secondAttribute="leading" constant="87" id="J4h-BS-385"/>
-                            <constraint firstItem="LBC-i1-Hd2" firstAttribute="top" secondItem="mO8-Wh-mfc" secondAttribute="top" constant="100" id="P6V-S1-UiE"/>
-                            <constraint firstItem="LBC-i1-Hd2" firstAttribute="height" secondItem="ZXZ-Es-J8G" secondAttribute="height" multiplier="0.2" id="nUL-bS-Xo7"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="squareView" destination="LBC-i1-Hd2" id="MnL-xb-hHs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mHU-n8-EkZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5989.8550724637689" y="-338.31521739130437"/>
         </scene>
         <!--Cài đặt-->
         <scene sceneID="H2s-Kz-tDD">

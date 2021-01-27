@@ -78,8 +78,8 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         questionViewModel = QuestionViewModel(questionDelegate: self)
         questionViewModel.onGetListQuestion(examId: examModel.examId)
         
-        if PreferencesUtils.get(key: "examId") == nil {
-            PreferencesUtils.set(key: "examId", value: examModel.examId)
+        if Prefs.getCachedExamModel() != nil {
+            Prefs.cacheExamModel(model: examModel)
         }
         
         switch status {

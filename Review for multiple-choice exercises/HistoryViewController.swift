@@ -29,7 +29,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
