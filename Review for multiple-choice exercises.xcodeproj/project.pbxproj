@@ -29,16 +29,16 @@
 		61CAC67825B16AB800D3C262 /* DownloadAsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CAC67725B16AB800D3C262 /* DownloadAsyncTask.swift */; };
 		831C366FE1F96231291F9517 /* Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAEF8A5D528A558409E797F /* Pods_Review_for_multiple_choice_exercises_Review_for_multiple_choice_exercisesUITests.framework */; };
 		B3288BDC25BAB0B1004CB5CA /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BDB25BAB0B1004CB5CA /* HistoryViewController.swift */; };
-		B3288BE325BAB0E2004CB5CA /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BE025BAB0E2004CB5CA /* HistoryViewModel.swift */; };
-		B3288BE425BAB0E2004CB5CA /* FacultyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BE125BAB0E2004CB5CA /* FacultyModel.swift */; };
-		B3288BE525BAB0E2004CB5CA /* FacultyModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BE225BAB0E2004CB5CA /* FacultyModelDelegate.swift */; };
-		B3288BEA25BAB0EB004CB5CA /* PagingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BE925BAB0EB004CB5CA /* PagingViewType.swift */; };
-		B3288BF125BAB101004CB5CA /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BEE25BAB100004CB5CA /* PagingView.swift */; };
-		B3288BF225BAB101004CB5CA /* PagingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3288BEF25BAB101004CB5CA /* PagingView.xib */; };
-		B3288BF325BAB101004CB5CA /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BF025BAB101004CB5CA /* HistoryTableViewCell.swift */; };
 		B3288BFE25BAC5A4004CB5CA /* ReadyStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288BFD25BAC5A4004CB5CA /* ReadyStartViewController.swift */; };
 		B3288C0325BAC6B0004CB5CA /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288C0225BAC6B0004CB5CA /* UIFont.swift */; };
 		B3288C0825BACFE9004CB5CA /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3288C0725BACFE9004CB5CA /* ExamViewController.swift */; };
+		B33671A925C0FA85005DCF7E /* FacultyModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671A825C0FA85005DCF7E /* FacultyModelDelegate.swift */; };
+		B33671AE25C0FAA1005DCF7E /* FacultyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671AD25C0FAA1005DCF7E /* FacultyModel.swift */; };
+		B33671B325C0FABE005DCF7E /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671B225C0FABE005DCF7E /* HistoryViewModel.swift */; };
+		B33671B825C0FAD8005DCF7E /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671B725C0FAD8005DCF7E /* PagingView.swift */; };
+		B33671BD25C0FAF1005DCF7E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671BC25C0FAF0005DCF7E /* HistoryTableViewCell.swift */; };
+		B33671C225C0FB2D005DCF7E /* PagingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33671C125C0FB2D005DCF7E /* PagingViewType.swift */; };
+		B33671C725C0FB43005DCF7E /* PagingView.xib in Sources */ = {isa = PBXBuildFile; fileRef = B33671C625C0FB43005DCF7E /* PagingView.xib */; };
 		B34BF4EB25B56AD1005569CA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B34BF4EA25B56AD1005569CA /* SwiftUICharts */; };
 		B35FA5E725B7B0A1007F692B /* PreferencesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FA5E625B7B0A1007F692B /* PreferencesUtils.swift */; };
 		B35FA60025B8009B007F692B /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FA5FF25B8009B007F692B /* SubjectModel.swift */; };
@@ -112,16 +112,16 @@
 		AB0FB10CF3705C1DDB25959D /* Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests/Pods-Review for multiple-choice exercises-Review for multiple-choice exercisesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEA96254CF3E5939D226220B /* Pods-Review for multiple-choice exercises.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Review for multiple-choice exercises.debug.xcconfig"; path = "Target Support Files/Pods-Review for multiple-choice exercises/Pods-Review for multiple-choice exercises.debug.xcconfig"; sourceTree = "<group>"; };
 		B3288BDB25BAB0B1004CB5CA /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ../HistoryViewController.swift; sourceTree = "<group>"; };
-		B3288BE025BAB0E2004CB5CA /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewModel.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/Model/HistoryViewModel.swift"; sourceTree = "<group>"; };
-		B3288BE125BAB0E2004CB5CA /* FacultyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacultyModel.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/Model/FacultyModel.swift"; sourceTree = "<group>"; };
-		B3288BE225BAB0E2004CB5CA /* FacultyModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacultyModelDelegate.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/Model/FacultyModelDelegate.swift"; sourceTree = "<group>"; };
-		B3288BE925BAB0EB004CB5CA /* PagingViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagingViewType.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/Constant/PagingViewType.swift"; sourceTree = "<group>"; };
-		B3288BEE25BAB100004CB5CA /* PagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagingView.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/View/PagingView.swift"; sourceTree = "<group>"; };
-		B3288BEF25BAB101004CB5CA /* PagingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PagingView.xib; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/View/PagingView.xib"; sourceTree = "<group>"; };
-		B3288BF025BAB101004CB5CA /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = "../../../../Backup/Review-for-multiple-choice-exercises/Review for multiple-choice exercises/View/HistoryTableViewCell.swift"; sourceTree = "<group>"; };
 		B3288BFD25BAC5A4004CB5CA /* ReadyStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyStartViewController.swift; sourceTree = "<group>"; };
 		B3288C0225BAC6B0004CB5CA /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		B3288C0725BACFE9004CB5CA /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		B33671A825C0FA85005DCF7E /* FacultyModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FacultyModelDelegate.swift; path = ../../FacultyModelDelegate.swift; sourceTree = "<group>"; };
+		B33671AD25C0FAA1005DCF7E /* FacultyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FacultyModel.swift; path = ../../FacultyModel.swift; sourceTree = "<group>"; };
+		B33671B225C0FABE005DCF7E /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryViewModel.swift; path = ../../HistoryViewModel.swift; sourceTree = "<group>"; };
+		B33671B725C0FAD8005DCF7E /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PagingView.swift; path = ../../PagingView.swift; sourceTree = "<group>"; };
+		B33671BC25C0FAF0005DCF7E /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = ../../HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		B33671C125C0FB2D005DCF7E /* PagingViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PagingViewType.swift; path = ../../PagingViewType.swift; sourceTree = "<group>"; };
+		B33671C625C0FB43005DCF7E /* PagingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PagingView.xib; path = ../../PagingView.xib; sourceTree = "<group>"; };
 		B35FA5E625B7B0A1007F692B /* PreferencesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUtils.swift; sourceTree = "<group>"; };
 		B35FA5FF25B8009B007F692B /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		B35FA60425B80119007F692B /* SubjectModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModelDelegate.swift; sourceTree = "<group>"; };
@@ -220,11 +220,11 @@
 				615B734325B662C4009EF9F6 /* CustomLabelEditProfile.swift */,
 				615B736225B6917A009EF9F6 /* CustomButton.swift */,
 				615B736725B6B07B009EF9F6 /* customViewMenuProfile.swift */,
+				B33671C625C0FB43005DCF7E /* PagingView.xib */,
 				615B736C25B6B8A6009EF9F6 /* BackgroundView.swift */,
+				B33671B725C0FAD8005DCF7E /* PagingView.swift */,
 				615B737125B6B996009EF9F6 /* customAvatar.swift */,
-				B3288BF025BAB101004CB5CA /* HistoryTableViewCell.swift */,
-				B3288BEE25BAB100004CB5CA /* PagingView.swift */,
-				B3288BEF25BAB101004CB5CA /* PagingView.xib */,
+				B33671BC25C0FAF0005DCF7E /* HistoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 				6150DE4225B176E600BCAD52 /* Constants.swift */,
 				B37246AE25B6C42E001DF3C3 /* UserPreference.swift */,
 				B37246C225B6CA80001DF3C3 /* RequestType.swift */,
-				B3288BE925BAB0EB004CB5CA /* PagingViewType.swift */,
+				B33671C125C0FB2D005DCF7E /* PagingViewType.swift */,
 				B3709C4A25BFEA0800CB95A6 /* ExamStatus.swift */,
 			);
 			path = Constant;
@@ -261,13 +261,13 @@
 				615B734825B66C98009EF9F6 /* UserModelView.swift */,
 				615B735125B67566009EF9F6 /* LoginViewModel.swift */,
 				B37246B325B6C893001DF3C3 /* ExamModel.swift */,
+				B33671AD25C0FAA1005DCF7E /* FacultyModel.swift */,
 				B37246B825B6C996001DF3C3 /* HomeViewModel.swift */,
 				B37246BD25B6C9CF001DF3C3 /* ExamModelDelegate.swift */,
+				B33671A825C0FA85005DCF7E /* FacultyModelDelegate.swift */,
+				B33671B225C0FABE005DCF7E /* HistoryViewModel.swift */,
 				B35FA5FF25B8009B007F692B /* SubjectModel.swift */,
 				B35FA60425B80119007F692B /* SubjectModelDelegate.swift */,
-				B3288BE125BAB0E2004CB5CA /* FacultyModel.swift */,
-				B3288BE225BAB0E2004CB5CA /* FacultyModelDelegate.swift */,
-				B3288BE025BAB0E2004CB5CA /* HistoryViewModel.swift */,
 				B38490C625BEB7C300C77D48 /* ExamViewModel.swift */,
 				B38490CB25BEC6E500C77D48 /* QuestionModel.swift */,
 				B38490D025BEC6F600C77D48 /* QuestionModelDelegate.swift */,
@@ -483,7 +483,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3288BF225BAB101004CB5CA /* PagingView.xib in Resources */,
 				B363639825AEEBAB0071A98F /* LaunchScreen.storyboard in Resources */,
 				B363639525AEEBAB0071A98F /* Assets.xcassets in Resources */,
 				B363639325AEEBAB0071A98F /* Main.storyboard in Resources */,
@@ -614,6 +613,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B33671C725C0FB43005DCF7E /* PagingView.xib in Sources */,
+				B33671C225C0FB2D005DCF7E /* PagingViewType.swift in Sources */,
+				B33671BD25C0FAF1005DCF7E /* HistoryTableViewCell.swift in Sources */,
+				B33671B825C0FAD8005DCF7E /* PagingView.swift in Sources */,
+				B33671B325C0FABE005DCF7E /* HistoryViewModel.swift in Sources */,
+				B33671AE25C0FAA1005DCF7E /* FacultyModel.swift in Sources */,
+				B33671A925C0FA85005DCF7E /* FacultyModelDelegate.swift in Sources */,
 				B372469325B68548001DF3C3 /* HomeViewController.swift in Sources */,
 				615B736325B6917A009EF9F6 /* CustomButton.swift in Sources */,
 				615B736825B6B07B009EF9F6 /* customViewMenuProfile.swift in Sources */,
@@ -625,7 +631,6 @@
 				616782CF25AFD3E500316E5F /* CustomTextField.swift in Sources */,
 				6150DE4D25B178AD00BCAD52 /* DebugLog.swift in Sources */,
 				B3709C4B25BFEA0800CB95A6 /* ExamStatus.swift in Sources */,
-				B3288BE525BAB0E2004CB5CA /* FacultyModelDelegate.swift in Sources */,
 				B37246C325B6CA80001DF3C3 /* RequestType.swift in Sources */,
 				B363639025AEEBAB0071A98F /* ViewController.swift in Sources */,
 				615B738E25B7FDCB009EF9F6 /* Keyboard.swift in Sources */,
@@ -634,12 +639,10 @@
 				B3288BDC25BAB0B1004CB5CA /* HistoryViewController.swift in Sources */,
 				61CAC67825B16AB800D3C262 /* DownloadAsyncTask.swift in Sources */,
 				B35FA5E725B7B0A1007F692B /* PreferencesUtils.swift in Sources */,
-				B3288BE425BAB0E2004CB5CA /* FacultyModel.swift in Sources */,
 				6150DE4325B176E600BCAD52 /* Constants.swift in Sources */,
 				B37246B425B6C893001DF3C3 /* ExamModel.swift in Sources */,
 				B38490D625BEC88300C77D48 /* QuestionViewModel.swift in Sources */,
 				B38490D125BEC6F600C77D48 /* QuestionModelDelegate.swift in Sources */,
-				B3288BE325BAB0E2004CB5CA /* HistoryViewModel.swift in Sources */,
 				B37246BE25B6C9CF001DF3C3 /* ExamModelDelegate.swift in Sources */,
 				615B735225B67566009EF9F6 /* LoginViewModel.swift in Sources */,
 				B35FA60525B80119007F692B /* SubjectModelDelegate.swift in Sources */,
@@ -648,13 +651,10 @@
 				6150C1CC25B589BF00770819 /* EditProfileController.swift in Sources */,
 				6150DE5625B1877900BCAD52 /* RegisterController.swift in Sources */,
 				B3288C0825BACFE9004CB5CA /* ExamViewController.swift in Sources */,
-				B3288BF125BAB101004CB5CA /* PagingView.swift in Sources */,
 				B37246B925B6C996001DF3C3 /* HomeViewModel.swift in Sources */,
 				B37246CB25B6DB10001DF3C3 /* Date.swift in Sources */,
 				616782F425B11FD700316E5F /* UserModel.swift in Sources */,
-				B3288BF325BAB101004CB5CA /* HistoryTableViewCell.swift in Sources */,
 				B35FA60025B8009B007F692B /* SubjectModel.swift in Sources */,
-				B3288BEA25BAB0EB004CB5CA /* PagingViewType.swift in Sources */,
 				B374E7C025B5368700E1B205 /* UIView.swift in Sources */,
 				B3288C0325BAC6B0004CB5CA /* UIFont.swift in Sources */,
 				B3288BFE25BAC5A4004CB5CA /* ReadyStartViewController.swift in Sources */,
