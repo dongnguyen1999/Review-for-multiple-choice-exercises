@@ -12,9 +12,6 @@ import UIKit
 
 class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
 
-    
-    
-
     var loginviewmodel : LoginViewModel!
     // Dong wrote
     
@@ -54,12 +51,21 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         //scrollview theo bàn phím
         NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        //Check user login status
+        if PreferencesUtils.getCachedUserModel() != nil {
+            changeRootViewToHome()
+        }
+        
     }
     
     func onSuccess(listAccount: [UserModel]?) {
-        
-        
-
+        if let userModel = listAccount?[0] {
+            PreferencesUtils.cacheUserModel(model: userModel)
+            changeRootViewToHome()
+        } else {
+            ThongBao(title: "Thong Bao", message: "Lỗi đăng nhập, vui lòng thử lại")
+        }
     }
     
     func onError(msg: String) {
@@ -75,8 +81,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     }
     
     
-
-    @IBAction func actionLogin(_ sender: UIButton) {
+    @IBAction func actionLogin(_ sender: Any) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
         if username == "" && password == ""{
@@ -91,6 +96,13 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
             loginviewmodel=LoginViewModel(usermodelView: self)
             loginviewmodel.onLogin(username: username, password: password)
         }
+    }
+    
+    func changeRootViewToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle:nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigation") as! UINavigationController
+        UIApplication.shared.windows.first?.rootViewController = homeViewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     

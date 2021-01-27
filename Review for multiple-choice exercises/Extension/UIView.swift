@@ -31,4 +31,16 @@ public extension UIView {
         self.layer.shadowRadius = radius
         self.layer.shadowPath = shadowPath.cgPath
     }
+    
+    func setOnTapListener(context: UIView, action selector: Selector? ) {
+        let singleTap = UITapGestureRecognizer(target: context, action: selector)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(singleTap)
+    }
+    
+    func setOnTapListener(context: UIViewController, action selector: Selector? ) {
+        let singleTap = UITapGestureRecognizer(target: context, action: selector)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(singleTap)
+    }
 }

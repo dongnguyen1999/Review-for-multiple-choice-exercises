@@ -19,6 +19,9 @@ class ExamModel: HandyJSON {
     var duration: Int = 0
     var score: Float?
     
+    var facultyName: String = ""
+    var subjectName: String = ""
+    
     required init(){}
 }
 

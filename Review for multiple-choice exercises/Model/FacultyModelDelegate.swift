@@ -2,11 +2,13 @@
 //  FacultyModelDelegate.swift
 //  Review for multiple-choice exercises
 //
-//  Created by TranNhuan on 1/20/21.
+
+//  Created by Dong Nguyen on 21/01/2021.
 //
 
 import Foundation
+
 protocol FacultyModelDelegate {
     func onSuccess(listFaculty: [FacultyModel]?)
-    func onError(msg: String)
+    func onError(message: String)
 }

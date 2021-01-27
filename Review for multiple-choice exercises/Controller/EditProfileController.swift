@@ -15,6 +15,13 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var Btneditprofile: UIButton!
+    
+    var userModel: UserModel!
+    
+    @IBAction func onCancelEdit(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     //Chọn ảnh
     @IBAction func BtnChoosefile(_ sender: Any) {
         let vc = UIImagePickerController()
@@ -59,10 +66,11 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         
         }
     func getdata()  {
-  
-        name.text = "Trần Phú Nhuận"
-        phone.text = "0333000909"
-        email.text = "nhuanb1605233@gmail.com"
+        userModel = PreferencesUtils.getCachedUserModel()
+        
+        name.text = userModel.name
+        phone.text = userModel.phone
+        email.text = userModel.email
         
         }
     
