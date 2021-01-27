@@ -9,6 +9,7 @@ import UIKit
 import Charts
 
 class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDelegate {
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var startExamView: UIView!
     @IBOutlet weak var startChatView: UIView!
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         scoreChartView.noDataText = "Dong Nguyen"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
@@ -299,5 +300,8 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         print("Starting chat...")
     }
 
+    func onDeleteSuccess(message: String) {
+        print(message)
+    }
 
 }

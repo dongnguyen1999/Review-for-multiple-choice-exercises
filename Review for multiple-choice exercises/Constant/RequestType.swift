@@ -10,4 +10,6 @@ struct RequestType {
     public static let LIST = "list"
     public static let LOGIN = "login"
     public static let REGISTER = "register"
+    public static let OPEN_NEW = "openNew"
+    public static let CANCEL = "cancel"
 }

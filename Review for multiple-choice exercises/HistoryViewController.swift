@@ -8,7 +8,6 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExamModelDelegate {
-
     
     @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var pagingView: PagingView!
@@ -31,7 +30,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
@@ -132,4 +131,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         showDataPage(pageNumber: page)
     }
     
+    func onDeleteSuccess(message: String) {
+        print(message)
+    }
 }
