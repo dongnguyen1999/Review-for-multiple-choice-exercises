@@ -84,12 +84,16 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     @IBAction func actionLogin(_ sender: Any) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
-        if username == "" || password == ""{
-           ThongBao(title: "Thông Báp", message: "Vui lòng nhập đẩy đủ thông tin")
-
+        if username == "" && password == ""{
+           ThongBao(title: "Thông Báo", message: "Vui lòng nhập đẩy đủ thông tin")
+        }else if (username == ""){
+            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập email")
+        }else if (password == ""){
+            ThongBao(title: "Thông Báo", message: "Bạn chưa nhập mật khẩu")
+        }
+        else {
             
-        }else {
-            loginviewmodel = LoginViewModel(usermodelView: self)
+            loginviewmodel=LoginViewModel(usermodelView: self)
             loginviewmodel.onLogin(username: username, password: password)
         }
     }
