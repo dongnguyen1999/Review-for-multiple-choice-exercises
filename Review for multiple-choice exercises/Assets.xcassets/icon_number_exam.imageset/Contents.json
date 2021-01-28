@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "số bài thi.png",
+      "filename" : "số bài thi.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "số bài thi@2x.png",
+      "filename" : "số bài thi@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "số bài thi@3x.png",
+      "filename" : "số bài thi@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

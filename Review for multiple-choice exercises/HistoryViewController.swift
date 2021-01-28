@@ -10,6 +10,9 @@ import UIKit
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExamModelDelegate {
     
     @IBOutlet weak var historyTableView: UITableView!
+    @IBOutlet weak var importantTableView: UITableView!
+    
+    
     @IBOutlet weak var pagingView: PagingView!
     @IBOutlet weak var allExamButton: UIButton!
     @IBOutlet weak var importantExamButton: UIButton!
@@ -17,11 +20,15 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 //    var presentData: [ExamModel]!
     var presentData = [ExamModel]()
+    var importantPresentData = [ExamModel]()
     var dataSet: [ExamModel]!
+    var importantDataSet: [ExamModel]!
     
     var userModel: UserModel!
     var historyViewModel: HistoryViewModel!
     var facultyNames = [Int: String]()
+    
+    var historyType = HistoryViewType.ALL_HISTORY
 
     var rateColorList = [UIColor(hex: "#f44336"), UIColor(hex: "#9c27af"), UIColor(hex: "#3f51b5"), UIColor(hex: "#00bcd4"), UIColor(hex: "#4cae50")]
     
@@ -37,17 +44,58 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         historyTableView.alwaysBounceVertical = false
         historyTableView.backgroundColor = UIColor.clear
         
+        importantTableView.delegate = self
+        importantTableView.dataSource = self
+        importantTableView.alwaysBounceVertical = false
+        importantTableView.backgroundColor = UIColor.clear
+        
         allExamButton.roundWithBorder(borderRadius: 10)
         importantExamButton.roundWithBorder(borderRadius: 10)
         
         historyViewModel = HistoryViewModel(examDelegate: self)
         historyViewModel.onGetListExam(userId: userModel.userId)
         
+        pagingView.tintColor = .orange
         pagingView.onChangePageCallback = self.changePage(pageNumber:)
         
 //        self.historyTableView.estimatedRowHeight = 44
 //        self.historyTableView.rowHeight = UITableView.automaticDimension
         backButton.setOnTapListener(context: self, action: #selector(backToMenu(sender:)))
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if dataSet != nil {
+            switch historyType {
+            case HistoryViewType.ALL_HISTORY:
+                pagingView.setNumberOfPage(totalPage: Int(ceil( Float(dataSet.count) / Float(HistoryViewController.PRESENT_LIMIT))))
+                showDataPage(pageNumber: 0)
+            case HistoryViewType.IMPORTANT_HISTORY:
+                pagingView.setNumberOfPage(totalPage: Int(ceil( Float(importantDataSet.count) / Float(HistoryViewController.PRESENT_LIMIT))))
+                showDataPage(pageNumber: 0)
+            default:
+                fatalError("Unknown history type")
+            }
+        }
+        
+        switch historyType {
+        case HistoryViewType.ALL_HISTORY:
+            allExamButton.backgroundColor = UIColor(hex: "#FF671B")
+            allExamButton.setTitleColor(UIColor.white, for: .normal)
+            importantExamButton.backgroundColor = .clear
+            importantExamButton.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+            historyTableView.isHidden = false
+            importantTableView.isHidden = true
+        case HistoryViewType.IMPORTANT_HISTORY:
+            importantExamButton.backgroundColor = UIColor(hex: "#FF671B")
+            importantExamButton.setTitleColor(UIColor.white, for: .normal)
+            allExamButton.backgroundColor = .clear
+            allExamButton.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+            historyTableView.isHidden = true
+            importantTableView.isHidden = false
+        default:
+            fatalError("Unknown history type")
+        }
     }
     
     @objc func backToMenu(sender: UIGestureRecognizer) {
@@ -70,12 +118,41 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presentData.count
+        switch tableView {
+        case historyTableView:
+            return presentData.count
+        case importantTableView:
+            return importantPresentData.count
+        default:
+            fatalError("Unknown tableView")
+        }
+        
     }
     
+    let titleButtonAttributes: [NSAttributedString.Key: Any] = [
+          .font: UIFont.systemFont(ofSize: 14),
+          .foregroundColor: UIColor.blue,
+          .underlineStyle: NSUnderlineStyle.single.rawValue]
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
-        let exam = presentData[indexPath.row]
+        
+        
+        let cell: HistoryTableViewCell
+        let exam: ExamModel
+        switch tableView {
+        case historyTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
+            exam = presentData[indexPath.row]
+        case importantTableView:
+            cell = tableView.dequeueReusableCell(withIdentifier: "importantHistoryCell", for: indexPath) as! HistoryTableViewCell
+            exam = importantPresentData[indexPath.row]
+        default:
+            fatalError("Unknown tableView")
+        }
+        
+        let attributeString = NSMutableAttributedString(string: "Xem lại",
+                                                             attributes: titleButtonAttributes)
+        cell.reviewButton.setAttributedTitle(attributeString, for: .normal)
         
 //        cell.contentView.roundWithBorder(borderRadius: 15)
         cell.contentView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 15)
@@ -85,8 +162,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         cell.color = color
-        
-        
         cell.facultyNameLabel.text = exam.facultyName
         cell.subjectNameLabel.text = exam.subjectName
         cell.createDateLabel.text = Date.fromTimestamp(timestamp: exam.createDate)?.toFormart(formatString: "dd/MM/yyyy")
@@ -102,8 +177,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func onSuccess(listExam: [ExamModel]?) {
         if let exams = listExam {
             dataSet = exams
-            pagingView.setNumberOfPage(totalPage: Int(ceil( Float(dataSet.count) / Float(HistoryViewController.PRESENT_LIMIT))))
-            showDataPage(pageNumber: 0)
+            importantDataSet = [ExamModel]()
+            for exam in exams {
+                if exam.isImportant == 1 {
+                    importantDataSet.append(exam)
+                }
+            }
+            viewWillAppear(true)
         }
     }
     
@@ -112,19 +192,40 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func showDataPage(pageNumber page: Int, limit: Int = HistoryViewController.PRESENT_LIMIT) {
-        guard page < dataSet.count else {
-            fatalError("Page index out of range")
+        switch historyType {
+        case HistoryViewType.ALL_HISTORY:
+            guard page < dataSet.count else {
+                fatalError("Page index out of range")
+            }
+            presentData.removeAll()
+            let start = limit * page
+            var end = start + limit
+            if end > dataSet.count {
+                end = dataSet.count
+            }
+            for ex in dataSet[start..<end] {
+                presentData.append(ex)
+            }
+            historyTableView.reloadData()
+        case HistoryViewType.IMPORTANT_HISTORY:
+            guard page < importantDataSet.count else {
+                fatalError("Page index out of range")
+            }
+            importantPresentData.removeAll()
+            let start = limit * page
+            var end = start + limit
+            if end > importantDataSet.count {
+                end = importantDataSet.count
+            }
+            for ex in importantDataSet[start..<end] {
+                importantPresentData.append(ex)
+            }
+            importantTableView.reloadData()
+        default:
+            fatalError("Unknown history type")
         }
-        presentData.removeAll()
-        let start = limit * page
-        var end = start + limit
-        if end > dataSet.count {
-            end = dataSet.count
-        }
-        for ex in dataSet[start..<end] {
-            presentData.append(ex)
-        }
-        historyTableView.reloadData()
+        
+        
     }
     
     func changePage(pageNumber page: Int) {
@@ -133,5 +234,15 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func onDeleteSuccess(message: String) {
         print(message)
+    }
+    
+    @IBAction func onClickAllHistoryButton(_ sender: UIButton) {
+        historyType = HistoryViewType.ALL_HISTORY
+        viewWillAppear(true)
+    }
+    
+    @IBAction func onClickImportantHistoryButton(_ sender: Any) {
+        historyType = HistoryViewType.IMPORTANT_HISTORY
+        viewWillAppear(true)
     }
 }

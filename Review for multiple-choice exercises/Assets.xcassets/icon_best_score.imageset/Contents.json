@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Điểm cao nhất.png",
+      "filename" : "Điểm cao nhất.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Điểm cao nhất@2x.png",
+      "filename" : "Điểm cao nhất@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Điểm cao nhất@3x.png",
+      "filename" : "Điểm cao nhất@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
