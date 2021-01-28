@@ -154,9 +154,10 @@ class DownloadAsyncTask {
              }*/
             let boundary = "Boundary-\(UUID().uuidString)"
             let headers = [
-                
-//                "content-type": "application/x-www-form-urlencoded; multipart/form-data;",
-                "content-type": "application/x-www-form-urlencoded; multipart/form-data; boundary=\(boundary)",
+                //"content-type": "application/x-www-form-urlencoded;",
+         
+               "content-Type": "application/x-www-form-urlencoded;multipart/form-data; boundary=----WebKitFormBoundary1ryaiO91iXGLIQxZ;application/json",
+//                "content-type": "application/x-www-form-urlencoded; multipart/form-data; boundary=\(boundary)",
              //   "content-type": "application/x-www-form-urlencoded",
                     // "authorization": token,
               

@@ -68,8 +68,10 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
             
         AvatarRegister.image = selectedImage
       
-        let imagedata:NSData = (selectedImage.pngData()!) as NSData
-             img = imagedata.base64EncodedString()
+        
+        
+      let imagedata:NSData = (selectedImage.pngData()!) as NSData
+           img = imagedata.base64EncodedString()
        
         
           
@@ -97,10 +99,11 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         let password = PasswordRegister.text ?? ""
         let phone = PhoneRegister.text ??  ""
     
-  
-    print("test\(img)")
+        let fullBase64String = "data:image/png;base64,\(img))"
+
     
-    
+       
+        
         if name ==  "" || email == "" || password == "" || phone == "" {
             ThongBao(title: "Thông Báo", message: "Vui lòng nhập đầy đủ thông tin")
         } else if (phone.count < 10 || phone.count > 10){
@@ -111,7 +114,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         }
             else {
                 
-                let body:[String: Any?] = ["type" : "register", "email" : email, "name" : name, "phone" : phone, "password" : password, "avatar" : img]
+                let body:[String: Any?] = ["type" : "register", "email" : email, "name" : name, "phone" : phone, "password" : password, "avatar" : fullBase64String]
                        print("body \(body)")
 
                        DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/user.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
