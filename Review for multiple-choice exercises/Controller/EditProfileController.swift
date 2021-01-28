@@ -83,7 +83,7 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         
     }
     func getdata()  {
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         name.text = userModel.name
         phone.text = userModel.phone
         email.text = userModel.email
