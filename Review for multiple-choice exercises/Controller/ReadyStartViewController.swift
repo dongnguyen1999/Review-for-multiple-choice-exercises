@@ -43,6 +43,7 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? ExamViewController {
+            dest.subjectModel = subjectModel
             dest.examModel = self.examModel
         }
     }

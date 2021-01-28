@@ -15,4 +15,6 @@ struct ExamPreference {
     public static let PREFERENCE_NBQUESTION = "PREFERENCE_NBQUESTION"
     public static let PREFERENCE_DURATION = "PREFERENCE_DURATION"
     public static let PREFERENCE_SCORE = "PREFERENCE_SCORE"
+    
+    public static let PREFERENCE_SUBJECTNAME = "PREFERENCE_SUBJECTNAME"
 }
