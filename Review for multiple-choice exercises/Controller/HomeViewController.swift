@@ -8,9 +8,9 @@
 import UIKit
 import Charts
 
-class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDelegate {
+class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIButton!
     @IBOutlet weak var startExamView: UIView!
     @IBOutlet weak var startChatView: UIView!
     
@@ -39,21 +39,16 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
         homeViewModel.onGetListExam(userId: userModel.userId)
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        avatarImageView.setOnTapListener(context: self, action: #selector(onTappedAvatar(sender:)))
+        navigationController?.delegate = self
     }
     
-    @objc func onTappedAvatar(sender: UIGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let menuViewController = mainStoryboard.instantiateViewController(withIdentifier: "MenuScreen") as? MenuController else {
-            print("Can not create menu screen view controller")
-            return
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController == self {
+            navigationController.setNavigationBarHidden(true, animated: false)
+        } else {
+            navigationController.setNavigationBarHidden(false, animated: false)
         }
-        
-        navigationController?.pushViewController(menuViewController, animated: true)
     }
-
     
     func onSuccess(listExam: [ExamModel]?) {
         guard let exams = listExam else {
@@ -91,13 +86,13 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         startExamView.roundWithBorder(borderWidth: 5, borderColor: UIColor(hex: "#f9aa33"))
         startChatView.roundWithBorder(borderWidth: 5, borderColor: UIColor(hex: "#9b52d4"))
         
+        
         bestScoreView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         numberExamView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         sumExamView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         rateView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
         
-        chartAreaView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.2, radius: 10)
-        
+        chartAreaView.boxShadow(offsetX: 3, offsetY: 3, opacity: 0.1, radius: 10)
     }
     
     func createDataset(exam xAxis: [Int], score yAxis: [Float], subject label: String, tintColor color: UIColor) -> LineChartDataSet {
@@ -149,22 +144,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     }
     
     func setupChart(data: LineChartData) {
-        
-//        let data = LineChartData()
-//
-//        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"]
-//        let unitsSold = [10.0, 4.0, 6.0, 3.0, 9.0, 8.0, 4.0, 7.0, 2.0]
-//
-//        let months1 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-//        let unitsSold1 = [10.0, 6.0, 8.0, 9.0, 10.0, 10.0, 2.0, 9.0, 3.0, 6.0, 1.0, 2.0]
-//
-//        let months2 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"]
-//        let unitsSold2 = [10.0, 10.0, 5.0, 9.0, 10.0, 10.0, 8.0, 7.0]
-//
-//
-//        data.addDataSet(createDataset(exam: months, score: unitsSold, subject: "Lập trình python", tintColor: UIColor.red))
-//        data.addDataSet(createDataset(exam: months1, score: unitsSold1, subject: "Nhập môn công nghệ phần mềm", tintColor: UIColor.green))
-//        data.addDataSet(createDataset(exam: months2, score: unitsSold2, subject: "Lập trình android", tintColor: UIColor.blue))
     
 //        let chartData = data
         scoreChartView.data = data
@@ -206,14 +185,10 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         var submitedCount = 0
         let currentDate = Date()
         
-        
         for exam in exams {
             let timestampString = exam.createDate
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
-            let date = dateFormatter.date(from: timestampString)
+            let date = Date.fromTimestamp(timestamp: timestampString)
             
             if let sameWeek = date?.isInSameWeek(as: currentDate), sameWeek {
                 sumWeekExam += 1
@@ -225,16 +200,17 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
                     sumRate += score / Float(exam.nbQuestion)
                 }
             }
-        
-            
-//            print("Current datetime: \(dateFormatter.string(from: currentDate))")
-//
-//            print("Exam datetime: \(dateFormatter.string(from: date!))")
-            
-            
             sumExam += 1
         }
-        rateValue.text = "\(Int(sumRate*100/Float(submitedCount)))%"
+        
+        if maxScore == -Float.infinity {
+            maxScore = 0
+        }
+        var rate = 0
+        if submitedCount != 0 {
+            rate = Int(sumRate*100/Float(submitedCount))
+        }
+        rateValue.text = "\(rate)%"
         bestScoreValue.text = "\(Int(maxScore))"
         numberExamValue.text = "\(sumWeekExam)"
         sumExamValue.text = "\(sumExam)"
@@ -243,8 +219,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     func produceChartData(exams: [ExamModel]) -> ([Int], [Int: [Float]]) {
 //        produceChartData(from: exams)
         let examBySubject = getPresentSubjects(from: exams)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         var time = [Int]()
         var data = [Int: [Float]]()
@@ -253,20 +227,22 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
 //            print(subjectExams)
             let sortedExams = subjectExams.sorted {
                 ex1, ex2 in
-                let date1 = dateFormatter.date(from: ex1.createDate)
-                let date2 = dateFormatter.date(from: ex2.createDate)
-                return date1 ?? Date() > date2 ?? Date()
+                let date1 = Date.fromTimestamp(timestamp: ex1.createDate)
+                let date2 = Date.fromTimestamp(timestamp: ex2.createDate)
+                return date1 ?? Date() < date2 ?? Date()
             }
             var listScore = [Float]()
             for i in 0..<sortedExams.count {
                 let ex = sortedExams[i]
-                listScore.append(ex.score ?? 0)
-                
-                if time.firstIndex(of: i) == nil {
-                    time.append(i)
-                } else  {
-                    time[i] = i
+                if let score = ex.score {
+                    listScore.append(score)
+                    if time.firstIndex(of: i) == nil {
+                        time.append(i)
+                    } else  {
+                        time[i] = i
+                    }
                 }
+                
             }
             data[subjectId] = listScore
 //            print(time)
@@ -282,7 +258,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         var colorIndex = 0
         for var (subjectId, listScore) in data {
             while listScore.count < time.count {
-                listScore.insert(0, at: listScore.startIndex)
+                listScore.append(0)
             }
             chartData.addDataSet(createDataset(exam: time, score: listScore, subject: subjectNames[subjectId] ?? "Mã môn học \(subjectId)", tintColor: chartColors[colorIndex]))
             colorIndex += 1
@@ -299,9 +275,10 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     @IBAction func onTapStartChat(_ sender: UITapGestureRecognizer) {
         print("Starting chat...")
     }
-
+    
     func onDeleteSuccess(message: String) {
         print(message)
     }
+
 
 }

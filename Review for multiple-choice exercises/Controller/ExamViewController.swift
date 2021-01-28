@@ -42,11 +42,16 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     @IBOutlet weak var answerView: UIStackView!
     
     var examModel: ExamModel!
-    var questionList = [QuestionModel]()
+    var subjectModel: SubjectModel!
+    var questionList: [QuestionModel]!
     var nbCompleteQuestion = 0
     
     var questionViewModel: QuestionViewModel!
     var status = ExamStatus.DURING
+    
+    var timer: Timer?
+    var remainTimeLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +67,21 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
 //        "score": null,
 //        "nbQuestion": "20"
         
-        examModel = ExamModel()
-        examModel.examId = 83
-        examModel.userId = 3
-        examModel.subjectId = 4
-        examModel.createDate = "2021-01-26 15:40:31"
-        examModel.closeDate =  "2021-01-26 16:25:31"
-        examModel.duration = 45
-        examModel.nbQuestion = 20
+//        examModel = ExamModel()
+//        examModel.examId = 83
+//        examModel.userId = 3
+//        examModel.subjectId = 4
+//        examModel.createDate = "2021-01-26 15:40:31"
+//        examModel.closeDate =  "2021-01-26 16:25:31"
+//        examModel.duration = 45
+//        examModel.nbQuestion = 20
+        
+        if examModel == nil {
+            examModel = Prefs.getCachedExamModel()
+        } else {
+            examModel.subjectName = subjectModel.subjectName
+            Prefs.cacheExamModel(model: examModel)
+        }
         
         pagingView.setNumberOfPage(totalPage: examModel.nbQuestion)
         maxQuestionLabel.text = "\(examModel.nbQuestion)"
@@ -78,9 +90,9 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         questionViewModel = QuestionViewModel(questionDelegate: self)
         questionViewModel.onGetListQuestion(examId: examModel.examId)
         
-        if Prefs.getCachedExamModel() != nil {
-            Prefs.cacheExamModel(model: examModel)
-        }
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
         
         switch status {
             case ExamStatus.DURING:
@@ -89,11 +101,55 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
                     view?.isHidden = true
                 }
                 setupAnswerViews()
+                setupTimerView()
+                createTimer()
+                
             case ExamStatus.PREVIEW:
+                for view in [correctAmount, correctAmountImage, incorrectAmount, incorrectAmountImage] {
+                    view?.isHidden = false
+                }
                 answerView.isUserInteractionEnabled = false
+                remainTimeLabel.isHidden = true
                 print("In preview mode")
             default:
                 fatalError("Exam view controller must be set status")
+        }
+        
+    }
+    
+    
+    
+    func setupOverviewView() {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 21))
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.text = "Tổng quan"
+        let leftButton = UIBarButtonItem(customView: label)
+        label.setOnTapListener(context: self, action: #selector(onClickOverview(sender:)))
+        self.navigationItem.leftBarButtonItem  = leftButton
+    }
+    
+    func setupTimerView() {
+        remainTimeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 21))
+        remainTimeLabel.textAlignment = .center
+        remainTimeLabel.textColor = .white
+        remainTimeLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        remainTimeLabel.text = "Thời gian cỏn lại"
+        let rightButton = UIBarButtonItem(customView: remainTimeLabel)
+        self.navigationItem.rightBarButtonItem  = rightButton
+    }
+    
+    @objc func onClickOverview(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "PushOverview", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? OverviewExamViewController {
+            dest.examModel = examModel
+            dest.questionList = questionList
+            dest.status = status
+            dest.selectedNumber = pagingView.activePage + 1
         }
     }
     
@@ -118,16 +174,18 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
                     case ExamStatus.PREVIEW:
                         if answer == question.answer {
                             views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#6FCF97"))
-                        } else {
+                        }
+                        else {
                             views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#AF72DE"))
                             views[question.answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#FF6D6D"))
                         }
                     default:
                         fatalError("Exam view controller must be set status")
                 }
-                
-                
+            } else if status == ExamStatus.PREVIEW {
+                views[question.answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#FF6D6D"))
             }
+            
         }
     }
     
@@ -175,6 +233,39 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
             view!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.2))
         }
         
+        if questionList != nil {
+            showQuestion(index: pagingView.activePage)
+        }
+        
+        setupOverviewView()
+        
+        
+        switch status {
+            case ExamStatus.DURING:
+                print("In during exam mode")
+                for view in [correctAmount, correctAmountImage, incorrectAmount, incorrectAmountImage] {
+                    view?.isHidden = true
+                }
+                
+            case ExamStatus.PREVIEW:
+                print("In during exam mode")
+                for view in [correctAmount, correctAmountImage, incorrectAmount, incorrectAmountImage] {
+                    view?.isHidden = false
+                }
+                let (complete, correct, incorrect) = computeCompleteQuestion(questions: questionList)
+                nbCompleteQuestion = complete
+                correctAmount.text = "\(correct)"
+                incorrectAmount.text = "\(incorrect)"
+                
+                timer?.invalidate()
+                timer = nil
+                answerView.isUserInteractionEnabled = false
+                remainTimeLabel.isHidden = true
+                print("In preview mode")
+            default:
+                fatalError("Exam view controller must be set status")
+        }
+        
     }
     
     
@@ -214,4 +305,41 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         print(message)
     }
     
+    func createTimer() {
+        if timer == nil {
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                     target: self,
+                                     selector: #selector(updateTimer),
+                                     userInfo: nil,
+                                     repeats: true)
+        }
+        updateTimer()
+    }
+    
+    @objc func updateTimer() {
+        let currentDateTime = Date()
+        let closeDateTime = Date.fromTimestamp(timestamp: examModel.closeDate)
+        let miliseconds = closeDateTime!.milliseconds - currentDateTime.milliseconds
+        if miliseconds <= 0 {
+            timer?.invalidate()
+            timer = nil
+            performSegue(withIdentifier: "PushOverview", sender: self)
+            return
+        }
+        let second = (miliseconds / 1000) % 60
+        let minute = (miliseconds / 1000) / 60
+        remainTimeLabel.text = "\(minute):\(second)s"
+    }
+    
+    @IBAction func unwindToExam(segue: UIStoryboardSegue) {
+        if let source = segue.source as? OverviewExamViewController, let selectedNumber = source.selectedNumber {
+            let index = selectedNumber - 1
+            pagingView.activePage = index
+            status = source.status
+            viewWillAppear(true)
+        }
+   }
+    
+    
+
 }

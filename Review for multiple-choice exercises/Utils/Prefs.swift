@@ -138,6 +138,7 @@ class Prefs {
         preferences.setValue(exam.nbQuestion, forKey: ExamPreference.PREFERENCE_NBQUESTION)
         preferences.setValue(exam.duration, forKey: ExamPreference.PREFERENCE_DURATION)
         preferences.setValue(exam.score, forKey: ExamPreference.PREFERENCE_SCORE)
+        preferences.setValue(exam.subjectName, forKey: ExamPreference.PREFERENCE_SUBJECTNAME)
         
         //Save references to disk
         let didSave = preferences.synchronize()
@@ -171,7 +172,10 @@ class Prefs {
         let closeDate = preferences.object(forKey: ExamPreference.PREFERENCE_CLOSEDATE) as? String
         let nbQuestion = preferences.object(forKey: ExamPreference.PREFERENCE_NBQUESTION) as? Int
         let duration = preferences.object(forKey: ExamPreference.PREFERENCE_DURATION) as? Int
-        let score = preferences.object(forKey: ExamPreference.PREFERENCE_SCORE) as? Float
+        if let score = preferences.object(forKey: ExamPreference.PREFERENCE_SCORE) as? Float {
+            examModel.score = score
+        }
+        let subjectName = preferences.object(forKey: ExamPreference.PREFERENCE_SUBJECTNAME) as? String
         
         
         
@@ -182,7 +186,7 @@ class Prefs {
         examModel.closeDate = closeDate!
         examModel.nbQuestion = nbQuestion!
         examModel.duration = duration!
-        examModel.score = score!
+        examModel.subjectName = subjectName!
       
         
         return examModel

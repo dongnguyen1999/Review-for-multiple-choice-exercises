@@ -27,6 +27,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     var major : [MajorModel] = []
     var subject : [SubjectModel] = []
     var filteredData : [SubjectModel] = []
+    var selectedSubject: SubjectModel?
    
     
     override func viewDidLoad() {
@@ -87,11 +88,13 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         subjectSearchTableView.reloadData()
         
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         subjectSearchTableView.reloadData()
  
     }
+    
     //menu segment
     @IBAction func actionSegmented(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
@@ -122,6 +125,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         }
         
     }
+    
  // table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 1
@@ -145,7 +149,6 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         var cell = UITableViewCell()
         switch tableView {
         case facultytableView:
-            
             cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
            // self.facultytableView.deleteRows(at: [indexPath], with: .automatic)
             cell.textLabel?.text = faculty[indexPath.row].facultyName
@@ -157,13 +160,13 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             cell.textLabel?.text = major[indexPath.row].majorName
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
-        
             
         case subjecttableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "subjectcell", for: indexPath)
-          cell.textLabel?.text = subject[indexPath.row].subjectName
+            cell.textLabel?.text = subject[indexPath.row].subjectName
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
+            
         case subjectSearchTableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "subjectsearch", for: indexPath)
             cell.textLabel?.text = filteredData[indexPath.row].subjectName
@@ -174,12 +177,14 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             print("Some things Wrong!!")
         }
         
-            return cell
-       
+        return cell
         
     }
     //Onclick cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         switch tableView {
         case facultytableView:
             facultytableView.deselectRow(at: indexPath, animated: true)
@@ -200,19 +205,26 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             subjecttableView.isHidden = false
             segmentedControl.selectedSegmentIndex = 2
             //chuyền id môn sang bài thi
+        
         case subjecttableView:
-            print("subjectId:\(subject[indexPath.row].subjectId)+Name:\(subject[indexPath.row].subjectName)")
+            selectedSubject = subject[indexPath.row]
+            performSegue(withIdentifier: "NavigateToReadyStart", sender: cell)
+            
         case subjectSearchTableView:
-            print("subjectId:\(subject[indexPath.row].subjectId)+Name:\(subject[indexPath.row].subjectName)")
+            selectedSubject = subject[indexPath.row]
+            performSegue(withIdentifier: "NavigateToReadyStart", sender: cell)
+            
         default:
            break
         }
-       
-        
-        
         
        }
-   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? ReadyStartViewController {
+            dest.subjectModel = selectedSubject
+        }
+    }
   
     //list faculty
     func onSuccess(listFaculty: [FacultyModel]?) {
@@ -226,6 +238,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     func onError(message: String) {
         print(message)
     }
+    
     //list major
     func onSuccessMajor(listMajor: [MajorModel]?) {
         if let listMajor = listMajor {
@@ -233,6 +246,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             majortableView.reloadData()
         }
     }
+    
     func onErrorMajor(message: String) {
         major.removeAll()
         majortableView.reloadData()
