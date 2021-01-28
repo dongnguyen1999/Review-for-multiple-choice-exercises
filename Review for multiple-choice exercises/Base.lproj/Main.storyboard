@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kHG-w3-Soe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="96Q-qc-Pzl">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -829,50 +829,23 @@
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" style="plain" id="14N-gh-Rud"/>
                     </navigationItem>
                     <connections>
-<!-- A Nhuan-->
                         <outlet property="btnfaculty" destination="nzo-Hi-h4d" id="dk3-Ag-VaU"/>
                         <outlet property="btnmajor" destination="IQt-xK-ejb" id="PIS-VM-kvm"/>
                         <outlet property="btnsubject" destination="E2n-ys-CyG" id="hUQ-4h-koI"/>
-                        <outlet property="facultytableView" destination="jt6-F1-TEw" id="17F-5S-5rC"/>
-                        <outlet property="majortableView" destination="KAz-qO-3OS" id="CEu-rg-uAX"/>
-                        <outlet property="searchBar" destination="fpk-gL-Uhs" id="BSC-dE-6Ub"/>
-                        <outlet property="stackview" destination="Uge-Cj-Z0L" id="1Xs-gb-a6E"/>
-                        <outlet property="subjectSearchTableView" destination="BFq-e3-aMx" id="eXX-4e-4gw"/>
-                        <outlet property="subjecttableView" destination="EH1-TV-1db" id="PbK-eu-3rZ"/>
-                        <outlet property="viewbackground" destination="Qib-N9-VgB" id="PGZ-x2-bCo"/>
-<!--Dong-->
                         <outlet property="facultytableView" destination="jt6-F1-TEw" id="LBT-Gv-fEw"/>
                         <outlet property="majortableView" destination="KAz-qO-3OS" id="EfN-lp-gzI"/>
                         <outlet property="searchBar" destination="fpk-gL-Uhs" id="HHd-1v-dM4"/>
-                        <outlet property="segmentedControl" destination="n5R-w6-RjA" id="RGR-XO-SJM"/>
+                        <outlet property="stackview" destination="Uge-Cj-Z0L" id="1Xs-gb-a6E"/>
                         <outlet property="subjectSearchTableView" destination="BFq-e3-aMx" id="joC-6P-Cz3"/>
                         <outlet property="subjecttableView" destination="EH1-TV-1db" id="hcz-v8-jk2"/>
+                        <outlet property="viewbackground" destination="Qib-N9-VgB" id="PGZ-x2-bCo"/>
                         <segue destination="kHG-w3-Soe" kind="show" identifier="NavigateToReadyStart" id="JCc-fi-uqv"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vV-fo-uM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="135" y="648"/>
         </scene>
-      
-        <!--View Controller-->
-        <scene sceneID="SsE-Zs-mSx">
-            <objects>
-                <viewController id="tTT-DD-Ps2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="95m-t2-4XG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="mPN-bN-42q"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9As-Kr-pXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6028" y="-206"/>
-        </scene>
-      
         <!--View Controller-->
         <scene sceneID="hjc-AN-fDu">
             <objects>
@@ -2323,11 +2296,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-<!--Maybe bugs here-->
-        <segue reference="ppP-ET-hm1"/>
-
         <segue reference="LF4-iW-J9C"/>
-
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
@@ -2335,13 +2304,9 @@
         <image name="avatar2" width="540" height="540"/>
         <image name="background_exam" width="375" height="812"/>
         <image name="background_history" width="375" height="812"/>
-
-        <image name="background_search" width="375" height="812"/>
-
         <image name="background_in_exam" width="375" height="812"/>
         <image name="background_in_exam_bottom" width="375" height="585"/>
-        <image name="background_white" width="2448" height="2448"/>
-
+        <image name="background_search" width="375" height="812"/>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
         <image name="icn_2" width="16" height="16"/>
         <image name="icn_editprofile" width="16" height="16"/>
