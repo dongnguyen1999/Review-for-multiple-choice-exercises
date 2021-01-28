@@ -30,4 +30,19 @@ class MajorSearchModelView {
         }
     }
     
+    func ListMajorSearch() {
+        DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/major.php?type=list", showDialog: true) { (errorCode, msg, arrayData) in
+            print (errorCode)
+            //chuyen trang
+            if errorCode == 0 {
+       
+                self.majormodeldelegate.onSuccessMajor(listMajor: [MajorModel].deserialize(from: arrayData) as? [MajorModel])
+            }
+             else {
+              
+                self.majormodeldelegate.onErrorMajor(message: msg)
+             }
+        }
+    }
+    
 }
