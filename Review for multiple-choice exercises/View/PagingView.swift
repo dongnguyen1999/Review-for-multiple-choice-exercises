@@ -22,6 +22,7 @@ class PagingView: UIView {
     var activePage: Int = 4 {
         didSet {
             onChangePageCallback?(activePage)
+            render()
         }
     }
     

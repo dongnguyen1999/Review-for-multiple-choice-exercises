@@ -17,10 +17,12 @@ class ExamModel: HandyJSON {
     var closeDate: String = ""
     var nbQuestion: Int = 0
     var duration: Int = 0
+    var isImportant: Int = 0
     var score: Float?
     
     var facultyName: String = ""
     var subjectName: String = ""
+    
     
     required init(){}
 }

@@ -53,7 +53,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         //Check user login status
-        if PreferencesUtils.getCachedUserModel() != nil {
+        if Prefs.getCachedUserModel() != nil {
             changeRootViewToHome()
         }
         
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     
     func onSuccess(listAccount: [UserModel]?) {
         if let userModel = listAccount?[0] {
-            PreferencesUtils.cacheUserModel(model: userModel)
+            Prefs.cacheUserModel(model: userModel)
             changeRootViewToHome()
         } else {
             ThongBao(title: "Thong Bao", message: "Lỗi đăng nhập, vui lòng thử lại")

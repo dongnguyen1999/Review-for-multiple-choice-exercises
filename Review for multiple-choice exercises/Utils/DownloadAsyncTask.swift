@@ -185,7 +185,7 @@ class DownloadAsyncTask {
             request.httpBody = postString.data(using: .utf8)
             
             if showDialog {
-                SwiftOverlays.showBlockingWaitOverlayWithText("Loading...")
+//                SwiftOverlays.showBlockingWaitOverlayWithText("Loading...")
                 // SwiftOverlays.showBlockingWaitOverlayWithText(LocalizationHelper.shared.localized("Loading...")!)
             }
             DebugLog.printLog(msg: "URL_REQUEST: "+url)

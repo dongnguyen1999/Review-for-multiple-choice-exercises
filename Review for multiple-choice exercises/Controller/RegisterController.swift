@@ -121,13 +121,8 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
                            }else{
                             self.ThongBao(title: "Thông Báo", message: "\(msg)")
                            }
-
                        }
-  
-   
                 }
-
-        
 
     }
    

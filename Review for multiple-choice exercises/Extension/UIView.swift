@@ -20,16 +20,16 @@ public extension UIView {
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
     }
-    
-    func boxShadow(color: UIColor = .black, offsetX: CGFloat, offsetY: CGFloat, opacity: Float, radius: CGFloat) {
+        
+    func boxShadow(color: UIColor = .black, offsetX: CGFloat, offsetY: CGFloat, blur: CGFloat = 3, opacity: Float, radius: CGFloat, scale: Bool = true) {
         roundWithBorder(borderRadius: radius)
-        let shadowPath = UIBezierPath(rect: self.bounds)
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowOffset = CGSize(width: offsetX, height: offsetY)
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = radius
-        self.layer.shadowPath = shadowPath.cgPath
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = CGSize(width: offsetX, height: offsetY)
+        layer.shadowRadius = blur
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
     func setOnTapListener(context: UIView, action selector: Selector? ) {

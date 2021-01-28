@@ -63,5 +63,7 @@ class HistoryTableViewCell: UITableViewCell {
         self.contentView.layer.shadowRadius = 5;
         self.contentView.layer.shadowOpacity = 0.25;
     }
+    
+    
 
 }

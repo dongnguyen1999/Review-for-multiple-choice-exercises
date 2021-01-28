@@ -58,11 +58,11 @@ class MenuController: UIViewController {
     // Get du lieu
     
     @IBAction func BtnLogout(_ sender: UIButton) {
-        PreferencesUtils.removeCachedUserModel()
+        Prefs.removeCachedUserModel()
         changeRootViewToLogin()
     }
     func getdata() {
-        userModel = PreferencesUtils.getCachedUserModel()
+        userModel = Prefs.getCachedUserModel()
         nameLabel.text = userModel?.name
         phoneLabel.text = userModel?.phone
     }

@@ -30,6 +30,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     var major : [MajorModel] = []
     var subject : [SubjectModel] = []
     var filteredData : [SubjectModel] = []
+    var selectedSubject: SubjectModel?
    
    
     
@@ -101,6 +102,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         subjectSearchTableView.reloadData()
         
     }
+
     //Cancle tìm kiếm
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
@@ -146,6 +148,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     }
 
     // table view
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 1
         switch tableView {
@@ -183,7 +186,9 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             
         case subjecttableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "subjectcell", for: indexPath)
-           cell.textLabel?.text = subject[indexPath.row].subjectName
+
+            cell.textLabel?.text = subject[indexPath.row].subjectName
+
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
             
@@ -197,11 +202,15 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
            break
         }
         
-            return cell
-       
+
+        return cell
+        
     }
     //Sự kiện click cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         switch tableView {
         case facultytableView:
             facultytableView.deselectRow(at: indexPath, animated: true)
@@ -220,20 +229,32 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             facultytableView.isHidden = true
             majortableView.isHidden = true
             subjecttableView.isHidden = false
+
             // Đổi màu button khi chọn
             btnfaculty.backgroundColor = UIColor(hex: "9069CD")
             btnmajor.backgroundColor = UIColor(hex: "9069CD")
             btnsubject.backgroundColor = UIColor(hex: "9069CD")
             
+
         case subjecttableView:
-            print("subjectId:\(subject[indexPath.row].subjectId)+Name:\(subject[indexPath.row].subjectName)")
+            selectedSubject = subject[indexPath.row]
+            performSegue(withIdentifier: "NavigateToReadyStart", sender: cell)
+            
         case subjectSearchTableView:
-            print("subjectId:\(subject[indexPath.row].subjectId)+Name:\(subject[indexPath.row].subjectName)")
+            selectedSubject = subject[indexPath.row]
+            performSegue(withIdentifier: "NavigateToReadyStart", sender: cell)
+            
         default:
            break
         }
+
        }
-   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? ReadyStartViewController {
+            dest.subjectModel = selectedSubject
+        }
+    }
   
     //list faculty
     func onSuccess(listFaculty: [FacultyModel]?) {
@@ -247,6 +268,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     func onError(message: String) {
         print(message)
     }
+    
     //list major
     func onSuccessMajor(listMajor: [MajorModel]?) {
         if let listMajor = listMajor {
@@ -254,6 +276,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             majortableView.reloadData()
         }
     }
+    
     func onErrorMajor(message: String) {
         major.removeAll()
         majortableView.reloadData()
