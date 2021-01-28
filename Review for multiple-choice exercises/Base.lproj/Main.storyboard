@@ -669,7 +669,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="veC-Zr-LcB"/>
                                                 </constraints>
                                             </stackView>
-                                            <searchBar contentMode="redraw" text="" placeholder="Nhập vào môn tìm kiếm" backgroundImage="nil" translatesAutoresizingMaskIntoConstraints="NO" id="fpk-gL-Uhs">
+                                            <searchBar contentMode="redraw" text="" placeholder="Nhập vào môn tìm kiếm" translatesAutoresizingMaskIntoConstraints="NO" id="fpk-gL-Uhs">
                                                 <rect key="frame" x="10" y="60" width="394" height="57"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
@@ -2520,7 +2520,6 @@
         <image name="icon_number_exam" width="46" height="45"/>
         <image name="icon_rate" width="46" height="45"/>
         <image name="icon_sum_exam" width="46" height="45.333332061767578"/>
-        <image name="nil" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
