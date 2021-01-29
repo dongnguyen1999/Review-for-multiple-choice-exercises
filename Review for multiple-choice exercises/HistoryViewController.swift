@@ -57,10 +57,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         pagingView.tintColor = .orange
         pagingView.onChangePageCallback = self.changePage(pageNumber:)
-        
-//        self.historyTableView.estimatedRowHeight = 44
-//        self.historyTableView.rowHeight = UITableView.automaticDimension
-        backButton.setOnTapListener(context: self, action: #selector(backToMenu(sender:)))
+
+     
     
     }
     
@@ -69,10 +67,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch historyType {
             case HistoryViewType.ALL_HISTORY:
                 pagingView.setNumberOfPage(totalPage: Int(ceil( Float(dataSet.count) / Float(HistoryViewController.PRESENT_LIMIT))))
-                showDataPage(pageNumber: 0)
+                if pagingView.totalPage != 0 {
+                    showDataPage(pageNumber: 0)
+                }
             case HistoryViewType.IMPORTANT_HISTORY:
                 pagingView.setNumberOfPage(totalPage: Int(ceil( Float(importantDataSet.count) / Float(HistoryViewController.PRESENT_LIMIT))))
-                showDataPage(pageNumber: 0)
+                if pagingView.totalPage != 0 {
+                    showDataPage(pageNumber: 0)
+                }
             default:
                 fatalError("Unknown history type")
             }
