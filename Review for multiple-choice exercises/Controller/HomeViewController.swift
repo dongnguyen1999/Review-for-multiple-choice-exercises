@@ -34,6 +34,13 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         userModel = Prefs.getCachedUserModel()
+       
+        guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+        if let data = try? Data(contentsOf: url) {
+             // Create Image and Update Image View
+             let image = UIImage(data: data)
+            avatarImageView.setImage(image, for: UIControl.State.normal)
+         }
         scoreChartView.noDataText = "Dong Nguyen"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
@@ -137,7 +144,8 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         }
         
         var result = [Int: [ExamModel]]()
-        for i in 0..<3 {
+        let end = min(3, listBySubjectId.count)
+        for i in 0..<end {
             result[sortedSubjectId[i]] = listBySubjectId[sortedSubjectId[i]]
         }
         return result
@@ -284,5 +292,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         print("I am Home")
         
    }
+
 
 }

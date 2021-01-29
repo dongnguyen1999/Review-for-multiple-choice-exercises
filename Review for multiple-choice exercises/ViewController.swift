@@ -11,17 +11,17 @@ import UIKit
 
 
 class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
-
+    
     var loginviewmodel : LoginViewModel!
     // Dong wrote
     
     
+    @IBOutlet weak var btnshowregister: CustomTextcolorButton!
     @IBOutlet weak var UsernameLogin: UITextField!
     @IBOutlet weak var BtnLogin: UIButton!
     @IBOutlet weak var PasswordLogin: UITextField!
-    
     @IBOutlet weak var scrollview: UIScrollView!
-    
+    var emailchecked = 0
     
     @objc func Keyboard(notification : Notification)  {
         let userInfo = notification.userInfo!
@@ -33,7 +33,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
             scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
         }
         scrollview.scrollIndicatorInsets = scrollview.contentInset
-    
+        
     }
     
     
@@ -41,11 +41,11 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        // Do any additional setup after loading the view.
+
         BtnLogin.layer.cornerRadius = 20
         BtnLogin.layer.shadowOpacity = 0.5
         BtnLogin.layer.backgroundColor = UIColor(red: 1, green: 0.404, blue: 0.106, alpha: 1).cgColor
-
+        
         //Ẩn bàn phím
         self.hideKeyboardWhenTappedAround()
         //scrollview theo bàn phím
@@ -71,7 +71,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     func onError(msg: String) {
         ThongBao(title: "Thong Bao", message: msg)
     }
-  
+    
     func ThongBao( title : String, message : String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .default, handler:nil )
@@ -79,20 +79,35 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         self.present(alertController, animated: true, completion: nil)
         return
     }
-    
-    
+    //Ràng buộc email
+    func isValidEmail(testStr:String) -> Bool {
+        print("validate emilId: \(testStr)")
+        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let result = emailTest.evaluate(with: testStr)
+        return result
+    }
+    //End ràng buộc email
     @IBAction func actionLogin(_ sender: Any) {
         let username = UsernameLogin.text ?? ""
         let password = PasswordLogin.text ?? ""
+        //check email đúng sai
+        if isValidEmail(testStr: username) {
+            emailchecked = 0
+        }else{
+            emailchecked = 1
+        }
+        // ràng buộc đăng nhập
         if username == "" && password == ""{
-           ThongBao(title: "Thông Báo", message: "Vui lòng nhập đẩy đủ thông tin")
+            ThongBao(title: "Thông Báo", message: "Vui lòng nhập đẩy đủ thông tin")
         }else if (username == ""){
             ThongBao(title: "Thông Báo", message: "Bạn chưa nhập email")
         }else if (password == ""){
             ThongBao(title: "Thông Báo", message: "Bạn chưa nhập mật khẩu")
+        }else if (emailchecked == 1){
+            ThongBao(title: "Thông Báo", message: "Bạn nhập sai email")
         }
         else {
-            
             loginviewmodel=LoginViewModel(usermodelView: self)
             loginviewmodel.onLogin(username: username, password: password)
         }
@@ -105,8 +120,4 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
-    
-
-
-
 }

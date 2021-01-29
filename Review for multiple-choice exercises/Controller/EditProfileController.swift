@@ -38,7 +38,7 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         imageview.layer.shadowOpacity = 0.9
         avatar.layer.cornerRadius =  imageview.frame.height/2
         avatar.clipsToBounds = true
-          
+     
         //tắt keyboard
         self.hideKeyboardWhenTappedAround()
         getdata()
@@ -49,6 +49,7 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         name.isUserInteractionEnabled = true
         phone.isUserInteractionEnabled = true
         email.isUserInteractionEnabled = false
+       
         
     }
     
@@ -64,13 +65,9 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         dismiss(animated: true, completion: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])  {
-        
-        
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            fatalError("Expected: \(info)")
-        }
-        avatar.image = selectedImage
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
+        avatar.image = chosenImage
         dismiss(animated: true, completion: nil)
     }
     
@@ -87,10 +84,16 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         name.text = userModel.name
         phone.text = userModel.phone
         email.text = userModel.email
+        guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+        if let data = try? Data(contentsOf: url) {
+             // Create Image and Update Image View
+             avatar.image = UIImage(data: data)
+         }
         //Enabled textfiled
         name.isUserInteractionEnabled = false
         phone.isUserInteractionEnabled = false
         email.isUserInteractionEnabled = false
+        
     }
     
     // Chinh sửa thông tin người dùng
@@ -101,17 +104,11 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         let nameedit = name.text ?? ""
         let emailedit = email.text ?? ""
         let phoneedit = phone.text ??  ""
-        let userId = 1
-        // let imagedata = avatar.image?.pngData()
-        let imagedata = avatar.image?.jpegData(compressionQuality: 0.3)
-        let img = imagedata?.base64EncodedString(options: .lineLength64Characters)
-       
-        /*
-         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-         let imageData = image.jpegData(compressionQuality: 1)!
-         let encodedImage = imageData.base64EncodedString()
-         */
-        let body:[String: Any?] = ["type" : "edit", "userId" : userId, "name" : nameedit, "phone" : phoneedit, "avatar" : img]
+        let userId = userModel.userId
+        let imageData: Data = avatar.image!.jpegData(compressionQuality: 0.5)!
+        let imageStr: String = imageData.base64EncodedString()
+        
+        let body:[String: Any?] = ["type" : "edit", "userId" : userId, "name" : nameedit, "phone" : phoneedit, "avatar" : imageStr]
         print("body \(body)")
         DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/user.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
             if errorCode == 0 {
