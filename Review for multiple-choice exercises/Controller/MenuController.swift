@@ -10,70 +10,70 @@ import UIKit
 class MenuController: UIViewController {
     
     var userModel: UserModel!
-    @IBOutlet weak var backButton: UIImageView!
-    
-    override func viewDidLoad() {
-          super.viewDidLoad()
-          getdata()
-          // Do any additional setup after loading the view.
-        backButton.setOnTapListener(context: self, action: #selector(onBackButtonClicked(sender:)))
-      }
-    //Anh xa
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBAction func EditProfile(_ sender: UITapGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let editProfileViewController = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileScreen") as? EditProfileController else {
-            print("Can not create edit profile screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(editProfileViewController, animated: true)
-    }
-    @IBAction func HistorySearch(_ sender: UITapGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let historyViewController = mainStoryboard.instantiateViewController(withIdentifier: "HistoryScreen") as? HistoryViewController else {
-            print("Can not create history screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(historyViewController, animated: true)
-    }
-    @IBAction func ImportantTest(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        
-        guard let historyViewController = mainStoryboard.instantiateViewController(withIdentifier: "HistoryScreen") as? HistoryViewController else {
-            print("Can not create history screen view controller")
-            return
-        }
-        
-        navigationController?.pushViewController(historyViewController, animated: true)
+    @IBOutlet weak var importantTestView: customViewMenuProfile!
+    @IBOutlet weak var historySearchView: customViewMenuProfile!
+    @IBOutlet weak var editprofileView: customViewMenuProfile!
+    @IBOutlet weak var avatarMenu: customAvatar!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getdata()
+        // Do any additional setup after loading the view.
+        editprofileView.setOnTapListener(context: self, action: #selector(onEditProfile(sender:)))
+        historySearchView.setOnTapListener(context: self, action: #selector(onHistorySearch(sender:)))
+        importantTestView.setOnTapListener(context: self, action: #selector(onImportantTest(sender:)))
     }
     
-    @objc func onBackButtonClicked(sender: UIGestureRecognizer){
-        navigationController?.popViewController(animated: true)
+    @objc func onEditProfile(sender: UIGestureRecognizer){
+        performSegue(withIdentifier: "editprofile", sender: self)
     }
-    // Get du lieu
+    @objc func onHistorySearch(sender: UIGestureRecognizer){
+        performSegue(withIdentifier: "showhistorysearch", sender: self)
+    }
+    @objc func onImportantTest(sender: UIGestureRecognizer){
+        performSegue(withIdentifier: "showimportanttest", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? HistoryViewController {
+            switch segue.identifier {
+            case "showhistorysearch":
+                dest.historyType = HistoryViewType.ALL_HISTORY
+            case "showimportanttest":
+                dest.historyType = HistoryViewType.IMPORTANT_HISTORY
+            default:
+                break
+            }
+        }
+    }
+    
     
     @IBAction func BtnLogout(_ sender: UIButton) {
         Prefs.removeCachedUserModel()
         changeRootViewToLogin()
     }
+ 
     func getdata() {
+    
+     
         userModel = Prefs.getCachedUserModel()
         nameLabel.text = userModel?.name
         phoneLabel.text = userModel?.phone
+        guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+        if let data = try? Data(contentsOf: url) {
+             // Create Image and Update Image View
+             avatarMenu.image = UIImage(data: data)
+         }
+       
     }
-  
+    
     func changeRootViewToLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle:nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginScreen") as! ViewController
         UIApplication.shared.windows.first?.rootViewController = loginViewController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
-   
-
-
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+    }
 }

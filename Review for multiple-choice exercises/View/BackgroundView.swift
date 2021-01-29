@@ -15,8 +15,7 @@ class BackgroundView: UIView {
         
     }
     private func styleMenuProfile(){
-
-      
+        
         self.layer.backgroundColor = UIColor(red: 0.961, green: 0.973, blue: 0.992, alpha: 1).cgColor
     }
 }
