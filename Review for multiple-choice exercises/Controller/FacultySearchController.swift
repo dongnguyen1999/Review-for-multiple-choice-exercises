@@ -52,6 +52,12 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         subjectSearchTableView.isHidden = true
         
         searchBar.delegate = self
+        //Search background clear
+        searchBar.barTintColor = UIColor.clear
+        searchBar.backgroundColor = UIColor.clear
+        searchBar.isTranslucent = true
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        
         facultysearchmodel=FacultySearchModelView(facultydelegate: self)
         facultysearchmodel.ListFaculty()
         majorsearchmodel = MajorSearchModelView(majormodeldelegate: self)
@@ -66,12 +72,18 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         btnmajor.backgroundColor = UIColor(hex: "F4F8FF")
         btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
        //Thay đổi background Image
-        viewbackground?.contentMode = UIView.ContentMode.scaleToFill
-        viewbackground.layer.contents = UIImage(named:"background_history")?.cgImage
-        stackview.layer.contents = UIImage(named:"background_history")?.cgImage
-        searchBar.layer.contents = UIImage(named:"background_history")?.cgImage
+//        viewbackground?.contentMode = UIView.ContentMode.scaleToFill
+//        viewbackground.layer.contents = UIImage(named:"background_history")?.cgImage
+//        stackview.layer.contents = UIImage(named:"background_history")?.cgImage
+//        searchBar.layer.contents = UIImage(named:"background_history")?.cgImage
         
-      
+        //Transparent navigation bar background
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        
         
     }
     

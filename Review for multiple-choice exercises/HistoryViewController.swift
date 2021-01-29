@@ -245,4 +245,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         historyType = HistoryViewType.IMPORTANT_HISTORY
         viewWillAppear(true)
     }
+    
+    @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
+        print("I am Home")
+    }
+
 }

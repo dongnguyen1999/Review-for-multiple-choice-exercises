@@ -279,6 +279,10 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     func onDeleteSuccess(message: String) {
         print(message)
     }
-
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        print("I am Home")
+        
+   }
 
 }

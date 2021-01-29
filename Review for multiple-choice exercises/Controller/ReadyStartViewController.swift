@@ -39,12 +39,20 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
         
         examViewModel = ExamViewModel(examDelegate: self)
         examViewModel.startExam(userId: userModel.userId, subjectId: subjectModel.subjectId)
+        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? ExamViewController {
             dest.subjectModel = subjectModel
             dest.examModel = self.examModel
+        }
+        
+        if segue.destination is HomeViewController {
+            examViewModel.cancelTemporatyExam(examId: examModel.examId)
         }
     }
     
@@ -70,6 +78,6 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
     func onDeleteSuccess(message: String) {
         print(message)
     }
-    
+
     
 }

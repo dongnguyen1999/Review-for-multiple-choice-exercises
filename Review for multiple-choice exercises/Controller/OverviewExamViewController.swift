@@ -195,10 +195,19 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
         
         let alert = UIAlertController(title: "Bạn có chắc muốn thoát?", message: message, preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Đồng ý", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Đồng ý", style: .default, handler: onCloseExam(action:)))
         alert.addAction(UIAlertAction(title: "Quay lại", style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
     }
+    
+    func onCloseExam(action: UIAlertAction) {
+        if status == ExamStatus.DURING {
+            overviewViewModel.submit(examId: examModel.examId)
+        }
+        performSegue(withIdentifier: "unwindToHome", sender: self)
+    }
+    
+
 }
 
