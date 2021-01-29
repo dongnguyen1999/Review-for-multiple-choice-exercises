@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gdz-gW-e3y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F0U-BZ-iMq">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -1266,10 +1266,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-hK-cN4">
-                                <rect key="frame" x="72" y="71" width="270" height="30"/>
+                                <rect key="frame" x="72" y="72" width="270" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-A3-lvZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="31"/>
                                         <color key="backgroundColor" red="1" green="0.40440225600000002" blue="0.1057525352" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="Tất cả bài thi">
@@ -1280,7 +1280,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-Un-YOI">
-                                        <rect key="frame" x="143" y="0.0" width="127" height="30"/>
+                                        <rect key="frame" x="143" y="0.0" width="127" height="31"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Bài quan trọng">
                                             <color key="titleColor" red="0.71369892359999998" green="0.72504717110000005" blue="0.7455628514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1292,8 +1292,11 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uSM-5w-WzH">
-                                <rect key="frame" x="0.0" y="128.99999999999997" width="414" height="415.33333333333326"/>
+                                <rect key="frame" x="0.0" y="130.99999999999997" width="414" height="415.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="415.33333333333326" id="KIv-5p-dTf"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="importantHistoryCell" rowHeight="85" id="9P6-KR-3Wl" customClass="HistoryTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
@@ -1381,7 +1384,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgn-12-osv">
-                                <rect key="frame" x="0.0" y="129.00000000000003" width="414" height="441.66666666666674"/>
+                                <rect key="frame" x="0.0" y="130.99999999999997" width="414" height="415.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="85" id="FOC-hO-aPN" customClass="HistoryTableViewCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
@@ -1464,15 +1467,14 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivf-ln-FL2">
-                                <rect key="frame" x="0.0" y="544.33333333333337" width="414" height="191.66666666666663"/>
+                                <rect key="frame" x="0.0" y="546.33333333333337" width="414" height="189.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNe-DS-9pM" customClass="PagingView" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
-                                        <rect key="frame" x="81" y="57.333333333333265" width="252" height="76.666666666666686"/>
+                                        <rect key="frame" x="81" y="60.33333333333325" width="252" height="69.333333333333314"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ZNe-DS-9pM" firstAttribute="centerY" secondItem="Ivf-ln-FL2" secondAttribute="centerY" id="AMG-EC-tPY"/>
-                                    <constraint firstItem="ZNe-DS-9pM" firstAttribute="height" secondItem="Ivf-ln-FL2" secondAttribute="height" multiplier="0.4" id="CuD-hH-Vzv"/>
                                     <constraint firstItem="ZNe-DS-9pM" firstAttribute="centerX" secondItem="Ivf-ln-FL2" secondAttribute="centerX" id="awT-GS-oIh"/>
                                     <constraint firstItem="ZNe-DS-9pM" firstAttribute="leading" secondItem="Ivf-ln-FL2" secondAttribute="leading" constant="81" id="qTU-a1-D6y"/>
                                 </constraints>
@@ -1482,24 +1484,25 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rgn-12-osv" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" id="1Mf-SU-LWn"/>
+                            <constraint firstItem="rgn-12-osv" firstAttribute="top" secondItem="Q1E-hK-cN4" secondAttribute="bottom" constant="28" id="4ii-VP-4sq"/>
+                            <constraint firstItem="ZNe-DS-9pM" firstAttribute="height" secondItem="uOq-NM-ZK8" secondAttribute="height" multiplier="0.1" id="C2g-oQ-wjt"/>
                             <constraint firstItem="rgn-12-osv" firstAttribute="centerX" secondItem="uOq-NM-ZK8" secondAttribute="centerX" id="K3a-SR-8gs"/>
                             <constraint firstItem="uSM-5w-WzH" firstAttribute="centerX" secondItem="uOq-NM-ZK8" secondAttribute="centerX" id="Kru-Ld-DUg"/>
-                            <constraint firstItem="rgn-12-osv" firstAttribute="top" secondItem="GHy-A3-lvZ" secondAttribute="bottom" constant="28" id="Kzf-dj-Tj4"/>
+                            <constraint firstItem="Ivf-ln-FL2" firstAttribute="top" secondItem="rgn-12-osv" secondAttribute="bottom" id="UL8-xB-tYV"/>
                             <constraint firstItem="Q1E-hK-cN4" firstAttribute="centerX" secondItem="uOq-NM-ZK8" secondAttribute="centerX" id="VEw-Ja-wGX"/>
                             <constraint firstItem="uSM-5w-WzH" firstAttribute="top" secondItem="GHy-A3-lvZ" secondAttribute="bottom" constant="28" id="VTq-Xz-3j7"/>
                             <constraint firstItem="9W5-qi-6Bs" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" id="bKx-it-otP"/>
                             <constraint firstItem="Ivf-ln-FL2" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" id="cxq-aN-HHd"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="trailing" secondItem="Ivf-ln-FL2" secondAttribute="trailing" id="de1-u9-BZA"/>
-                            <constraint firstItem="Q1E-hK-cN4" firstAttribute="top" secondItem="uOq-NM-ZK8" secondAttribute="top" constant="27" id="epX-k5-B2k"/>
+                            <constraint firstItem="Q1E-hK-cN4" firstAttribute="top" secondItem="uOq-NM-ZK8" secondAttribute="top" constant="28" id="epX-k5-B2k"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="bottom" secondItem="9W5-qi-6Bs" secondAttribute="bottom" id="gP0-dg-Lzd"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="trailing" secondItem="9W5-qi-6Bs" secondAttribute="trailing" id="i3X-74-RLg"/>
                             <constraint firstItem="Q1E-hK-cN4" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" constant="72" id="kew-b2-MzL"/>
-                            <constraint firstItem="uSM-5w-WzH" firstAttribute="height" secondItem="uOq-NM-ZK8" secondAttribute="height" multiplier="0.6" id="lm1-Vg-Bfn"/>
                             <constraint firstItem="9W5-qi-6Bs" firstAttribute="top" secondItem="uOq-NM-ZK8" secondAttribute="top" id="mJc-o5-yaw"/>
-                            <constraint firstItem="rgn-12-osv" firstAttribute="height" secondItem="Dec-8N-i0I" secondAttribute="height" multiplier="0.6" id="pEJ-RP-tuR"/>
+                            <constraint firstItem="Q1E-hK-cN4" firstAttribute="height" secondItem="uOq-NM-ZK8" secondAttribute="height" multiplier="0.045" id="tZz-pP-bkJ"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="bottom" secondItem="Ivf-ln-FL2" secondAttribute="bottom" id="vSn-dR-6aw"/>
                             <constraint firstItem="uSM-5w-WzH" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" id="xGQ-iz-wJd"/>
-                            <constraint firstItem="Ivf-ln-FL2" firstAttribute="top" secondItem="uSM-5w-WzH" secondAttribute="bottom" id="yBS-HH-6fN"/>
+                            <constraint firstItem="Ivf-ln-FL2" firstAttribute="top" secondItem="uSM-5w-WzH" secondAttribute="bottom" constant="2.2737367544323206e-13" id="y9n-Vo-6RP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="LỊCH SỬ BÀI THI" id="gqV-9V-74g"/>
@@ -2449,8 +2452,8 @@
             <point key="canvasLocation" x="1393" y="-258"/>
         </scene>
     </scenes>
-
     <inferredMetricsTieBreakers>
+        <segue reference="YrX-Ab-cL7"/>
         <segue reference="rWa-vD-u2v"/>
     </inferredMetricsTieBreakers>
     <resources>

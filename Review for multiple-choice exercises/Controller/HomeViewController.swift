@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
              let image = UIImage(data: data)
             avatarImageView.setImage(image, for: UIControl.State.normal)
          }
+        
         scoreChartView.noDataText = "Dong Nguyen"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
