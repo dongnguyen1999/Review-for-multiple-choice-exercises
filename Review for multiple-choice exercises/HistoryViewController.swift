@@ -16,7 +16,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var pagingView: PagingView!
     @IBOutlet weak var allExamButton: UIButton!
     @IBOutlet weak var importantExamButton: UIButton!
-    @IBOutlet weak var backButton: UIImageView!
+
     
 //    var presentData: [ExamModel]!
     var presentData = [ExamModel]()

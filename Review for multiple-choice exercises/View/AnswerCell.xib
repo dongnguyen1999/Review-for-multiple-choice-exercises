@@ -28,13 +28,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2My-hE-thb">
                                     <rect key="frame" x="0.0" y="0.0" width="11" height="41"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
-                                    <color key="textColor" red="0.61030197139999998" green="0.3775555491" blue="0.82631933690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" red="0.97335332630000004" green="0.58329486850000001" blue="0.0035671503279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L88-NA-FAZ">
                                     <rect key="frame" x="11" y="0.0" width="15.5" height="41"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
-                                    <color key="textColor" red="0.61030197139999998" green="0.3775555491" blue="0.82631933690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" red="0.97335332630000004" green="0.58329486850000001" blue="0.0035671503279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>

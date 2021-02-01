@@ -68,9 +68,14 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         majortableView.backgroundColor = UIColor.clear
         subjecttableView.backgroundColor = UIColor.clear
         //Khởi tạo màu button
-        btnfaculty.backgroundColor = UIColor(hex: "9069CD")
+        btnfaculty.backgroundColor = UIColor(hex: "#F89500")
         btnmajor.backgroundColor = UIColor(hex: "F4F8FF")
         btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
+        
+        btnfaculty.setTitleColor(UIColor.white, for: .normal)
+        btnmajor.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+        btnsubject.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+        
        //Thay đổi background Image
 //        viewbackground?.contentMode = UIView.ContentMode.scaleToFill
 //        viewbackground.layer.contents = UIImage(named:"background_history")?.cgImage
@@ -124,9 +129,15 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
 
     //Sự kiện click button chọn khoa
     @IBAction func ActionBtnFaculty(_ sender: UIButton) {
-        btnfaculty.backgroundColor = UIColor(hex: "9069CD")
+        btnfaculty.backgroundColor = UIColor(hex: "#F89500")
+        btnfaculty.setTitleColor(UIColor.white, for: .normal)
+        
         btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
+        btnsubject.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+        
         btnmajor.backgroundColor = UIColor(hex: "F4F8FF")
+        btnmajor.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+        
         facultytableView.isHidden = false
         majortableView.isHidden = true
         subjecttableView.isHidden = true
@@ -136,9 +147,12 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     }
     //Sự kiện click button chọn nghành
     @IBAction func ActionBtnMajor(_ sender: UIButton) {
-        btnmajor.backgroundColor = UIColor(hex: "9069CD")
+        btnmajor.backgroundColor = UIColor(hex: "#F89500")
+        btnmajor.setTitleColor(UIColor.white, for: .normal)
         btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
-        btnfaculty.backgroundColor = UIColor(hex: "9069CD")
+        btnsubject.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
+        btnfaculty.backgroundColor = UIColor(hex: "#F89500")
+        btnfaculty.setTitleColor(UIColor.white, for: .normal)
         facultytableView.isHidden = true
         majortableView.isHidden = false
         subjecttableView.isHidden = true
@@ -148,9 +162,15 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     }
     //Sự kiện click button chọn môn
     @IBAction func ActionBtnSubject(_ sender: Any) {
-        btnsubject.backgroundColor = UIColor(hex: "9069CD")
-        btnmajor.backgroundColor = UIColor(hex: "9069CD")
-        btnfaculty.backgroundColor = UIColor(hex: "9069CD")
+        btnsubject.backgroundColor = UIColor(hex: "#F89500")
+        btnsubject.setTitleColor(UIColor.white, for: .normal)
+        
+        btnmajor.backgroundColor = UIColor(hex: "#F89500")
+        btnmajor.setTitleColor(UIColor.white, for: .normal)
+        
+        btnfaculty.backgroundColor = UIColor(hex: "#F89500")
+        btnfaculty.setTitleColor(UIColor.white, for: .normal)
+        
         facultytableView.isHidden = true
         majortableView.isHidden = true
         subjecttableView.isHidden = false
@@ -188,13 +208,13 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
             cell.textLabel?.text = faculty[indexPath.row].facultyName
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
+            cell.textLabel?.textColor = UIColor(hex: "#F89500")
           
         case majortableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "majorcell",for: indexPath)
             cell.textLabel?.text = major[indexPath.row].majorName
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
+            cell.textLabel?.textColor = UIColor(hex: "#F89500")
             
         case subjecttableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "subjectcell", for: indexPath)
@@ -202,13 +222,13 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             cell.textLabel?.text = subject[indexPath.row].subjectName
 
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
+            cell.textLabel?.textColor = UIColor(hex: "#F89500")
             
         case subjectSearchTableView:
             cell = tableView.dequeueReusableCell(withIdentifier: "subjectsearch", for: indexPath)
             cell.textLabel?.text = filteredData[indexPath.row].subjectName
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.textLabel?.textColor = UIColor(red: 0.565, green: 0.412, blue: 0.804, alpha: 1)
+            cell.textLabel?.textColor = UIColor(hex: "#F89500")
         
         default:
            break
@@ -231,8 +251,8 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             majortableView.isHidden = false
             subjecttableView.isHidden = true
             // Đổi màu button khi chọn
-            btnfaculty.backgroundColor = UIColor(hex: "9069CD")
-            btnmajor.backgroundColor = UIColor(hex: "9069CD")
+            btnfaculty.backgroundColor = UIColor(hex: "#F89500")
+            btnmajor.backgroundColor = UIColor(hex: "#F89500")
             btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
         case majortableView:
             
@@ -243,9 +263,9 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             subjecttableView.isHidden = false
 
             // Đổi màu button khi chọn
-            btnfaculty.backgroundColor = UIColor(hex: "9069CD")
-            btnmajor.backgroundColor = UIColor(hex: "9069CD")
-            btnsubject.backgroundColor = UIColor(hex: "9069CD")
+            btnfaculty.backgroundColor = UIColor(hex: "#F89500")
+            btnmajor.backgroundColor = UIColor(hex: "#F89500")
+            btnsubject.backgroundColor = UIColor(hex: "#F89500")
             
 
         case subjecttableView:
@@ -263,8 +283,8 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? ReadyStartViewController {
-            dest.subjectModel = selectedSubject
+        if let dest = segue.destination as? UINavigationController, let startExamView = dest.viewControllers.first as? ReadyStartViewController {
+            startExamView.subjectModel = selectedSubject
         }
     }
   

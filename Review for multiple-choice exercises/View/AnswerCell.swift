@@ -13,7 +13,7 @@ class AnswerCell: UIView {
     @IBOutlet weak var answerLabel: UILabel!
     
     let answerLetters = ["_", "A", "B", "C", "D"]
-    var color = UIColor(hex: "#9C60D3") {
+    var color = UIColor(hex: "#F89500") {
         didSet {
             questionNumberLabel.textColor = color
             answerLabel.textColor = color

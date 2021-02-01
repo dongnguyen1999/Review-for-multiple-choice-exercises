@@ -27,8 +27,6 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
         
         userModel = Prefs.getCachedUserModel()
         
-        loadSampleSubject()
-        
         startButton.roundWithBorder(borderRadius: 15)
         
         subjectNameLabel.font = subjectNameLabel.font.italic

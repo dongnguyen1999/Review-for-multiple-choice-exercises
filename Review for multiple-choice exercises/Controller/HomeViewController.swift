@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
             avatarImageView.setImage(image, for: UIControl.State.normal)
          }
         
-        scoreChartView.noDataText = "Dong Nguyen"
+        scoreChartView.noDataText = "Tuần qua chưa có bài kiểm tra nào"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
         homeViewModel.onGetListExam(userId: userModel.userId)
@@ -88,7 +88,13 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         print(startChatView.frame.size.width)
         avatarImageView.roundWithBorder()
         startExamView.roundWithBorder(borderWidth: 5, borderColor: UIColor(hex: "#f9aa33"))
@@ -129,12 +135,13 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     
     func getPresentSubjects(from exams: [ExamModel]) -> [Int: [ExamModel]] {
         var listBySubjectId = [Int: [ExamModel]]()
+        let today = Date()
         
         for exam in exams {
             if !listBySubjectId.keys.contains(exam.subjectId) {
                 let subjectId = exam.subjectId
                 listBySubjectId[subjectId] = exams.filter {
-                    $0.subjectId == subjectId
+                    return ($0.subjectId == subjectId && Date.fromTimestamp(timestamp: $0.createDate)!.isInSameWeek(as: today))
                 }
             }
         }
@@ -243,15 +250,13 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
             var listScore = [Float]()
             for i in 0..<sortedExams.count {
                 let ex = sortedExams[i]
-                if let score = ex.score {
-                    listScore.append(score)
-                    if time.firstIndex(of: i) == nil {
-                        time.append(i)
-                    } else  {
-                        time[i] = i
-                    }
+                let score = ex.score ?? 0
+                listScore.append(score)
+                if time.firstIndex(of: i) == nil {
+                    time.append(i)
+                } else  {
+                    time[i] = i
                 }
-                
             }
             data[subjectId] = listScore
 //            print(time)
@@ -267,12 +272,11 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         var colorIndex = 0
         for var (subjectId, listScore) in data {
             while listScore.count < time.count {
-                listScore.append(0)
+                listScore.insert(0, at: 0)
             }
             chartData.addDataSet(createDataset(exam: time, score: listScore, subject: subjectNames[subjectId] ?? "Mã môn học \(subjectId)", tintColor: chartColors[colorIndex]))
             colorIndex += 1
         }
-        
         setupChart(data: chartData)
     }
     

@@ -56,7 +56,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pagingView.tintColor = UIColor.purple
+        pagingView.tintColor = UIColor.orange
         
 //        "examId": "83",
 //        "userId": "3",
@@ -122,7 +122,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     func setupOverviewView() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 21))
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.text = "Tổng quan"
         let leftButton = UIBarButtonItem(customView: label)
@@ -133,7 +133,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     func setupTimerView() {
         remainTimeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 21))
         remainTimeLabel.textAlignment = .center
-        remainTimeLabel.textColor = .white
+        remainTimeLabel.textColor = .black
         remainTimeLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         remainTimeLabel.text = "Thời gian cỏn lại"
         let rightButton = UIBarButtonItem(customView: remainTimeLabel)
@@ -170,13 +170,13 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
             if let answer = question.answerTask {
                 switch status {
                     case ExamStatus.DURING:
-                        views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#AF72DE"))
+                        views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#F89500"))
                     case ExamStatus.PREVIEW:
                         if answer == question.answer {
                             views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#6FCF97"))
                         }
                         else {
-                            views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#AF72DE"))
+                            views[answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#F89500"))
                             views[question.answer-1]!.roundWithBorder(borderRadius: 5, borderWidth: 1, borderColor: UIColor(hex: "#FF6D6D"))
                         }
                     default:
