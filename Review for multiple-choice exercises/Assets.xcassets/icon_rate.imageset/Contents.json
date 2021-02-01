@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tỉ lệ.png",
+      "filename" : "tỉ lệ.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tỉ lệ@2x.png",
+      "filename" : "tỉ lệ@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tỉ lệ@3x.png",
+      "filename" : "tỉ lệ@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
