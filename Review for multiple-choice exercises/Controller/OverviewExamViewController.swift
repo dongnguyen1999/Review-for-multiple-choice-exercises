@@ -53,6 +53,8 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        submitButton.roundWithBorder(borderRadius: 15)
+        importantButton.roundWithBorder(borderRadius: 15)
         switch status {
         case ExamStatus.DURING:
             createTimer()
@@ -123,7 +125,7 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
         cell.backgroundColor = .clear
         cell.index = rowIndex
         cell.questionsInRow = Array(questionList[start..<end])
-        cell.roundWithBorder(borderRadius: 0, borderWidth: 1, borderColor: .white)
+        cell.roundWithBorder(borderRadius: 0, borderWidth: 1, borderColor: UIColor(hex: "#F89500"))
         cell.selectionStyle = .none
         if status == ExamStatus.PREVIEW {
             cell.enableColor = true

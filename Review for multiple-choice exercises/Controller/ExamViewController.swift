@@ -20,6 +20,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     
     @IBOutlet weak var constraintQuestionNumber: NSLayoutConstraint!
     @IBOutlet weak var constrainQuestionView: NSLayoutConstraint!
+    @IBOutlet weak var constrainBottomBackground: NSLayoutConstraint!
     
     @IBOutlet weak var aAnswerView: UIView!
     @IBOutlet weak var bAnswerView: UIView!
@@ -222,7 +223,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     override func viewWillAppear(_ animated: Bool) {
         constraintQuestionNumber.constant =  -1*(questionNumberBorder2.frame.width / 2)
 //        constrainQuestionView.constant =  -1*(questionView.frame.height / 3)
-
+        constrainBottomBackground.constant = (questionView.frame.height/2)
         questionNumberView.roundWithBorder()
         questionNumberBorder1.roundWithBorder()
         questionNumberBorder2.roundWithBorder()
