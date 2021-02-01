@@ -4,12 +4,18 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - HandyJSON (5.0.2)
+  - InputBarAccessoryView (5.2.3):
+    - InputBarAccessoryView/Core (= 5.2.3)
+  - InputBarAccessoryView/Core (5.2.3)
+  - MessageKit (3.5.0):
+    - InputBarAccessoryView (~> 5.2.1)
   - SwiftOverlays (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
   - Charts
   - HandyJSON (~> 5.0.2)
+  - MessageKit
   - SwiftOverlays (~> 5.0.0)
 
 SPEC REPOS:
@@ -17,14 +23,18 @@ SPEC REPOS:
     - Alamofire
     - Charts
     - HandyJSON
+    - InputBarAccessoryView
+    - MessageKit
     - SwiftOverlays
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  InputBarAccessoryView: f814a0317d47687fafc6bac9e4df6015eaf5b764
+  MessageKit: fb539583599cd914e8e2d41fe7bdceb4bf686565
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
 
-PODFILE CHECKSUM: 854846bad0968f2be9fc430d50d5a0d1a78fc4f2
+PODFILE CHECKSUM: b91b0542a669865e3dd745b14a89e65030bdbe78
 
 COCOAPODS: 1.10.1
