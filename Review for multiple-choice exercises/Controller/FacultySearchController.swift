@@ -37,7 +37,7 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      
+        overrideUserInterfaceStyle = .light 
         facultytableView.delegate = self
         facultytableView.dataSource = self
         facultytableView.isHidden = false

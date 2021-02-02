@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gdz-gW-e3y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUq-Dn-a1m">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -183,6 +183,7 @@
                         <outlet property="PasswordRegister" destination="5sN-KV-C6v" id="rWq-GX-42S"/>
                         <outlet property="PhoneRegister" destination="kn4-MW-WKr" id="UWw-TQ-7Sa"/>
                         <outlet property="nameRegister" destination="lMY-du-CFA" id="Gr0-rN-Mat"/>
+                        <outlet property="scrollview" destination="d29-bT-rbR" id="Bi1-s5-UBy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9Z-hJ-nLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1251,6 +1252,7 @@
                 <tapGestureRecognizer id="Vkh-fJ-cVG">
                     <connections>
                         <action selector="onTapStartChat:" destination="ZOX-DA-5F3" id="uxm-CC-LWZ"/>
+                        <segue destination="pUq-Dn-a1m" kind="showDetail" id="gLk-y3-vRh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1543,37 +1545,10 @@
             </objects>
             <point key="canvasLocation" x="-1939.1304347826087" y="-238.39285714285714"/>
         </scene>
-        <!--Chat View Controller-->
-        <scene sceneID="8qp-vK-idv">
-            <objects>
-                <viewController id="aeS-q4-MD4" customClass="ChatViewController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YWM-YX-Cga">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y42-Tw-4Bw">
-                                <rect key="frame" x="0.0" y="20" width="414" height="736"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="sju-kL-Ubh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="y42-Tw-4Bw" firstAttribute="top" secondItem="sju-kL-Ubh" secondAttribute="top" constant="20" id="5W7-mU-RY8"/>
-                            <constraint firstItem="y42-Tw-4Bw" firstAttribute="bottom" secondItem="sju-kL-Ubh" secondAttribute="bottom" constant="20" id="Abl-K1-zng"/>
-                            <constraint firstItem="y42-Tw-4Bw" firstAttribute="leading" secondItem="sju-kL-Ubh" secondAttribute="leading" id="Nk7-0j-K6q"/>
-                            <constraint firstItem="y42-Tw-4Bw" firstAttribute="trailing" secondItem="sju-kL-Ubh" secondAttribute="trailing" id="g4h-TA-EEG"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u0B-nO-Ewr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1972.4637681159422" y="629.34782608695662"/>
-        </scene>
         <!--Chat View Controller1-->
         <scene sceneID="OW0-aX-mwG">
             <objects>
-                <viewController id="pUq-Dn-a1m" customClass="ChatViewController1" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="pUq-Dn-a1m" customClass="ChatViewController1" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D04-E8-S7L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1593,6 +1568,9 @@
                                                             <constraint firstAttribute="width" constant="50" id="3nl-JP-MMN"/>
                                                         </constraints>
                                                         <state key="normal" image="icn_back"/>
+                                                        <connections>
+                                                            <segue destination="v5T-mG-2hy" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="hMv-Xh-trp"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_chat" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-wa-cf2">
                                                         <rect key="frame" x="141" y="10" width="132" height="55"/>
@@ -1642,7 +1620,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sje-Yo-h7a">
-                                                <rect key="frame" x="0.0" y="649" width="414" height="82"/>
+                                                <rect key="frame" x="0.0" y="649" width="414" height="87"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYP-3v-YQS">
                                                         <rect key="frame" x="20" y="20" width="27" height="24"/>
@@ -1679,9 +1657,10 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="hgb-1E-gVf" firstAttribute="top" secondItem="bbn-OZ-GhD" secondAttribute="bottom" constant="10" id="H1a-Ub-rZ6"/>
-                                            <constraint firstAttribute="bottom" secondItem="Sje-Yo-h7a" secondAttribute="bottom" constant="5" id="KpQ-eb-drA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sje-Yo-h7a" secondAttribute="bottom" id="KpQ-eb-drA"/>
                                             <constraint firstItem="bbn-OZ-GhD" firstAttribute="top" secondItem="tMO-LS-UXV" secondAttribute="top" id="TIO-Td-KoY"/>
                                             <constraint firstAttribute="trailing" secondItem="Sje-Yo-h7a" secondAttribute="trailing" id="Zgs-e1-DKC"/>
                                             <constraint firstAttribute="trailing" secondItem="hgb-1E-gVf" secondAttribute="trailing" constant="10" id="cPx-Vy-XcI"/>
@@ -1691,6 +1670,9 @@
                                             <constraint firstItem="bbn-OZ-GhD" firstAttribute="leading" secondItem="tMO-LS-UXV" secondAttribute="leading" id="sFb-g3-jxz"/>
                                             <constraint firstItem="Sje-Yo-h7a" firstAttribute="top" secondItem="hgb-1E-gVf" secondAttribute="bottom" constant="10" id="uNg-iV-dVh"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hBT-Ai-ShR" appends="YES" id="IaU-6F-azc"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -1698,9 +1680,11 @@
                                     <constraint firstItem="tMO-LS-UXV" firstAttribute="width" secondItem="wEE-j1-GE7" secondAttribute="width" id="Gyb-Fe-zuw"/>
                                     <constraint firstAttribute="trailing" secondItem="tMO-LS-UXV" secondAttribute="trailing" id="ME4-v4-7Ok"/>
                                     <constraint firstItem="tMO-LS-UXV" firstAttribute="leading" secondItem="wEE-j1-GE7" secondAttribute="leading" id="VGA-Cj-7pF"/>
-                                    <constraint firstItem="tMO-LS-UXV" firstAttribute="height" secondItem="wEE-j1-GE7" secondAttribute="height" priority="1" id="YPB-Fv-dhH"/>
+                                    <constraint firstItem="tMO-LS-UXV" firstAttribute="height" secondItem="wEE-j1-GE7" secondAttribute="height" multiplier="1:1" priority="1" id="YPB-Fv-dhH"/>
                                     <constraint firstAttribute="bottom" secondItem="tMO-LS-UXV" secondAttribute="bottom" id="njF-KT-lIE"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ude-Zk-quV"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UG9-h1-zkm"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7vl-Wm-5Lf"/>
@@ -1712,15 +1696,24 @@
                             <constraint firstItem="wEE-j1-GE7" firstAttribute="top" secondItem="7vl-Wm-5Lf" secondAttribute="top" id="qA4-ca-sg3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pm5-e9-MuN"/>
                     <connections>
+                        <outlet property="navigation" destination="pm5-e9-MuN" id="0wq-3T-cVF"/>
                         <outlet property="scrollView" destination="wEE-j1-GE7" id="kzo-mn-1AM"/>
                         <outlet property="tableview" destination="hgb-1E-gVf" id="OyF-GT-v3a"/>
+                        <outlet property="tapkeyboard" destination="hBT-Ai-ShR" id="uQV-e0-owK"/>
                         <outlet property="txtfieldmesseage" destination="6JR-H1-UjY" id="ifY-5Y-eW5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb4-00-fjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="v5T-mG-2hy" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="hBT-Ai-ShR">
+                    <connections>
+                        <action selector="actionTapKeyboard:" destination="pUq-Dn-a1m" id="gfQ-tD-e0h"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="242.0289855072464" y="631.79347826086962"/>
+            <point key="canvasLocation" x="-806" y="593"/>
         </scene>
         <!--BÀI KIỂM TRA-->
         <scene sceneID="Ltj-4r-pHA">
@@ -2621,6 +2614,7 @@
                         <outlet property="imageview" destination="mVx-Ii-tyE" id="UUO-0B-5DQ"/>
                         <outlet property="name" destination="lGw-Jf-Bcc" id="ykV-YE-Y16"/>
                         <outlet property="phone" destination="nqh-3R-jsC" id="ywv-RD-NHM"/>
+                        <outlet property="scrollview" destination="hpz-GH-hst" id="eTT-ci-an0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxm-9F-tYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

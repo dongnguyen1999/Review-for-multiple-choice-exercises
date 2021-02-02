@@ -286,7 +286,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     }
     
     @IBAction func onTapStartChat(_ sender: UITapGestureRecognizer) {
-        print("Starting chat...")
+
     }
     
     func onDeleteSuccess(message: String) {
