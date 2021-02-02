@@ -20,22 +20,27 @@ class ChatModel: HandyJSON  {
 }
 
 class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
-    
+    //Ánh xạ
     fileprivate let cellId = "sendercell"
     var chatMessages = [ChatMessage]()
     @IBOutlet weak var txtfieldmesseage: UITextField!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var navigation: UINavigationItem!
+    @IBOutlet var tapkeyboard: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Design tableview
         tableview.delegate = self
         tableview.dataSource = self
         tableview.register(ChatMessageCell.self, forCellReuseIdentifier: cellId)
         tableview.separatorStyle = .none
         tableview.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        tableview?.contentMode = UIView.ContentMode.scaleToFill
+        tableview.layer.contents = UIImage(named:"background_history")?.cgImage
+        tableview.layer.cornerRadius = 15
+        //Thêm icon vào textfield
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(self.actionButton), for: .touchUpInside)
         button.setImage(UIImage(named: "icn_send"), for: .normal)
@@ -52,14 +57,45 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         txtfieldmesseage.layer.borderWidth = 1
         txtfieldmesseage.layer.cornerRadius = 15
         txtfieldmesseage.resignFirstResponder()
-        tableview?.contentMode = UIView.ContentMode.scaleToFill
-        tableview.layer.contents = UIImage(named:"background_history")?.cgImage
-        tableview.layer.cornerRadius = 15
-        //keyboard
-        self.hideKeyboardWhenTappedAround()
-        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        overrideUserInterfaceStyle = .light 
+        //keyboard scrollview
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    //onclick textfield
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    //keyboard scrollview
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - (view.safeAreaInsets.bottom - 10), right: 0)
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+        
+    }
+    //Tắt navigation Bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func actionTapKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+        self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
+    }
+    //Bắt sự kiện click gửi tin nhắn
     @IBAction func actionButton(_ sender: Any) {
         let txtmesseage = txtfieldmesseage.text ?? ""
         let userId = 1
@@ -70,49 +106,33 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         print("body \(body)")
         DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/chatbot.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
             if errorCode == 0 {
-                
                 if let chatModel = ChatModel.deserialize(from: data) as? ChatModel {
                     self.chatMessages.append(ChatMessage(userId: 1 , message: chatModel.response, isIncoming: true))
                     self.tableview.reloadData()
                 }
                 
             }else{
+                print(msg)
                 
             }
             
         }
-    
-    }
-    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    @objc func Keyboard(notification : Notification)  {
-        let userInfo = notification.userInfo!
-        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame,from : view.window)
-        if notification.name == UIResponder.keyboardWillHideNotification{
-            scrollView.contentInset = UIEdgeInsets.zero
-        }else{
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
-        }
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
         
     }
+
     
+    //Set data vào table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId,for: indexPath) as! ChatMessageCell
-        
         let chatMessage = chatMessages[indexPath.row]
         cell.messageLabel.text = chatMessage.message
-        
         cell.chatMessage = chatMessage
         return cell
-    
+        
         
     }
     

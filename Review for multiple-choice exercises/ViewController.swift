@@ -23,18 +23,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
     @IBOutlet weak var scrollview: UIScrollView!
     var emailchecked = 0
     
-    @objc func Keyboard(notification : Notification)  {
-        let userInfo = notification.userInfo!
-        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame,from : view.window)
-        if notification.name == UIResponder.keyboardWillHideNotification{
-            scrollview.contentInset = UIEdgeInsets.zero
-        }else{
-            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
-        }
-        scrollview.scrollIndicatorInsets = scrollview.contentInset
-        
-    }
+
     
     
     
@@ -45,12 +34,14 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         BtnLogin.layer.cornerRadius = 20
         BtnLogin.layer.shadowOpacity = 0.5
         BtnLogin.layer.backgroundColor = UIColor(red: 1, green: 0.404, blue: 0.106, alpha: 1).cgColor
-        
+        overrideUserInterfaceStyle = .light 
         //Ẩn bàn phím
         self.hideKeyboardWhenTappedAround()
         //scrollview theo bàn phím
-        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(Keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+     
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         //Check user login status
         if Prefs.getCachedUserModel() != nil {
@@ -58,7 +49,23 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         }
         
     }
-    
+    //keyboard scrollview
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollview.contentInset = .zero
+        } else {
+            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - (view.safeAreaInsets.bottom - 10), right: 0)
+        }
+        
+        scrollview.scrollIndicatorInsets = scrollview.contentInset
+        
+        
+    }
     func onSuccess(listAccount: [UserModel]?) {
         if let userModel = listAccount?[0] {
             Prefs.cacheUserModel(model: userModel)
