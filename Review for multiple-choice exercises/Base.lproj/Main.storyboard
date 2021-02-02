@@ -195,7 +195,7 @@
             </objects>
             <point key="canvasLocation" x="2062" y="-1123"/>
         </scene>
-        <!--Cài Đặt-->
+        <!--CÀI ĐẶT-->
         <scene sceneID="H2s-Kz-tDD">
             <objects>
                 <viewController storyboardIdentifier="MenuScreen" modalPresentationStyle="fullScreen" id="47x-MD-OgF" customClass="MenuController" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target" sceneMemberID="viewController">
@@ -391,7 +391,7 @@
                             <constraint firstItem="uNR-Da-82H" firstAttribute="leading" secondItem="twl-ba-uqH" secondAttribute="leading" id="p7D-c0-ofW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cài Đặt" id="YXZ-xL-zBI">
+                    <navigationItem key="navigationItem" title="CÀI ĐẶT" id="YXZ-xL-zBI">
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" width="2" style="plain" id="ZWY-UT-3fY">
                             <color key="tintColor" red="0.1363956928" green="0.1835110784" blue="0.20457127689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -1267,7 +1267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_history" translatesAutoresizingMaskIntoConstraints="NO" id="9W5-qi-6Bs">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="-56" width="414" height="792"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-hK-cN4">
                                 <rect key="frame" x="72" y="72" width="270" height="31"/>
@@ -1503,14 +1503,21 @@
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="bottom" secondItem="9W5-qi-6Bs" secondAttribute="bottom" id="gP0-dg-Lzd"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="trailing" secondItem="9W5-qi-6Bs" secondAttribute="trailing" id="i3X-74-RLg"/>
                             <constraint firstItem="Q1E-hK-cN4" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" constant="72" id="kew-b2-MzL"/>
-                            <constraint firstItem="9W5-qi-6Bs" firstAttribute="top" secondItem="uOq-NM-ZK8" secondAttribute="top" id="mJc-o5-yaw"/>
+                            <constraint firstItem="9W5-qi-6Bs" firstAttribute="top" secondItem="uOq-NM-ZK8" secondAttribute="top" constant="-100" id="mJc-o5-yaw"/>
                             <constraint firstItem="Q1E-hK-cN4" firstAttribute="height" secondItem="uOq-NM-ZK8" secondAttribute="height" multiplier="0.045" id="tZz-pP-bkJ"/>
                             <constraint firstItem="uOq-NM-ZK8" firstAttribute="bottom" secondItem="Ivf-ln-FL2" secondAttribute="bottom" id="vSn-dR-6aw"/>
                             <constraint firstItem="uSM-5w-WzH" firstAttribute="leading" secondItem="uOq-NM-ZK8" secondAttribute="leading" id="xGQ-iz-wJd"/>
                             <constraint firstItem="Ivf-ln-FL2" firstAttribute="top" secondItem="uSM-5w-WzH" secondAttribute="bottom" constant="2.2737367544323206e-13" id="y9n-Vo-6RP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="LỊCH SỬ BÀI THI" id="gqV-9V-74g"/>
+                    <navigationItem key="navigationItem" title="LỊCH SỬ BÀI THI" id="gqV-9V-74g">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" style="plain" id="CCH-kD-wVu">
+                            <color key="tintColor" red="0.1363956928" green="0.1835110784" blue="0.20457127689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="JKJ-LT-7Zh" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="fwd-CC-dPL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="allExamButton" destination="GHy-A3-lvZ" id="GaE-a6-uB6"/>
                         <outlet property="historyTableView" destination="rgn-12-osv" id="Tvm-B5-0hu"/>
@@ -1520,6 +1527,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOT-t2-Glg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JKJ-LT-7Zh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-536.231884057971" y="-1123.3695652173915"/>
         </scene>
@@ -2550,7 +2558,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MrB-aT-8nS" secondAttribute="trailing" constant="30" id="0TW-Mj-sPq"/>
                                             <constraint firstItem="lGw-Jf-Bcc" firstAttribute="top" secondItem="9cM-xh-tib" secondAttribute="bottom" constant="10" id="0Xu-N4-gfw"/>
@@ -2601,11 +2608,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="THÔNG TIN CÁ NHÂN" id="NU4-dR-E3E">
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" style="plain" id="ETk-Pq-AqP">
+                            <color key="tintColor" red="0.1363956928" green="0.1835110784" blue="0.20457127689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="OVX-7Y-ZHZ" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="JI8-wr-r4N"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icn_edit" style="plain" id="7eW-sD-rwD">
+                            <color key="tintColor" red="0.1363956928" green="0.1835110784" blue="0.20457127689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="chooseEdit:" destination="tSP-mJ-sYy" id="5Bh-OW-r3A"/>
                             </connections>

@@ -93,11 +93,12 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func actionTapKeyboard(_ sender: Any) {
         self.view.endEditing(true)
-        self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
+//        self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
     }
     //Bắt sự kiện click gửi tin nhắn
     @IBAction func actionButton(_ sender: Any) {
         let txtmesseage = txtfieldmesseage.text ?? ""
+    
         let userId = 1
         
         self.chatMessages.append(ChatMessage(userId: userId, message: txtmesseage, isIncoming: false))
@@ -109,6 +110,7 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
                 if let chatModel = ChatModel.deserialize(from: data) as? ChatModel {
                     self.chatMessages.append(ChatMessage(userId: 1 , message: chatModel.response, isIncoming: true))
                     self.tableview.reloadData()
+                    self.txtfieldmesseage.text = ""
                 }
                 
             }else{
@@ -117,6 +119,7 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
         }
+        
         
     }
 

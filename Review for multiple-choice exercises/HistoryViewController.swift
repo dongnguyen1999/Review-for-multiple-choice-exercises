@@ -36,7 +36,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light 
         userModel = Prefs.getCachedUserModel()
         
         historyTableView.delegate = self
@@ -58,7 +58,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         pagingView.tintColor = .orange
         pagingView.onChangePageCallback = self.changePage(pageNumber:)
 
-     
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     
     }
     

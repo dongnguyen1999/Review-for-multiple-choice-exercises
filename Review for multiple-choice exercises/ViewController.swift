@@ -59,7 +59,7 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         if notification.name == UIResponder.keyboardWillHideNotification {
             scrollview.contentInset = .zero
         } else {
-            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - (view.safeAreaInsets.bottom - 10), right: 0)
+            scrollview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - (view.safeAreaInsets.bottom - 100), right: 0)
         }
         
         scrollview.scrollIndicatorInsets = scrollview.contentInset
