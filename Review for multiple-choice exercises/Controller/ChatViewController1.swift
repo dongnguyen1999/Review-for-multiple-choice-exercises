@@ -111,6 +111,8 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
                     self.chatMessages.append(ChatMessage(userId: 1 , message: chatModel.response, isIncoming: true))
                     self.tableview.reloadData()
                     self.txtfieldmesseage.text = ""
+                    let indexPath = IndexPath(row: self.chatMessages.count-1, section: 0)
+                    self.tableview.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
                 }
                 
             }else{
