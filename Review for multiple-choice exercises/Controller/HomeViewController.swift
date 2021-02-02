@@ -294,8 +294,7 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
-        print("I am Home")
-        
+        homeViewModel.onGetListExam(userId: userModel.userId)
    }
 
 

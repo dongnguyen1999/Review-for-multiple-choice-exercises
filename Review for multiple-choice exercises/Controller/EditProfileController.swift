@@ -33,11 +33,6 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         btneditprofile.layer.backgroundColor = UIColor(red: 1, green: 0.404, blue: 0.106, alpha: 1).cgColor
         backgroundview?.contentMode = UIView.ContentMode.scaleToFill
         backgroundview.layer.contents = UIImage(named:"background_history")?.cgImage
-        imageview.layer.cornerRadius =  imageview.frame.height/2
-        imageview.layer.shadowColor = UIColor.darkGray.cgColor
-        imageview.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        imageview.layer.shadowRadius = 25.0
-        imageview.layer.shadowOpacity = 0.9
         avatar.layer.cornerRadius =  imageview.frame.height/2
         avatar.clipsToBounds = true
      
@@ -48,7 +43,15 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         getdata()
         
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        imageview.boxShadow(offsetX: 0, offsetY: 0, opacity: 0.5, radius: imageview.frame.width/2)
+    }
+    
     //keyboard scrollview
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }

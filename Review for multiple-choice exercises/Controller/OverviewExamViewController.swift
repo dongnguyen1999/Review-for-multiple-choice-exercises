@@ -22,6 +22,7 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var answerTableView: UITableView!
     
+    var examViewController: ExamViewController? = nil
     var questionList: [QuestionModel]!
     var examModel: ExamModel!
     var status = ExamStatus.DURING
@@ -148,6 +149,8 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func onSubmitExam(_ sender: UIButton) {
         //Stop timer
+        examViewController?.timer?.invalidate()
+        examViewController?.timer = nil
         timer?.invalidate()
         timer = nil
         minuteNumberLabel.text = "\(examModel.duration):00"

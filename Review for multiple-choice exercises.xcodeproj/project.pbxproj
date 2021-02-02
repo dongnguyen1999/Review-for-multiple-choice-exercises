@@ -50,7 +50,6 @@
 		B336719525C0F8C4005DCF7E /* PagingView.xib in Sources */ = {isa = PBXBuildFile; fileRef = B336719425C0F8C3005DCF7E /* PagingView.xib */; };
 		B33FE16A25C10F4B006A6C67 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE16925C10F4B006A6C67 /* UIFont.swift */; };
 		B33FE17125C10F68006A6C67 /* ReadyStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE16E25C10F68006A6C67 /* ReadyStartViewController.swift */; };
-		B33FE17225C10F68006A6C67 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE16F25C10F68006A6C67 /* HelloViewController.swift */; };
 		B33FE17325C10F68006A6C67 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE17025C10F68006A6C67 /* ExamViewController.swift */; };
 		B33FE17825C10FD4006A6C67 /* ExamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE17725C10FD4006A6C67 /* ExamViewModel.swift */; };
 		B33FE17F25C10FE7006A6C67 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE17C25C10FE7006A6C67 /* QuestionViewModel.swift */; };
@@ -152,7 +151,6 @@
 		B336719425C0F8C3005DCF7E /* PagingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PagingView.xib; path = ../../PagingView.xib; sourceTree = "<group>"; };
 		B33FE16925C10F4B006A6C67 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		B33FE16E25C10F68006A6C67 /* ReadyStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyStartViewController.swift; sourceTree = "<group>"; };
-		B33FE16F25C10F68006A6C67 /* HelloViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 		B33FE17025C10F68006A6C67 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		B33FE17725C10FD4006A6C67 /* ExamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamViewModel.swift; sourceTree = "<group>"; };
 		B33FE17C25C10FE7006A6C67 /* QuestionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				615B737625B6CE44009EF9F6 /* MenuController.swift */,
 				615B739C25B90882009EF9F6 /* FacultySearchController.swift */,
 				B33FE17025C10F68006A6C67 /* ExamViewController.swift */,
-				B33FE16F25C10F68006A6C67 /* HelloViewController.swift */,
 				B33FE16E25C10F68006A6C67 /* ReadyStartViewController.swift */,
 				B33FE19A25C11DAA006A6C67 /* HomeViewController.swift */,
 				B33FE19F25C155D8006A6C67 /* OverviewExamViewController.swift */,
@@ -701,7 +698,6 @@
 				B33FE17325C10F68006A6C67 /* ExamViewController.swift in Sources */,
 				615B738E25B7FDCB009EF9F6 /* Keyboard.swift in Sources */,
 				615B73CB25BA8052009EF9F6 /* MajorSearchModelView.swift in Sources */,
-				B33FE17225C10F68006A6C67 /* HelloViewController.swift in Sources */,
 				B3106AA025C2ACF2004F788E /* HistoryViewType.swift in Sources */,
 				615B737725B6CE44009EF9F6 /* MenuController.swift in Sources */,
 				6150DE3E25B175E100BCAD52 /* Utils.swift in Sources */,

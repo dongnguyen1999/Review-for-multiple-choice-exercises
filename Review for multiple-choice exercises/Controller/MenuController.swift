@@ -18,11 +18,15 @@ class MenuController: UIViewController {
     @IBOutlet weak var avatarMenu: customAvatar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light 
         getdata()
         // Do any additional setup after loading the view.
         editprofileView.setOnTapListener(context: self, action: #selector(onEditProfile(sender:)))
         historySearchView.setOnTapListener(context: self, action: #selector(onHistorySearch(sender:)))
         importantTestView.setOnTapListener(context: self, action: #selector(onImportantTest(sender:)))
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     }
     
     @objc func onEditProfile(sender: UIGestureRecognizer){

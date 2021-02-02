@@ -151,6 +151,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
             dest.questionList = questionList
             dest.status = status
             dest.selectedNumber = pagingView.activePage + 1
+            dest.examViewController = self
         }
     }
     

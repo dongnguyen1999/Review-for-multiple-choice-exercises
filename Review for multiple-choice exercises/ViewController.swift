@@ -63,9 +63,8 @@ class ViewController: UIViewController, UserModelView, UITextFieldDelegate{
         }
         
         scrollview.scrollIndicatorInsets = scrollview.contentInset
-        
-        
     }
+    
     func onSuccess(listAccount: [UserModel]?) {
         if let userModel = listAccount?[0] {
             Prefs.cacheUserModel(model: userModel)

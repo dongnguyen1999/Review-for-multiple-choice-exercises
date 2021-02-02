@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUq-Dn-a1m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gdz-gW-e3y">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -204,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_history" translatesAutoresizingMaskIntoConstraints="NO" id="uNR-Da-82H">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="-56" width="414" height="792"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="vwt-P7-oQA" customClass="customAvatar" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
                                 <rect key="frame" x="143" y="64" width="128" height="128"/>
@@ -385,7 +385,7 @@
                             <constraint firstItem="vwt-P7-oQA" firstAttribute="top" secondItem="twl-ba-uqH" secondAttribute="top" constant="20" id="Ugz-C0-Ubp"/>
                             <constraint firstItem="zzw-Xc-y8h" firstAttribute="top" secondItem="vwt-P7-oQA" secondAttribute="bottom" constant="10" id="bgY-Ow-UOA"/>
                             <constraint firstItem="twl-ba-uqH" firstAttribute="trailing" secondItem="uNR-Da-82H" secondAttribute="trailing" id="cmg-dt-wpm"/>
-                            <constraint firstItem="uNR-Da-82H" firstAttribute="top" secondItem="twl-ba-uqH" secondAttribute="top" id="giR-rE-5Zn"/>
+                            <constraint firstItem="uNR-Da-82H" firstAttribute="top" secondItem="twl-ba-uqH" secondAttribute="top" constant="-100" id="giR-rE-5Zn"/>
                             <constraint firstItem="GOV-PD-Xs4" firstAttribute="centerX" secondItem="twl-ba-uqH" secondAttribute="centerX" id="hQY-Pz-6Rt"/>
                             <constraint firstItem="vwt-P7-oQA" firstAttribute="centerX" secondItem="twl-ba-uqH" secondAttribute="centerX" id="iJM-0u-dqO"/>
                             <constraint firstItem="uNR-Da-82H" firstAttribute="leading" secondItem="twl-ba-uqH" secondAttribute="leading" id="p7D-c0-ofW"/>
@@ -393,7 +393,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cài Đặt" id="YXZ-xL-zBI">
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" width="2" style="plain" id="ZWY-UT-3fY">
-                            <color key="tintColor" systemColor="labelColor"/>
+                            <color key="tintColor" red="0.1363956928" green="0.1835110784" blue="0.20457127689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="0Uv-tA-0fr" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="vMH-6b-DZi"/>
                             </connections>
@@ -2451,6 +2451,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_history" translatesAutoresizingMaskIntoConstraints="NO" id="Wzm-QJ-jvm">
+                                <rect key="frame" x="0.0" y="-56" width="414" height="792"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-GH-hst">
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
@@ -2587,9 +2590,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hpz-GH-hst" firstAttribute="top" secondItem="BlZ-66-rJi" secondAttribute="top" id="5al-mz-d2G"/>
+                            <constraint firstItem="BlZ-66-rJi" firstAttribute="trailing" secondItem="Wzm-QJ-jvm" secondAttribute="trailing" id="E5i-qe-iWM"/>
+                            <constraint firstItem="Wzm-QJ-jvm" firstAttribute="top" secondItem="BlZ-66-rJi" secondAttribute="top" constant="-100" id="MU8-tU-2sC"/>
+                            <constraint firstItem="Wzm-QJ-jvm" firstAttribute="leading" secondItem="BlZ-66-rJi" secondAttribute="leading" id="V9y-yL-U4F"/>
                             <constraint firstItem="hpz-GH-hst" firstAttribute="leading" secondItem="BlZ-66-rJi" secondAttribute="leading" id="YXL-Op-yG6"/>
                             <constraint firstItem="hpz-GH-hst" firstAttribute="trailing" secondItem="BlZ-66-rJi" secondAttribute="trailing" id="daJ-r6-KvJ"/>
                             <constraint firstItem="hpz-GH-hst" firstAttribute="bottom" secondItem="BlZ-66-rJi" secondAttribute="bottom" id="o4f-CO-ATI"/>
+                            <constraint firstItem="BlZ-66-rJi" firstAttribute="bottom" secondItem="Wzm-QJ-jvm" secondAttribute="bottom" id="qpz-RR-FMG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="THÔNG TIN CÁ NHÂN" id="NU4-dR-E3E">
@@ -2629,7 +2636,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YrX-Ab-cL7"/>
         <segue reference="rWa-vD-u2v"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2667,9 +2673,6 @@
         <image name="icon_rate" width="46" height="45"/>
         <image name="icon_sum_exam" width="46" height="45.333332061767578"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
