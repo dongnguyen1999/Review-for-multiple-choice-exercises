@@ -74,7 +74,7 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         name.isUserInteractionEnabled = true
         phone.isUserInteractionEnabled = true
         email.isUserInteractionEnabled = false
-       
+        email.backgroundColor = UIColor(hex: "F9AA33")
         
     }
     
