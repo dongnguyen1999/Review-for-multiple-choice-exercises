@@ -32,7 +32,7 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
 //        subjectNameLabel.font = subjectNameLabel.font.italic
 //        durationLabel.font = durationLabel.font.italic
 //        minuteLabel.font = minuteLabel.font.italic
-//        
+//
         subjectNameLabel.text = subjectModel.subjectName
         
         examViewModel = ExamViewModel(examDelegate: self)

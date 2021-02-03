@@ -122,9 +122,9 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     
     func setupOverviewView() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 21))
-        label.textAlignment = .center
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textAlignment = .left
+        label.textColor = UIColor(hex: "#344955")
+        label.font = UIFont(name: "OpenSans-Bold", size: 18)
         label.text = "Tổng quan"
         let leftButton = UIBarButtonItem(customView: label)
         label.setOnTapListener(context: self, action: #selector(onClickOverview(sender:)))
@@ -133,9 +133,9 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     
     func setupTimerView() {
         remainTimeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 21))
-        remainTimeLabel.textAlignment = .center
-        remainTimeLabel.textColor = .black
-        remainTimeLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        remainTimeLabel.textAlignment = .right
+        remainTimeLabel.textColor = UIColor(hex: "#344955")
+        remainTimeLabel.font = UIFont(name: "OpenSans-Bold", size: 18)
         remainTimeLabel.text = "Thời gian cỏn lại"
         let rightButton = UIBarButtonItem(customView: remainTimeLabel)
         self.navigationItem.rightBarButtonItem  = rightButton
@@ -342,6 +342,10 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         }
     }
     
+    func onClickLastPageNext() {
+        print("last")
+    }
     
+
 
 }
