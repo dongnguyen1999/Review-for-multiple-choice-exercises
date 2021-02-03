@@ -64,6 +64,8 @@
 		B33FE1BA25C16C74006A6C67 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33FE1B925C16C74006A6C67 /* AnswerCell.swift */; };
 		B33FE1BF25C16C86006A6C67 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33FE1BE25C16C86006A6C67 /* AnswerCell.xib */; };
 		B34BF4EB25B56AD1005569CA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B34BF4EA25B56AD1005569CA /* SwiftUICharts */; };
+		B3543CFD25CA2F4300BF51D4 /* ReviewExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3543CFC25CA2F4300BF51D4 /* ReviewExamViewController.swift */; };
+		B3543D0525CA303C00BF51D4 /* ReviewExamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3543D0425CA303C00BF51D4 /* ReviewExamTableViewCell.swift */; };
 		B35FA60025B8009B007F692B /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FA5FF25B8009B007F692B /* SubjectModel.swift */; };
 		B35FA60525B80119007F692B /* SubjectModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FA60425B80119007F692B /* SubjectModelDelegate.swift */; };
 		B363638C25AEEBAB0071A98F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363638B25AEEBAB0071A98F /* AppDelegate.swift */; };
@@ -164,6 +166,8 @@
 		B33FE1B125C167CF006A6C67 /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
 		B33FE1B925C16C74006A6C67 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		B33FE1BE25C16C86006A6C67 /* AnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
+		B3543CFC25CA2F4300BF51D4 /* ReviewExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExamViewController.swift; sourceTree = "<group>"; };
+		B3543D0425CA303C00BF51D4 /* ReviewExamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExamTableViewCell.swift; sourceTree = "<group>"; };
 		B35FA5FF25B8009B007F692B /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		B35FA60425B80119007F692B /* SubjectModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModelDelegate.swift; sourceTree = "<group>"; };
 		B363638825AEEBAB0071A98F /* Review for multiple-choice exercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Review for multiple-choice exercises.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +250,7 @@
 				B33FE19A25C11DAA006A6C67 /* HomeViewController.swift */,
 				B33FE19F25C155D8006A6C67 /* OverviewExamViewController.swift */,
 				6156EA9B25C4F55B00B6277C /* ChatViewController1.swift */,
+				B3543CFC25CA2F4300BF51D4 /* ReviewExamViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				B33FE1BE25C16C86006A6C67 /* AnswerCell.xib */,
 				6156EA8325C3F6BD00B6277C /* CustomTextcolorButton.swift */,
 				6156EAA025C4FC9800B6277C /* ChatMessageCell.swift */,
+				B3543D0425CA303C00BF51D4 /* ReviewExamTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3543D0525CA303C00BF51D4 /* ReviewExamTableViewCell.swift in Sources */,
 				B336719525C0F8C4005DCF7E /* PagingView.xib in Sources */,
 				B336719025C0F899005DCF7E /* PagingViewType.swift in Sources */,
 				B336718B25C0F874005DCF7E /* HistoryTableViewCell.swift in Sources */,
@@ -729,6 +736,7 @@
 				B33FE1BA25C16C74006A6C67 /* AnswerCell.swift in Sources */,
 				615385C725BE4B2000A02F06 /* SubjectSearchModelDelegate.swift in Sources */,
 				B33FE19B25C11DAA006A6C67 /* HomeViewController.swift in Sources */,
+				B3543CFD25CA2F4300BF51D4 /* ReviewExamViewController.swift in Sources */,
 				B33FE1A025C155D8006A6C67 /* OverviewExamViewController.swift in Sources */,
 				B33FE18825C11004006A6C67 /* ExamPreference.swift in Sources */,
 				B363638E25AEEBAB0071A98F /* SceneDelegate.swift in Sources */,

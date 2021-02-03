@@ -23,14 +23,20 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
     //Ánh xạ
     fileprivate let cellId = "sendercell"
     var chatMessages = [ChatMessage]()
+    
+    
     @IBOutlet weak var txtfieldmesseage: UITextField!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet var tapkeyboard: UITapGestureRecognizer!
+    @IBOutlet weak var viewscroll: UIView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Design tableview
         tableview.delegate = self
         tableview.dataSource = self
@@ -40,6 +46,7 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         tableview?.contentMode = UIView.ContentMode.scaleToFill
         tableview.layer.contents = UIImage(named:"background_history")?.cgImage
         tableview.layer.cornerRadius = 15
+        
         //Thêm icon vào textfield
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(self.actionButton), for: .touchUpInside)
@@ -57,7 +64,7 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         txtfieldmesseage.layer.borderWidth = 1
         txtfieldmesseage.layer.cornerRadius = 15
         txtfieldmesseage.resignFirstResponder()
-        overrideUserInterfaceStyle = .light 
+        overrideUserInterfaceStyle = .light
         //keyboard scrollview
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -77,8 +84,16 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         
         if notification.name == UIResponder.keyboardWillHideNotification {
             scrollView.contentInset = .zero
+            tableview.contentInset = .zero
         } else {
+            
             scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - (view.safeAreaInsets.bottom - 10), right: 0)
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                tableview.contentInset = UIEdgeInsets(top: keyboardSize.height - 90, left: 0, bottom: 0, right: 0)
+                
+                
+            }
+            
         }
         
         scrollView.scrollIndicatorInsets = scrollView.contentInset
@@ -90,15 +105,15 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
     @IBAction func actionTapKeyboard(_ sender: Any) {
         self.view.endEditing(true)
-//        self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
+        self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
     }
+    
     //Bắt sự kiện click gửi tin nhắn
     @IBAction func actionButton(_ sender: Any) {
+        
         let txtmesseage = txtfieldmesseage.text ?? ""
-    
         let userId = 1
         
         self.chatMessages.append(ChatMessage(userId: userId, message: txtmesseage, isIncoming: false))
@@ -110,9 +125,12 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
                 if let chatModel = ChatModel.deserialize(from: data) as? ChatModel {
                     self.chatMessages.append(ChatMessage(userId: 1 , message: chatModel.response, isIncoming: true))
                     self.tableview.reloadData()
-                    self.txtfieldmesseage.text = ""
+                    
                     let indexPath = IndexPath(row: self.chatMessages.count-1, section: 0)
+                    
                     self.tableview.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+                    self.txtfieldmesseage.text = ""
+                    
                 }
                 
             }else{
@@ -122,9 +140,9 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
             
         }
         
-        
     }
-
+    
+    
     
     //Set data vào table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,6 +154,8 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         let chatMessage = chatMessages[indexPath.row]
         cell.messageLabel.text = chatMessage.message
         cell.chatMessage = chatMessage
+        
+        
         return cell
         
         
