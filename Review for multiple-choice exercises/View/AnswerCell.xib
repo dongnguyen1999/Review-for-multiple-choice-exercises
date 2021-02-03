@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnswerCell" customModule="Review_for_multiple_choice_exercises" customModuleProvider="target">
             <connections>
@@ -22,17 +27,17 @@
                     <rect key="frame" x="0.0" y="80" width="320" height="320"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Upr-3V-Y94">
-                            <rect key="frame" x="147" y="139.5" width="26.5" height="41"/>
+                            <rect key="frame" x="145.5" y="137.5" width="29.5" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2My-hE-thb">
-                                    <rect key="frame" x="0.0" y="0.0" width="11" height="41"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="13.5" height="45"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="23"/>
                                     <color key="textColor" red="0.97335332630000004" green="0.58329486850000001" blue="0.0035671503279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L88-NA-FAZ">
-                                    <rect key="frame" x="11" y="0.0" width="15.5" height="41"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                    <rect key="frame" x="13.5" y="0.0" width="16" height="45"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="23"/>
                                     <color key="textColor" red="0.97335332630000004" green="0.58329486850000001" blue="0.0035671503279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
