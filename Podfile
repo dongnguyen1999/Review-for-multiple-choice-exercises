@@ -8,7 +8,7 @@ target 'Review for multiple-choice exercises' do
   pod 'SwiftOverlays', '~> 5.0.0'
   pod 'Charts'
   pod 'MessageKit'
- pod 'Alamofire', '~> 4.6'
+  pod 'Alamofire', '~> 4.6'
 
   # Pods for Review for multiple-choice exercises
 

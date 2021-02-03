@@ -7,6 +7,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Register Controller-->
         <scene sceneID="Cce-4j-SIc">
@@ -879,19 +887,19 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="112"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxJ-xD-EtT">
-                                                                <rect key="frame" x="31.666666666666661" y="46" width="48.333333333333343" height="20.333333333333329"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <rect key="frame" x="32.333333333333336" y="44.333333333333343" width="47.000000000000007" height="23.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6e-0D-Ixc">
-                                                                <rect key="frame" x="29.000000000000011" y="25.666666666666657" width="53.666666666666657" height="20.333333333333329"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <rect key="frame" x="30.333333333333336" y="21" width="51.000000000000007" height="23.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_orange" translatesAutoresizingMaskIntoConstraints="NO" id="Ead-pz-IyP">
-                                                                <rect key="frame" x="44.666666666666664" y="66.333333333333343" width="22.333333333333336" height="22.333333333333329"/>
+                                                                <rect key="frame" x="44.666666666666664" y="67.666666666666657" width="22.333333333333336" height="22.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Ead-pz-IyP" secondAttribute="height" multiplier="1:1" id="OQv-3J-CwY"/>
                                                                 </constraints>
@@ -935,19 +943,19 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="112"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-Ov-Nww">
-                                                                <rect key="frame" x="33.000000000000028" y="46" width="45.666666666666657" height="20.333333333333329"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <rect key="frame" x="33.666666666666657" y="44.333333333333343" width="44.666666666666657" height="23.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-oQ-qTg">
-                                                                <rect key="frame" x="29.000000000000025" y="25.666666666666657" width="53.666666666666657" height="20.333333333333329"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <rect key="frame" x="30.333333333333343" y="21" width="51" height="23.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_purple" translatesAutoresizingMaskIntoConstraints="NO" id="Hfd-GA-TW6">
-                                                                <rect key="frame" x="44.666666666666657" y="66.333333333333343" width="22.333333333333329" height="22.333333333333329"/>
+                                                                <rect key="frame" x="44.666666666666657" y="67.666666666666657" width="22.333333333333329" height="22.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Hfd-GA-TW6" secondAttribute="height" multiplier="1:1" id="xh2-qw-1b4"/>
                                                                 </constraints>
@@ -1000,8 +1008,8 @@
                                 <rect key="frame" x="0.0" y="272.66666666666669" width="414" height="221"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Điểm Số Tuần Qua" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-Xf-acu">
-                                        <rect key="frame" x="124.66666666666669" y="15.999999999999998" width="165" height="26.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <rect key="frame" x="129.33333333333331" y="15.999999999999998" width="155.33333333333331" height="26.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
                                         <color key="textColor" red="0.30888617039999999" green="0.22594577069999999" blue="0.33914023640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1025,7 +1033,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐIỂM CAO NHẤT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC1-B5-IGK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="20.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1063,7 +1071,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SỐ BÀI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7N-xX-M4m">
                                                                         <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="20.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1106,7 +1114,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TỈ LỆ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNf-RX-xIz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="20"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1144,7 +1152,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TỔNG BÀI THI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-hx-tyS">
                                                                         <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="20"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                                                                         <color key="textColor" red="0.74111062289999996" green="0.74121868609999997" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
