@@ -32,7 +32,7 @@ public extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
-    func setOnTapListener(context: UIView, action selector: Selector? ) {
+    func setOnTapListener(context: UIView, action selector: Selector?) {
         let singleTap = UITapGestureRecognizer(target: context, action: selector)
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(singleTap)

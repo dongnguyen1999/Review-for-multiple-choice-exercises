@@ -8,7 +8,8 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-
+    
+    var examId: Int!
     @IBOutlet weak var scoreContainerView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     

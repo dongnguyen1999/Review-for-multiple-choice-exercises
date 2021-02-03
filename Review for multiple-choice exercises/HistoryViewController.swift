@@ -31,6 +31,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var historyType = HistoryViewType.ALL_HISTORY
 
     var rateColorList = [UIColor(hex: "#f44336"), UIColor(hex: "#9c27af"), UIColor(hex: "#3f51b5"), UIColor(hex: "#00bcd4"), UIColor(hex: "#4cae50")]
+
+    var selectedExamId: Int!
     
     static let PRESENT_LIMIT = 5
     
@@ -165,6 +167,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             color = rateColorList[Int(score)/5]
         }
         
+        cell.examId = exam.examId
         cell.color = color
         cell.facultyNameLabel.text = exam.facultyName
         cell.subjectNameLabel.text = exam.subjectName
@@ -176,6 +179,26 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.scoreLabel.text = "?/\(exam.nbQuestion)"
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch tableView {
+        case historyTableView:
+            selectedExamId = presentData[indexPath.row].examId
+        case importantTableView:
+            selectedExamId = importantPresentData[indexPath.row].examId
+        default:
+            fatalError("Unknown tableView")
+        }
+        performSegue(withIdentifier: "NavigateToReviewExam", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dist = segue.destination as? ReviewExamViewController{
+            dist.examId = selectedExamId
+        }
     }
     
     func onSuccess(listExam: [ExamModel]?) {

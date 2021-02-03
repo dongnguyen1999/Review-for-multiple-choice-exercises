@@ -29,6 +29,19 @@ class ExamViewModel {
         }
     }
     
+    func getExamDetail(examId: Int) {
+        DownloadAsyncTask.GET(url: "\(Constants.URL.URL_SEVER)api/exam.php?type=\(RequestType.LIST)&examId=\(examId)", showDialog: true) { (errorCode, msg, arrayData) in
+            print (errorCode)
+            //chuyen trang
+            if errorCode == 0 {
+                self.examDelegate.onSuccess(listExam: [ExamModel].deserialize(from: arrayData) as? [ExamModel])
+            }
+             else {
+                self.examDelegate.onError(message: msg)
+             }
+        }
+    }
+    
     func cancelTemporatyExam(examId: Int ) {
         let body:[String: Any?] = ["type" : RequestType.CANCEL, "examId" : examId]
         DownloadAsyncTask.POST(url: "\(Constants.URL.URL_SEVER)api/exam.php", body: body as [String : Any], showDialog: true) { (errorCode, msg, arrayData) in
