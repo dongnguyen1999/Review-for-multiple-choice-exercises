@@ -38,9 +38,9 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for view in [subjectNameLabel, minuteLabel, nbCompleteQuestionLabel, questionUnitLabel] {
-            view?.font = view?.font.italic
-        }
+//        for view in [subjectNameLabel, minuteLabel, nbCompleteQuestionLabel, questionUnitLabel] {
+//            view?.font = view?.font.italic
+//        }
         subjectNameLabel.text = examModel.subjectName
         let nbComplete = computeCompleteQuestion(questions: questionList)
         minuteNumberLabel.text = "\(examModel.duration):00"
@@ -66,6 +66,12 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
             importantButton.isHidden = false
             if examModel.isImportant == 1 {
                 importantButton.isHidden = true
+            }
+            if let score = examModel.score {
+                nbCompleteQuestionLabel.text = "\(Int(score))/\(examModel.nbQuestion)"
+                nbCompleteQuestionLabel.textColor = UIColor(hex: "#62B18C")
+            } else {
+                nbCompleteQuestionLabel.text = "?/\(examModel.nbQuestion)"
             }
         default:
             fatalError("Overview screen must be set status")

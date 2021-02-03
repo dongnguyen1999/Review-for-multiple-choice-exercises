@@ -29,10 +29,10 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
         
         startButton.roundWithBorder(borderRadius: 15)
         
-        subjectNameLabel.font = subjectNameLabel.font.italic
-        durationLabel.font = durationLabel.font.italic
-        minuteLabel.font = minuteLabel.font.italic
-        
+//        subjectNameLabel.font = subjectNameLabel.font.italic
+//        durationLabel.font = durationLabel.font.italic
+//        minuteLabel.font = minuteLabel.font.italic
+//        
         subjectNameLabel.text = subjectModel.subjectName
         
         examViewModel = ExamViewModel(examDelegate: self)
