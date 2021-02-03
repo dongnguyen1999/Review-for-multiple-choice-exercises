@@ -24,10 +24,12 @@ class ReviewExamViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         reviewTableView.dataSource = self
         reviewTableView.delegate = self
         reviewTableView.rowHeight = UITableView.automaticDimension
         reviewTableView.estimatedRowHeight = 600
+        reviewTableView.backgroundColor = .clear
         
         questionViewModel = QuestionViewModel(questionDelegate: self)
         examViewModel = ExamViewModel(examDelegate: self)
@@ -45,6 +47,7 @@ class ReviewExamViewController: UIViewController, UITableViewDataSource, UITable
         let index = indexPath.row
         let question = questionList[index]
         cell.setQuestion(index: index, question: question)
+        cell.backgroundColor = .clear
         return cell
     }
     
