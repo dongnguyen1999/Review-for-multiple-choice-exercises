@@ -114,6 +114,10 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func actionButton(_ sender: Any) {
         
         let txtmesseage = txtfieldmesseage.text ?? ""
+        if txtmesseage == "" {
+            return
+        }
+        
         let userId = 1
         
         self.chatMessages.append(ChatMessage(userId: userId, message: txtmesseage, isIncoming: false))
