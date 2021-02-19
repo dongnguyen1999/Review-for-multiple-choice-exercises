@@ -49,7 +49,7 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Thêm icon vào textfield
         let button = UIButton(type: .custom)
-        button.addTarget(self, action: #selector(self.actionButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.actionButton(_:)), for: .touchUpInside)
         button.setImage(UIImage(named: "icn_send"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(txtfieldmesseage.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
@@ -130,12 +130,9 @@ class ChatViewController1: UIViewController, UITableViewDelegate, UITableViewDat
                     
                     self.tableview.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
                     self.txtfieldmesseage.text = ""
-                    
                 }
-                
             }else{
                 print(msg)
-                
             }
             
         }

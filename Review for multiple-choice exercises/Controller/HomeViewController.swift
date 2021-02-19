@@ -34,14 +34,6 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         userModel = Prefs.getCachedUserModel()
-       
-        guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
-        if let data = try? Data(contentsOf: url) {
-             // Create Image and Update Image View
-             let image = UIImage(data: data)
-            avatarImageView.setImage(image, for: UIControl.State.normal)
-         }
-        
         scoreChartView.noDataText = "Tuần qua chưa có bài kiểm tra nào"
         
         homeViewModel = HomeViewModel(examDelegate: self, subjectDelegate: self)
@@ -91,6 +83,17 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        userModel = Prefs.getCachedUserModel()
+        if userModel.avatar == "" {
+            avatarImageView.setImage(UIImage(named: "avatar"), for: UIControl.State.normal)
+        } else {
+            guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+            if let data = try? Data(contentsOf: url) {
+                 // Create Image and Update Image View
+                 let image = UIImage(data: data)
+                avatarImageView.setImage(image, for: UIControl.State.normal)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

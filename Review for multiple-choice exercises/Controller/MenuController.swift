@@ -9,7 +9,9 @@ import UIKit
 
 class MenuController: UIViewController {
     
+    
     var userModel: UserModel!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var importantTestView: customViewMenuProfile!
@@ -17,6 +19,7 @@ class MenuController: UIViewController {
     @IBOutlet weak var editprofileView: customViewMenuProfile!
     @IBOutlet weak var avatarMenu: customAvatar!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light 
         getdata()
@@ -27,6 +30,10 @@ class MenuController: UIViewController {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.isTranslucent = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getdata()
     }
     
     @objc func onEditProfile(sender: UIGestureRecognizer){
@@ -59,17 +66,20 @@ class MenuController: UIViewController {
     }
  
     func getdata() {
-    
-     
         userModel = Prefs.getCachedUserModel()
         nameLabel.text = userModel?.name
         phoneLabel.text = userModel?.phone
         guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
-        if let data = try? Data(contentsOf: url) {
-             // Create Image and Update Image View
-             avatarMenu.image = UIImage(data: data)
-         }
-       
+        if userModel.avatar == "" {
+             avatarMenu.image = UIImage(named: "avatar")
+        } else {
+            guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+            if let data = try? Data(contentsOf: url) {
+                 // Create Image and Update Image View
+                 let image = UIImage(data: data)
+                avatarMenu.image = image
+            }
+        }
     }
     
     func changeRootViewToLogin() {

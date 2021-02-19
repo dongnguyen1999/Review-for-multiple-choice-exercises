@@ -110,10 +110,16 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         phone.text = userModel.phone
         email.text = userModel.email
         guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
-        if let data = try? Data(contentsOf: url) {
-             // Create Image and Update Image View
-             avatar.image = UIImage(data: data)
-         }
+        if userModel.avatar == "" {
+            avatar.image = UIImage(named: "avatar")
+        } else {
+            guard let url = URL(string: "\(Constants.URL.URL_SEVER)\(self.userModel.avatar)") else { return }
+            if let data = try? Data(contentsOf: url) {
+                 // Create Image and Update Image View
+                 let image = UIImage(data: data)
+                avatar.image = image
+            }
+        }
         //Enabled textfiled
         name.isUserInteractionEnabled = false
         phone.isUserInteractionEnabled = false
@@ -138,7 +144,10 @@ class EditProfileController: UIViewController, UITextFieldDelegate,UIImagePicker
         DownloadAsyncTask.POST(url:Constants.URL.URL_SEVER+"api/user.php" , body: body as [String : Any], showDialog: true) { (errorCode, msg, data) in
             if errorCode == 0 {
                 self.ThongBao(title: "Thông Báo", message: "\(msg)")
-                
+                let response = [UserModel].deserialize(from: data) as? [UserModel]
+                if let newUserModel = response?[0] {
+                    Prefs.cacheUserModel(model: newUserModel)
+                }
             }else{
                 self.ThongBao(title: "Thông Báo", message: "\(msg)")
             }
