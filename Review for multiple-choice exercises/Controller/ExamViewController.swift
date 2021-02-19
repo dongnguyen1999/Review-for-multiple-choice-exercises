@@ -87,6 +87,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         pagingView.setNumberOfPage(totalPage: examModel.nbQuestion)
         maxQuestionLabel.text = "\(examModel.nbQuestion)"
         pagingView.onChangePageCallback = self.showQuestion(index:)
+        pagingView.onLastClickCallback = onLastClickPaging
         
         questionViewModel = QuestionViewModel(questionDelegate: self)
         questionViewModel.onGetListQuestion(examId: examModel.examId)
@@ -153,6 +154,10 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
             dest.selectedNumber = pagingView.activePage + 1
             dest.examViewController = self
         }
+    }
+    
+    func onLastClickPaging() {
+            performSegue(withIdentifier: "PushOverview", sender: self)
     }
     
     func showQuestion(index: Int) {

@@ -17,6 +17,7 @@ class PagingView: UIView {
     let type = PagingViewType.THREE_DOT
     
     var onChangePageCallback: ((Int) -> Void)?
+    var onLastClickCallback: (() -> Void)?
     
     var totalPage = 1
     var activePage: Int = 4 {
@@ -127,8 +128,13 @@ class PagingView: UIView {
         let tappedImage = sender.view as! UIImageView
         let isAvailable = Bool(tappedImage.restorationIdentifier!)
         if isAvailable == true {
-            activePage += 1
-            render()
+            if activePage + 1 < totalPage {
+                activePage += 1
+                render()
+            } else {
+                onLastClickCallback?()
+            }
+            
         }
     }
     
@@ -189,7 +195,7 @@ class PagingView: UIView {
             prevButton.image = prevAvailableImage
         }
         
-        if activePage == totalPage - 1 {
+        if activePage == totalPage - 1 && onLastClickCallback == nil {
             nextButton.restorationIdentifier = "false"
             nextButton.image = nextUnavailableImage
         } else {
