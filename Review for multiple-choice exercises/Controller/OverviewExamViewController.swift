@@ -219,5 +219,9 @@ class OverviewExamViewController: UIViewController, UITableViewDelegate, UITable
         performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
+    func onStartSuccess(listExam: [ExamModel]?) {
+        print("start exam success")
+    }
+    
 }
 

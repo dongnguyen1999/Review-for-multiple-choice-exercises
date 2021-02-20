@@ -36,6 +36,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
     //keyboard scrollview
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -53,6 +54,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         
         
     }
+    
     func ThongBao( title : String, message : String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .default, handler:nil )
@@ -80,6 +82,7 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
     //Ràng buộc email
     func isValidEmail(testStr:String) -> Bool {
         print("validate emilId: \(testStr)")
@@ -89,6 +92,8 @@ class RegisterController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         return result
     }
    //End ràng buộc email
+    
+    
     @IBAction func actionRegister(_ sender: UIButton) {
         let name = nameRegister.text ?? ""
         let email = EmailRegister.text ?? ""

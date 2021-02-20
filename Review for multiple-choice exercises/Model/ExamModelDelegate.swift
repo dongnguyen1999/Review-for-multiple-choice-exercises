@@ -9,6 +9,7 @@ import Foundation
 
 protocol ExamModelDelegate {
     func onSuccess(listExam: [ExamModel]?)
+    func onStartSuccess(listExam: [ExamModel]?)
     func onError(message: String)
     func onDeleteSuccess(message: String)
 }

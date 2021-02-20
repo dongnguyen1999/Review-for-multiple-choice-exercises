@@ -28,7 +28,7 @@ class SearchTableViewCell: UITableViewCell {
                 var frame =  newFrame
                 frame.origin.y += 10
                 frame.origin.x += 20
-                frame.size.height -= 5
+                frame.size.height -= 15
                 frame.size.width -= 2 * 24
                 
                 super.frame = frame

@@ -12,7 +12,7 @@ struct RequestType {
     public static let REGISTER = "register"
     public static let OPEN_NEW = "openNew"
     public static let CANCEL = "cancel"
-    
+    public static let START = "start"
     public static let SUBMIT = "submit"
     public static let ANSWER_QUESTION = "answerQuestion"
     public static let MARK_IMPORTANT = "markImportant"

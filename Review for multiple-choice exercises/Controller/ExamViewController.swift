@@ -157,7 +157,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     }
     
     func onLastClickPaging() {
-            performSegue(withIdentifier: "PushOverview", sender: self)
+        performSegue(withIdentifier: "PushOverview", sender: self)
     }
     
     func showQuestion(index: Int) {
@@ -222,6 +222,7 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
         }
         questionViewModel.answerQuestion(examId: examModel.examId, questionId: question.questionId, answer: question.answerTask)
         showQuestion(index: pagingView.activePage)
+        pagingView.next()
     }
 
     
@@ -289,19 +290,16 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
     
     func computeCompleteQuestion(questions: [QuestionModel]) -> (Int, Int, Int) {
         var correct = 0
-        var incorrect = 0
         var nbComplete = 0
         for question in questions {
             if question.answerTask != nil {
                 nbComplete += 1
                 if question.answerTask == question.answer {
                     correct += 1
-                } else {
-                    incorrect += 1
                 }
             }
         }
-        return (nbComplete, correct, incorrect)
+        return (nbComplete, correct, examModel.nbQuestion-correct)
     }
     
     func onSuccess(message: String) {
@@ -345,10 +343,6 @@ class ExamViewController: UIViewController, QuestionModelDelegate {
             status = source.status
             viewWillAppear(true)
         }
-    }
-    
-    func onClickLastPageNext() {
-        print("last")
     }
     
 

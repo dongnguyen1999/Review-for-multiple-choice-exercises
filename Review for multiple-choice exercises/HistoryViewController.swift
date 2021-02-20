@@ -276,5 +276,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
         print("I am Home")
     }
+    
+    func onStartSuccess(listExam: [ExamModel]?) {
+        print("start exam success")
+    }
 
 }

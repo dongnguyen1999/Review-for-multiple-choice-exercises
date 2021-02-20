@@ -72,6 +72,10 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         btnmajor.backgroundColor = UIColor(hex: "F4F8FF")
         btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
         
+        btnfaculty.roundWithBorder(borderRadius: 10)
+        btnmajor.roundWithBorder(borderRadius: 10)
+        btnsubject.roundWithBorder(borderRadius: 10)
+        
         btnfaculty.setTitleColor(UIColor.white, for: .normal)
         btnmajor.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
         btnsubject.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
@@ -253,7 +257,10 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             // Đổi màu button khi chọn
             btnfaculty.backgroundColor = UIColor(hex: "#F89500")
             btnmajor.backgroundColor = UIColor(hex: "#F89500")
+            btnfaculty.setTitleColor(.white, for: .normal)
+            btnmajor.setTitleColor(.white, for: .normal)
             btnsubject.backgroundColor = UIColor(hex: "F4F8FF")
+            btnsubject.setTitleColor(UIColor(hex: "#B6B9BE"), for: .normal)
         case majortableView:
             
             majortableView.deselectRow(at: indexPath, animated: true)
@@ -266,6 +273,10 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
             btnfaculty.backgroundColor = UIColor(hex: "#F89500")
             btnmajor.backgroundColor = UIColor(hex: "#F89500")
             btnsubject.backgroundColor = UIColor(hex: "#F89500")
+            
+            btnfaculty.setTitleColor(.white, for: .normal)
+            btnmajor.setTitleColor(.white, for: .normal)
+            btnsubject.setTitleColor(.white, for: .normal)
             
 
         case subjecttableView:
@@ -286,6 +297,10 @@ class FacultySearchController: UIViewController, FacultyModelDelegate, UITableVi
         if let dest = segue.destination as? UINavigationController, let startExamView = dest.viewControllers.first as? ReadyStartViewController {
             startExamView.subjectModel = selectedSubject
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
   
     //list faculty

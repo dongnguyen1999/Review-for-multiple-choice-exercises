@@ -293,6 +293,10 @@ class HomeViewController: UIViewController, ExamModelDelegate, SubjectModelDeleg
         print(message)
     }
     
+    func onStartSuccess(listExam: [ExamModel]?) {
+        print("start exam success")
+    }
+    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         homeViewModel.onGetListExam(userId: userModel.userId)
    }

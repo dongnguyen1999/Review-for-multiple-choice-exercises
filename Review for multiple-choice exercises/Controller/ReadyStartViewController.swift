@@ -10,7 +10,6 @@ import UIKit
 
 class ReadyStartViewController: UIViewController, ExamModelDelegate {
     
-    
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var subjectNameLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -36,7 +35,7 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
         subjectNameLabel.text = subjectModel.subjectName
         
         examViewModel = ExamViewModel(examDelegate: self)
-        examViewModel.startExam(userId: userModel.userId, subjectId: subjectModel.subjectId)
+        examViewModel.createExam(userId: userModel.userId, subjectId: subjectModel.subjectId)
         
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
@@ -76,6 +75,17 @@ class ReadyStartViewController: UIViewController, ExamModelDelegate {
     func onDeleteSuccess(message: String) {
         print(message)
     }
+    
+    func onStartSuccess(listExam: [ExamModel]?) {
+        if let exam = listExam?[0] {
+            durationLabel.text = "\(exam.duration):00"
+            examModel = exam
+            performSegue(withIdentifier: "NavigateToExam", sender: self)
+        }
+    }
 
+    @IBAction func onClickStartButton(_ sender: UIButton) {
+        examViewModel.startExam(examId: examModel.examId)
+    }
     
 }

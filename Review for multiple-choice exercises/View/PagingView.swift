@@ -128,13 +128,16 @@ class PagingView: UIView {
         let tappedImage = sender.view as! UIImageView
         let isAvailable = Bool(tappedImage.restorationIdentifier!)
         if isAvailable == true {
-            if activePage + 1 < totalPage {
-                activePage += 1
-                render()
-            } else {
-                onLastClickCallback?()
-            }
-            
+            next()
+        }
+    }
+    
+    func next() {
+        if activePage + 1 < totalPage {
+            activePage += 1
+            render()
+        } else {
+            onLastClickCallback?()
         }
     }
     

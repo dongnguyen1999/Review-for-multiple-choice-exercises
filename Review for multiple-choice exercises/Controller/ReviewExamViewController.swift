@@ -8,7 +8,7 @@
 import UIKit
 
 class ReviewExamViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuestionModelDelegate, ExamModelDelegate {
-    
+
     var examId: Int!
     var questionList = [QuestionModel]()
     var questionViewModel: QuestionViewModel!
@@ -91,5 +91,8 @@ class ReviewExamViewController: UIViewController, UITableViewDataSource, UITable
         print(message)
     }
     
+    func onStartSuccess(listExam: [ExamModel]?) {
+        print("start exam success")
+    }
     
 }
